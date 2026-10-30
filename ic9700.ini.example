@@ -1,0 +1,6 @@
+; Zugangsdaten fuer die LAN-Verbindung zum IC-9700 -> als ic9700.ini speichern (chmod 600)
+; Gleiche Werte wie am Geraet unter MENU > SET > Connectors > Network > Network User1 ID / Password
+[radio]
+host = 192.168.0.10
+user = BENUTZER
+password = PASSWORT

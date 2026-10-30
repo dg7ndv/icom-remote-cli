@@ -1,0 +1,6 @@
+; Zugangsdaten fuer die WLAN/LAN-Verbindung zum IC-705 -> als ic705.ini speichern (chmod 600)
+; Am Geraet: MENU > SET > WLAN SET > Remote Settings: Network Control ein, Network User 1 (ID / Password)
+[radio]
+host = 192.168.0.11
+user = BENUTZER
+password = PASSWORT
