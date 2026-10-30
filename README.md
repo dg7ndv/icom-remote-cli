@@ -37,6 +37,7 @@ Gerät wählen mit `-r 9700` (Vorgabe, oder Umgebungsvariable `ICOM_RADIO`) oder
 | `pegel` | S-Meter mit Frequenz: IC-9700 Main **und** Sub zusammen, IC-705 der eine Empfänger |
 | `level NAME [WERT]` | Regler lesen/setzen 0..255: `af rf sql power nr_level nb_level` |
 | `switch NAME 0\|1` | Schalter: `preamp nb nr notch` |
+| `serve [--port P] [--bind IP]` | **rigctld-Server** (Hamlib *NET rigctl*, Modell 2) für WSJT-X, Logbuch- und Rotorprogramme, Vorgabe Port 4532, nur lokal |
 
 Nur IC-9700: `--rx main\|sub` wählt den Empfänger für den Befehl. `--host IP` überschreibt den Host aus der ini-Datei.
 
@@ -49,7 +50,22 @@ Nur IC-9700: `--rx main\|sub` wählt den Empfänger für den Befehl. `--host IP`
 ./icom_cli.py -r 9700 level af 120
 ```
 
+## rigctld-Server (`serve`)
+
+```bash
+./icom_cli.py -r 705 serve --port 4532          # nur lokal (127.0.0.1)
+./icom_cli.py -r 9700 --rx sub serve --port 4533 --bind 0.0.0.0   # im ganzen Netz, anderer Empfänger
+rigctl -m 2 -r localhost:4532 f                 # Test: Frequenz lesen
+```
+
+In WSJT-X / Log-Programmen als Rig *Hamlib NET rigctl* mit `localhost:4532` einstellen. Unterstützt: Frequenz und Modus
+lesen/setzen, S-Meter (`l STRENGTH`), AF/RF/SQL/Leistung. Bedient wird ein Empfänger (beim IC-9700 der mit `--rx` gewählte).
+**Senden ist gesperrt:** `T 1` wird mit einem Fehler abgelehnt. Mit der Offline-Prüfung (Schein-Gerät + `rigctl`) getestet,
+am echten Gerät noch nicht. Mit `--bind 0.0.0.0` kann jeder im Netz Frequenz und Modus verstellen.
+
 ## Weitere Dateien
+
+- `ic9700_rigctld.py` – der rigctld-Server (Hamlib-Protokoll), von `serve` benutzt.
 
 - `pegel_lan.py` – ältere Kommandozeile für Main/Sub-Pegel des IC-9700 (`-n` laufend, `--retune sub 144.3M`).
 - `ic9700_lan.py` – Bibliothek `LanRig` (Handshake, Login, CI-V über UDP 50001/50002, Audio 50003).
