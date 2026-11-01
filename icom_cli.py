@@ -6,6 +6,7 @@ Zugangsdaten: ic9700.ini bzw. ic705.ini (Host, Benutzer, Passwort). Pro Geraet n
 IC-9700: CI-V-Adresse 0xA2, Main und Sub (--rx main|sub). IC-705: Adresse 0xA4, ein Empfaenger.
 
 Beispiele (statt 'icom_cli.py -r 705' geht auch 'icom_cli.py -r 9700'):
+  icom_cli.py -r 705 -2mmin status             erst 144.300 MHz und Sendeleistung auf Minimum stellen, dann Status zeigen
   icom_cli.py -r 705 serve --port 4532 rigctld-Server (Hamlib "NET rigctl", Modell 2) fuer WSJT-X, Log- und Rotorprogramme
   icom_cli.py -r 9700 --rx main vfo exchange   VFO: a b equal (A=B) exchange (A<>B) mem vfo   (--rx waehlt den Empfaenger)
   icom_cli.py -r 9700 swap                     Main und Sub tauschen
@@ -46,6 +47,7 @@ import pegel2
 RADIOS = {  # Name -> (CI-V-Adresse, ini-Datei, hat Sub)
     "9700": (0xA2, "ic9700.ini", True),
     "705": (0xA4, "ic705.ini", False),
+    "905": (0xAC, "ic905.ini", False),  # IC-905 (eigenes Geraet, eigene IP in ic905.ini); nicht am Geraet geprueft
 }
 
 MODES = {0: "LSB", 1: "USB", 2: "AM", 3: "CW", 4: "RTTY", 5: "FM", 6: "WFM", 7: "CW-R", 8: "RTTY-R", 0x17: "DV", 0x22: "DD"}
@@ -315,6 +317,8 @@ def main():
     ap.add_argument("-r", "--radio", choices=RADIOS, default=os.environ.get("ICOM_RADIO", "9700"), help="Geraet (Vorgabe 9700)")
     ap.add_argument("--rx", choices=("main", "sub"), help="nur IC-9700: Empfaenger waehlen (Vorgabe: der gerade gewaehlte)")
     ap.add_argument("--host", help="IP des Geraets (sonst ini-Datei)")
+    ap.add_argument("-2mmin", "--2mmin", dest="m2min", action="store_true",
+                    help="vorher 144.300 MHz und minimale Sendeleistung einstellen (sendet nicht), dann den Befehl ausfuehren")
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("status")
     sub.add_parser("pegel", help="S-Meter: beim IC-9700 Main und Sub, beim IC-705 der eine Empfaenger")
@@ -353,11 +357,17 @@ def main():
     c = configparser.ConfigParser()
     c.read(Path(__file__).with_name(ini))
     if "radio" not in c:
-        sys.exit(f"{ini} fehlt oder hat keinen Abschnitt [radio]")
+        sys.exit(f"{ini} fehlt oder hat keinen Abschnitt [radio]"
+                 + ("  (IC-705 gemeint? Dann -r 705 benutzen.)" if a.radio == "905" else ""))
     r = c["radio"]
     with connect(a.host or r["host"], r["user"], r["password"]) as rig:
         if a.rx:
             rig.select(a.rx)
+        if a.m2min:  # 2 m: 144.300 MHz (SSB-Anruffrequenz) und Sendeleistung auf Minimum; Modus bleibt, gesendet wird nicht
+            set_cmd(rig, LEVELS["power"], 0, 0)
+            rig.set_freq(144_300_000)
+            time.sleep(0.2)
+            print(f"-2mmin: {get_freq(rig) / 1e6:.6f} MHz, Sendeleistung {level(rig, 'power')} (Minimum = 0)", flush=True)
         if a.cmd == "serve":
             serve(rig, a.radio, a.port, a.bind)
         elif a.cmd == "pegel":
