@@ -146,6 +146,11 @@ ENTRIES = [
     ("CW / Scan", "1A050251", "Scan: Pausenzeit (10=Hold)", "n", (0, 10, 1)),
     ("CW / Scan", "1A050252", "Scan: Fortsetzzeit (6=Hold)", "n", (0, 6, 1)),
     ("CW / Scan", "1A050254", "Scan: Abstimmknopf bedienbar", "b", None),
+    # ---- erst in der CI-V-Referenz von 2021 (neuere Firmware) ----
+    ("Recorder / GPS", "1A050242", "QSO-Recorder: TX-Aufnahme", "e", ["direkt", "Monitor"]),
+    ("Recorder / GPS", "1A050244", "QSO-Recorder: Datei teilen (File Split)", "b", None),
+    ("Recorder / GPS", "1A050248", "QSO-Player: Sprungzeit", "e", ["3 s", "5 s", "10 s", "30 s"]),
+    ("Recorder / GPS", "1A050267", "GPS D-PRS: Positions-Kommentar", "e", ["Kommentar 1", "Kommentar 2", "Kommentar 3", "Kommentar 4"]),
 ]
 
 BY_KEY = {e[1]: e for e in ENTRIES}

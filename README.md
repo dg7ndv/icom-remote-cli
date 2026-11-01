@@ -44,7 +44,7 @@ Gerät wählen mit `-r 9700` (Vorgabe, oder Umgebungsvariable `ICOM_RADIO`) oder
 | `atu [on\|off]` | IC-705: Antennentuner-Status (1C 01) lesen, ein- und ausschalten; ein Abstimmlauf fehlt bewusst, weil er sendet |
 | `scan stop\|prog\|mem\|select\|modesel\|df [--span 1..7]\|resume-on\|resume-off` | Scan starten und stoppen; ob gerade gescannt wird, lässt sich per CI-V nicht lesen |
 | `mem list\|recall\|write GRUPPE KANAL [LETZTER]` | Speicherkanäle anzeigen (`list`), ins VFO laden (`recall`), schreiben (`write`, ohne `--ja` nur Vorschau, der alte Inhalt wird protokolliert). IC-9700: Band 144, 430 oder 1296; IC-705: Speichergruppe 0-99 |
-| `config list [GRUPPE] [--werte]` | die 134 Menüeinstellungen (CI-V 1A 05) nach Gruppen, mit `--werte` samt aktuellem Wert; Liste in `konfiguration_liste.md` |
+| `config list [GRUPPE] [--werte]` | die 138 Menüeinstellungen (CI-V 1A 05) nach Gruppen, mit `--werte` samt aktuellem Wert; Liste in `konfiguration_liste.md` |
 | `config get SCHLÜSSEL` / `config set SCHLÜSSEL WERT` | eine Einstellung lesen bzw. setzen (IC-9700), z. B. `config set 1A050027 5` |
 | `serve [--port P] [--bind IP]` | **rigctld-Server** (Hamlib *NET rigctl*, Modell 2) für WSJT-X, Logbuch- und Rotorprogramme, Vorgabe Port 4532, nur lokal |
 
@@ -80,7 +80,7 @@ am echten Gerät noch nicht. Mit `--bind 0.0.0.0` kann jeder im Netz Frequenz un
 
 - `ci-v_ic705.md` – CI-V-Funktionen des IC-705 im Vergleich zum IC-9700 (Unterschiede, was im CLI drin ist).
 - `ci-v_funktionen.md` – alle CI-V-Funktionen des IC-9700, gruppiert, mit Stand der Umsetzung.
-- `konfiguration_liste.md` – die 134 Menüeinstellungen (Schlüssel und Bezeichnung).
+- `konfiguration_liste.md` – die 138 Menüeinstellungen (Schlüssel und Bezeichnung).
 - `ic9700_ctl.py`, `ic9700_setup.py`, `ic9700_mem.py` – Schalter/Regler, Menüeinstellungen und Speicherkanäle des IC-9700.
 - `pegel_lan.py` – ältere Kommandozeile für Main/Sub-Pegel des IC-9700 (`-n` laufend, `--retune sub 144.3M`).
 - `ic9700_lan.py` – Bibliothek `LanRig` (Handshake, Login, CI-V über UDP 50001/50002, Audio 50003).

@@ -1,6 +1,6 @@
 # IC-9700: Einstellungen der Konfigurationsseite (CI-V 1A 05)
 
-134 Einstellungen. Schluessel = 4 Ziffern nach `1A 05`.
+138 Einstellungen. Schluessel = 4 Ziffern nach `1A 05`. Die Gruppe "Recorder / GPS" gibt es erst mit neuerer Firmware (CI-V-Referenz 2021).
 
 
 ## Senden (23)
@@ -157,3 +157,10 @@
 - `1A050251` Scan: Pausenzeit (10=Hold)
 - `1A050252` Scan: Fortsetzzeit (6=Hold)
 - `1A050254` Scan: Abstimmknopf bedienbar
+
+## Recorder / GPS (4)
+
+- `1A050242` QSO-Recorder: TX-Aufnahme
+- `1A050244` QSO-Recorder: Datei teilen (File Split)
+- `1A050248` QSO-Player: Sprungzeit
+- `1A050267` GPS D-PRS: Positions-Kommentar
