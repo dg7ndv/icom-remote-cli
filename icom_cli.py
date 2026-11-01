@@ -63,16 +63,26 @@ RADIO = "9700"  # wird in main() gesetzt (fuer die Leistungsanzeige in status)
 AGC = {1: "FAST", 2: "MID", 3: "SLOW"}
 
 
-def vd_volts(rig):
-    """Versorgungsspannung aus dem Vd-Meter (15 15); None, wenn das Geraet sie nicht liefert."""
+def vd_volts(rig, radio="9700"):
+    """Versorgungsspannung aus dem Vd-Meter (15 15). IC-9700: 13=10 V, 241=16 V. IC-705: 75=5 V, 241=16 V (laut CI-V-Referenz)."""
     d = data(rig, 0x15, 0x15)
     if not d or len(d) < 2:
         return None
     raw = int(d.hex())
+    if radio == "705":
+        return interp(raw, [(0, 0.0), (75, 5.0), (241, 16.0), (255, 16.0)])
     return 10 + (raw - 13) * 6 / 228 if raw >= 13 else raw * 10 / 13  # unter 10 V grob linear (nur eine Naeherung)
 
 
-def power_text(raw, hz, radio, volts=None):
+def supply_type(rig, radio):
+    """IC-705: Art der Stromversorgung laut Geraet (1A 0B): "extern" oder "Akku"; sonst None."""
+    if radio != "705":
+        return None
+    d = data(rig, 0x1A, 0x0B)
+    return None if not d else ("Akku" if d[0] else "extern")
+
+
+def power_text(raw, hz, radio, volts=None, supply=None):
     """Sendeleistung 0..255 in Watt: linear bis zum Maximum, nach unten auf die kleinste Leistung des Geraets begrenzt.
     IC-9700 (Datenblatt): 144 MHz 0,5-100 W, 430 MHz 0,5-75 W, 1200 MHz 0,1-10 W.
     IC-705 (Datenblatt): 0,5-10 W bei 13,8 V, 0,5-5 W bei 7,4 V (Akku BP-272); dazwischen grob linear geschaetzt."""
@@ -83,7 +93,10 @@ def power_text(raw, hz, radio, volts=None):
         pmin, pmax = 0.5, 10.0
         if volts is not None and volts < 6.0:  # nur USB-Versorgung (ca. 5 V): der IC-705 sendet dann nicht
             return f"0 W - Senden nicht moeglich (nur {volts:.1f} V, USB-Versorgung?)"
-        if volts is not None:
+        if supply:  # das Geraet sagt selbst, ob Akku oder externe Versorgung: Akku 5 W, extern 10 W
+            pmax = 5.0 if supply == "Akku" else 10.0
+            note = f"  {supply}" + (f", {volts:.1f} V" if volts is not None else "")
+        elif volts is not None:
             pmax = 10.0 if volts >= 11.7 else 5.0 if volts <= 8.5 else 5.0 + (volts - 8.5) / (11.7 - 8.5) * 5.0
             note = f"  bei {volts:.1f} V"
     w = max(pmin, raw / 255 * pmax)
@@ -193,7 +206,7 @@ def status(rig):
         v = level(rig, n)
         extra = f"  ({HUMAN[n](v)})" if v is not None and n in HUMAN else ""
         if n == "power" and v is not None:
-            extra = "  " + power_text(v, get_freq(rig), RADIO, vd_volts(rig))
+            extra = "  " + power_text(v, get_freq(rig), RADIO, vd_volts(rig, RADIO), supply_type(rig, RADIO))
         print(f"{n:<9} {fmt(v)}{extra}")
     for n, cmd in SWITCHES.items():
         if cmd is None:
@@ -202,10 +215,11 @@ def status(rig):
         print(f"{n:<9} {'-' if not d else ('an' if d[0] else 'aus')}")
     d = data(rig, 0x16, 0x12)
     print(f"{'agc':<9} {AGC.get(d[0], d[0]) if d else '-'}")
-    d = data(rig, 0x15, 0x15)
-    if d and len(d) >= 2:
-        raw = int(d.hex())
-        print(f"{'Vd':<9} {10 + (raw - 13) * 6 / 228:.1f} V (roh {raw})" if raw >= 13 else f"{'Vd':<9} roh {raw}")
+    v = vd_volts(rig, RADIO)
+    print(f"{'Vd':<9} {'-' if v is None else f'{v:.1f} V'}")
+    sup = supply_type(rig, RADIO)
+    if sup:
+        print(f"{'Versorgung':<10} {sup} (laut Geraet)")
     d = data(rig, 0x1C, 0x00)
     print(f"{'Senden':<9} {'-' if not d else ('JA' if d[0] else 'nein')}")
     c = ic9700_ctl.read_all(rig)
@@ -285,11 +299,13 @@ def interp(x, pts):
     return pts[-1][1]
 
 
-def meters(rig):
+def meters(rig, radio="9700"):
     rows = (("Po", 0x11, lambda r: f"{r * 100 // 255} %"), ("SWR", 0x12, lambda r: ">3" if r > 120 else f"{interp(r, [(0, 1.0), (48, 1.5), (80, 2.0), (120, 3.0)]):.1f}"),
             ("ALC", 0x13, lambda r: f"{min(100, r * 100 // 120)} %"), ("COMP", 0x14, lambda r: f"{interp(r, [(0, 0.0), (130, 15.0), (210, 25.5), (255, 30.0)]):.0f} dB"),
-            ("Vd", 0x15, lambda r: f"{interp(r, [(0, 0.0), (13, 10.0), (241, 16.0)]):.1f} V"),
-            ("Id", 0x16, lambda r: f"{interp(r, [(0, 0.0), (121, 10.0), (241, 20.0)]):.1f} A"))
+            ("Vd", 0x15, (lambda r: f"{interp(r, [(0, 0.0), (75, 5.0), (241, 16.0)]):.1f} V") if radio == "705"
+             else (lambda r: f"{interp(r, [(0, 0.0), (13, 10.0), (241, 16.0)]):.1f} V")),
+            ("Id", 0x16, (lambda r: f"{interp(r, [(0, 0.0), (121, 2.0), (241, 4.0)]):.2f} A") if radio == "705"
+             else (lambda r: f"{interp(r, [(0, 0.0), (121, 10.0), (241, 20.0)]):.1f} A")))
     for name, sc, fmt_ in rows:
         d = data(rig, 0x15, sc)
         print(f"{name:<5}", f"{fmt_(int(d.hex()))}  (roh {int(d.hex())})" if d and len(d) >= 2 else "-")
@@ -400,7 +416,7 @@ def main():
             rig.set_freq(144_300_000)
             time.sleep(0.2)
             v = level(rig, "power")
-            print(f"-2mmin: {get_freq(rig) / 1e6:.6f} MHz, Sendeleistung {v} = {power_text(v, get_freq(rig), a.radio, vd_volts(rig))}", flush=True)
+            print(f"-2mmin: {get_freq(rig) / 1e6:.6f} MHz, Sendeleistung {v} = {power_text(v, get_freq(rig), a.radio, vd_volts(rig, a.radio), supply_type(rig, a.radio))}", flush=True)
         if a.cmd == "serve":
             serve(rig, a.radio, a.port, a.bind)
         elif a.cmd == "pegel":
@@ -474,7 +490,7 @@ def main():
             for ch in ic9700_mem.read_range(rig, {"144": 1, "430": 2, "1296": 3}[a.band], a.erster, a.letzter or a.erster):
                 print(ic9700_mem.format_row(ch))
         elif a.cmd == "meters":
-            meters(rig)
+            meters(rig, a.radio)
         elif a.cmd == "config":
             only_9700(a)
             config_cmd(rig, a)
@@ -484,7 +500,7 @@ def main():
                     sys.exit("Geraet hat abgelehnt")
             v = level(rig, a.name)
             if v is not None and a.name == "power":
-                print(f"{v}  {power_text(v, get_freq(rig), a.radio, vd_volts(rig))}")
+                print(f"{v}  {power_text(v, get_freq(rig), a.radio, vd_volts(rig, a.radio), supply_type(rig, a.radio))}")
             else:
                 print(fmt(v) if v is None or a.name not in HUMAN else f"{v}  ({HUMAN[a.name](v)})")
         elif a.cmd == "switch":
