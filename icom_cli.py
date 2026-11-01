@@ -7,6 +7,16 @@ IC-9700: CI-V-Adresse 0xA2, Main und Sub (--rx main|sub). IC-705: Adresse 0xA4, 
 
 Beispiele (statt 'icom_cli.py -r 705' geht auch 'icom_cli.py -r 9700'):
   icom_cli.py -r 705 serve --port 4532 rigctld-Server (Hamlib "NET rigctl", Modell 2) fuer WSJT-X, Log- und Rotorprogramme
+  icom_cli.py -r 9700 --rx main vfo exchange   VFO: a b equal (A=B) exchange (A<>B) mem vfo   (--rx waehlt den Empfaenger)
+  icom_cli.py -r 9700 swap                     Main und Sub tauschen
+  icom_cli.py -r 9700 switch sat 1             Schalter: preamp nb nr notch rit split sat att extpre accsend
+                                               (extpre = externer Vorverstaerker, accsend = ACC-SEND-Ausgang; gelten fuer das Band des Empfaengers)
+  icom_cli.py -r 9700 agc fast                 AGC fast|mid|slow;  filter 2;  duplex DUP-;  rit 675 (Offset in Hz)
+  icom_cli.py -r 9700 scan prog                Scan: stop prog mem select modesel df [--span 4] resume-on resume-off
+  icom_cli.py -r 9700 level pbt1 150           weitere Regler: pbt1 pbt2 notch_pos cw_pitch cw_speed (0..255)
+  icom_cli.py -r 9700 mem 430 1 20             Speicherkanaele lesen (144, 430 oder 1296 MHz, erster, letzter)
+  icom_cli.py -r 9700 meters                   Po SWR ALC COMP Vd Id (Po/SWR/ALC nur beim Senden)
+  icom_cli.py -r 9700 config list [GRUPPE]     die 134 Einstellungen der Konfiguration; "config get 1644", "config set 1644 1"
   icom_cli.py -r 705 status                  alles auslesen (Frequenz, Modus, S-Meter, Regler, Schalter, Spannung)
   icom_cli.py -r 705 freq                    Frequenz lesen
   icom_cli.py -r 705 freq 145.500M           Frequenz setzen (k/M/G oder Hz)
@@ -26,8 +36,11 @@ import threading
 import time
 from pathlib import Path
 
+import ic9700_ctl
 import ic9700_lan
+import ic9700_mem
 import ic9700_rigctld
+import ic9700_setup
 import pegel2
 
 RADIOS = {  # Name -> (CI-V-Adresse, ini-Datei, hat Sub)
@@ -37,9 +50,13 @@ RADIOS = {  # Name -> (CI-V-Adresse, ini-Datei, hat Sub)
 
 MODES = {0: "LSB", 1: "USB", 2: "AM", 3: "CW", 4: "RTTY", 5: "FM", 6: "WFM", 7: "CW-R", 8: "RTTY-R", 0x17: "DV", 0x22: "DD"}
 MODE_CODES = {v: k for k, v in MODES.items()}
-LEVELS = {"af": (0x14, 0x01), "rf": (0x14, 0x02), "sql": (0x14, 0x03), "nr_level": (0x14, 0x06),
-          "power": (0x14, 0x0A), "nb_level": (0x14, 0x12)}
-SWITCHES = {"preamp": (0x16, 0x02), "nb": (0x16, 0x22), "nr": (0x16, 0x40), "notch": (0x16, 0x41)}
+LEVELS = dict(ic9700_ctl.LEVELS)  # af rf sql nr_level power nb_level pbt1 pbt2 notch_pos cw_pitch cw_speed
+SWITCHES = dict(ic9700_ctl.SWITCHES, att=None, split=None, extpre=None, accsend=None)  # ohne Befehl = eigene Behandlung
+SCANS = {"stop": 0x00, "prog": 0x02, "df": 0x03, "mem": 0x22, "select": 0x23, "modesel": 0x24,
+         "resume-off": 0xD0, "resume-on": 0xD3}
+PITCH = lambda v: f"{300 + round(v * 600 / 255)} Hz"  # noqa: E731
+HUMAN = {"cw_pitch": PITCH, "cw_speed": lambda v: f"{6 + round(v * 42 / 255)} WPM",
+         "pbt1": lambda v: f"{v - 128:+d}", "pbt2": lambda v: f"{v - 128:+d}", "notch_pos": lambda v: f"{v - 128:+d}"}
 AGC = {1: "FAST", 2: "MID", 3: "SLOW"}
 
 
@@ -143,8 +160,11 @@ def status(rig):
     print(f"Modus     {fmt(mode)}  Filter {fmt(filt)}")
     print(f"S-Meter   {db:+6.1f} dB rel. S9 (roh {raw})")
     for n in LEVELS:
-        print(f"{n:<9} {fmt(level(rig, n))}")
+        v = level(rig, n)
+        print(f"{n:<9} {fmt(v)}" + (f"  ({HUMAN[n](v)})" if v is not None and n in HUMAN else ""))
     for n, cmd in SWITCHES.items():
+        if cmd is None:
+            continue
         d = data(rig, *cmd)
         print(f"{n:<9} {'-' if not d else ('an' if d[0] else 'aus')}")
     d = data(rig, 0x16, 0x12)
@@ -155,6 +175,111 @@ def status(rig):
         print(f"{'Vd':<9} {10 + (raw - 13) * 6 / 228:.1f} V (roh {raw})" if raw >= 13 else f"{'Vd':<9} roh {raw}")
     d = data(rig, 0x1C, 0x00)
     print(f"{'Senden':<9} {'-' if not d else ('JA' if d[0] else 'nein')}")
+    c = ic9700_ctl.read_all(rig)
+    for k in ("att", "split", "extpre", "accsend"):
+        if k in c:
+            print(f"{k:<9} {'an' if c[k] else 'aus'}")
+    for k in ("duplex", "filter", "rit_offset"):
+        if k in c:
+            print(f"{k:<9} {c[k]}")
+
+
+def only_9700(a):
+    if a.radio != "9700":
+        sys.exit("Dieser Befehl gibt es nur fuer den IC-9700")
+
+
+def vfo_cmd(rig, aktion):
+    """VFO A/B, A=B, A<>B (ueber Lesen und kreuzweises Schreiben) und VFO-/Speicherbetrieb des gewaehlten Empfaengers."""
+    if aktion in ("a", "b"):
+        ok = set_cmd(rig, (0x07, 0x00 if aktion == "a" else 0x01))
+        print(f"VFO {aktion.upper()}" if ok else "abgelehnt (im Satellitenmodus gibt es kein VFO B)")
+    elif aktion == "equal":
+        print("A=B" if set_cmd(rig, (0x07, 0xA0)) else "abgelehnt")
+    elif aktion == "mem":
+        print("Speicherbetrieb" if set_cmd(rig, (0x08,)) else "abgelehnt")
+    elif aktion == "vfo":
+        print("VFO-Betrieb" if set_cmd(rig, (0x07, 0x00)) else "abgelehnt")
+    else:  # exchange
+        got = []
+        for v in (0x00, 0x01):
+            if not set_cmd(rig, (0x07, v)):
+                set_cmd(rig, (0x07, 0x00))
+                sys.exit("abgelehnt (im Satellitenmodus gibt es kein VFO B)")
+            m = data(rig, 0x04)
+            dm = data(rig, 0x1A, 0x06)
+            got.append((get_freq(rig), m[0], m[1], dm[0] if dm else 0))
+        for v, (hz, mode, fil, dat) in zip((0x01, 0x00), got):  # B bekommt A, A bekommt B
+            set_cmd(rig, (0x07, v))
+            rig.set_freq(hz)
+            set_cmd(rig, (0x06,), mode, fil)
+            set_cmd(rig, (0x1A, 0x06), dat, fil)
+        print(f"A<>B: A {got[1][0] / 1e6:.6f} MHz, B {got[0][0] / 1e6:.6f} MHz")
+
+
+def interp(x, pts):
+    for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+        if x <= x1:
+            return y0 + (y1 - y0) * (x - x0) / (x1 - x0)
+    return pts[-1][1]
+
+
+def meters(rig):
+    rows = (("Po", 0x11, lambda r: f"{r * 100 // 255} %"), ("SWR", 0x12, lambda r: ">3" if r > 120 else f"{interp(r, [(0, 1.0), (48, 1.5), (80, 2.0), (120, 3.0)]):.1f}"),
+            ("ALC", 0x13, lambda r: f"{min(100, r * 100 // 120)} %"), ("COMP", 0x14, lambda r: f"{interp(r, [(0, 0.0), (130, 15.0), (210, 25.5), (255, 30.0)]):.0f} dB"),
+            ("Vd", 0x15, lambda r: f"{interp(r, [(0, 0.0), (13, 10.0), (241, 16.0)]):.1f} V"),
+            ("Id", 0x16, lambda r: f"{interp(r, [(0, 0.0), (121, 10.0), (241, 20.0)]):.1f} A"))
+    for name, sc, fmt_ in rows:
+        d = data(rig, 0x15, sc)
+        print(f"{name:<5}", f"{fmt_(int(d.hex()))}  (roh {int(d.hex())})" if d and len(d) >= 2 else "-")
+
+
+def config_cmd(rig, a):
+    S = ic9700_setup
+    if a.aktion == "list":
+        for g in S.GROUPS:
+            if a.arg and a.arg.lower() not in g.lower():
+                continue
+            print(f"\n== {g} ==")
+            for e in (e for e in S.ENTRIES if e[0] == g):
+                v = ""
+                if a.werte:
+                    try:
+                        v = "  = " + show_value(e, S.read_value(rig, e[1]))
+                    except TimeoutError:
+                        v = "  = ?"
+                print(f"{e[1]}  {e[2]}{v}")
+        return
+    if not a.arg or a.arg not in S.BY_KEY:
+        sys.exit(f"Schluessel unbekannt: {a.arg} (siehe 'config list')")
+    e = S.BY_KEY[a.arg]
+    if a.aktion == "get":
+        print(show_value(e, S.read_value(rig, a.arg)))
+        return
+    if a.wert is None:
+        sys.exit("config set SCHLUESSEL WERT")
+    val = a.wert
+    if e[3] == "e" and not val.isdigit():  # Bezeichnung statt Zahl
+        names = [n.lower() for n in e[4]]
+        if val.lower() not in names:
+            sys.exit(f"Wert unbekannt, moeglich: {', '.join(e[4])}")
+        val = names.index(val.lower())
+    elif e[3] == "b" and val.lower() in ("an", "ein", "on"):
+        val = 1
+    elif e[3] == "b" and val.lower() in ("aus", "off"):
+        val = 0
+    print("ok" if S.write_value(rig, a.arg, int(val)) else "vom Geraet abgelehnt")
+    print("jetzt:", show_value(e, S.read_value(rig, a.arg)))
+
+
+def show_value(e, v):
+    if v is None:
+        return "-"
+    if e[3] == "b":
+        return "an" if v else "aus"
+    if e[3] == "e" and 0 <= v < len(e[4]):
+        return f"{v} ({e[4][v]})"
+    return str(v)
 
 
 def main():
@@ -173,9 +298,27 @@ def main():
     p = sub.add_parser("smeter"); p.add_argument("-n", action="store_true")
     p = sub.add_parser("level"); p.add_argument("name", choices=LEVELS); p.add_argument("wert", nargs="?", type=int)
     p = sub.add_parser("switch"); p.add_argument("name", choices=SWITCHES); p.add_argument("wert", type=int, choices=(0, 1))
+    p = sub.add_parser("vfo", help="VFO A/B, A=B, A<>B, VFO/Speicher")
+    p.add_argument("aktion", choices=("a", "b", "equal", "exchange", "mem", "vfo"))
+    sub.add_parser("swap", help="Main und Sub tauschen (IC-9700)")
+    p = sub.add_parser("agc"); p.add_argument("wert", nargs="?", choices=("fast", "mid", "slow"))
+    p = sub.add_parser("filter"); p.add_argument("wert", nargs="?", type=int, choices=(1, 2, 3))
+    p = sub.add_parser("duplex"); p.add_argument("wert", nargs="?", choices=("off", "dup-", "dup+"))
+    p = sub.add_parser("rit"); p.add_argument("wert", nargs="?", type=int, help="Offset in Hz (-9999..9999)")
+    p = sub.add_parser("scan"); p.add_argument("aktion", choices=SCANS)
+    p.add_argument("--span", type=int, choices=range(1, 8), default=4, help="dF-Scan: 1=+-5k 2=+-10k 3=+-20k 4=+-50k 5=+-100k 6=+-500k 7=+-1M")
+    p = sub.add_parser("mem", help="Speicherkanaele lesen (IC-9700)")
+    p.add_argument("band", choices=("144", "430", "1296")); p.add_argument("erster", type=int); p.add_argument("letzter", type=int, nargs="?")
+    sub.add_parser("meters", help="Po SWR ALC COMP Vd Id")
+    p = sub.add_parser("config", help="Einstellungen der Konfigurationsseite (IC-9700, CI-V 1A 05)")
+    p.add_argument("aktion", choices=("list", "get", "set")); p.add_argument("arg", nargs="?"); p.add_argument("wert", nargs="?")
+    p.add_argument("--werte", action="store_true", help="list: aktuelle Werte mitlesen (dauert)")
     a = ap.parse_args()
 
     civ, ini, has_sub = RADIOS[a.radio]
+    ic9700_ctl.HAS_BAND_SETTINGS = a.radio == "9700"
+    if a.cmd == "switch" and a.name in ic9700_ctl.BAND_SETTINGS and a.radio != "9700":
+        sys.exit(f"{a.name} gibt es nur beim IC-9700")
     if a.rx and not has_sub:
         sys.exit(f"IC-{a.radio} hat keinen Sub-Empfaenger")
     pegel2.CIV_RIG = civ
@@ -227,16 +370,53 @@ def main():
                 if not a.n:
                     break
                 time.sleep(0.3)
+        elif a.cmd == "vfo":
+            vfo_cmd(rig, a.aktion)
+        elif a.cmd == "swap":
+            only_9700(a)
+            print("getauscht" if set_cmd(rig, (0x07, 0xB0)) else "abgelehnt")
+        elif a.cmd == "agc":
+            if a.wert:
+                ic9700_ctl.set_control(rig, "agc", {"fast": 1, "mid": 2, "slow": 3}[a.wert])
+            d = data(rig, 0x16, 0x12)
+            print(AGC.get(d[0], "-") if d else "-")
+        elif a.cmd == "filter":
+            if a.wert:
+                ic9700_ctl.set_control(rig, "filter", a.wert)
+            print(get_mode(rig)[1])
+        elif a.cmd == "duplex":
+            if a.wert:
+                ic9700_ctl.set_control(rig, "duplex", a.wert.upper())
+            print(ic9700_ctl.read_all(rig).get("duplex", "-"))
+        elif a.cmd == "rit":
+            if a.wert is not None:
+                ic9700_ctl.set_control(rig, "rit_offset", a.wert)
+                ic9700_ctl.set_control(rig, "rit", 1)
+            c = ic9700_ctl.read_all(rig)
+            print(f"{'an' if c.get('rit') else 'aus'} {c.get('rit_offset', '-')} Hz")
+        elif a.cmd == "scan":
+            if a.aktion == "df":
+                set_cmd(rig, (0x0E, 0xA0 + a.span))
+            print("ok" if set_cmd(rig, (0x0E, SCANS[a.aktion])) else "vom Geraet abgelehnt")
+        elif a.cmd == "mem":
+            only_9700(a)
+            for ch in ic9700_mem.read_range(rig, {"144": 1, "430": 2, "1296": 3}[a.band], a.erster, a.letzter or a.erster):
+                print(ic9700_mem.format_row(ch))
+        elif a.cmd == "meters":
+            meters(rig)
+        elif a.cmd == "config":
+            only_9700(a)
+            config_cmd(rig, a)
         elif a.cmd == "level":
             if a.wert is not None:
                 if not set_cmd(rig, LEVELS[a.name], *bytes.fromhex(f"{max(0, min(255, a.wert)):04d}")):
                     sys.exit("Geraet hat abgelehnt")
-            print(fmt(level(rig, a.name)))
+            v = level(rig, a.name)
+            print(fmt(v) if v is None or a.name not in HUMAN else f"{v}  ({HUMAN[a.name](v)})")
         elif a.cmd == "switch":
-            if not set_cmd(rig, SWITCHES[a.name], a.wert):
+            if not ic9700_ctl.set_control(rig, a.name, a.wert):
                 sys.exit("Geraet hat abgelehnt")
-            d = data(rig, *SWITCHES[a.name])
-            print("an" if d and d[0] else "aus")
+            print("an" if ic9700_ctl.read_all(rig).get(a.name) else "aus")
 
 
 if __name__ == "__main__":
