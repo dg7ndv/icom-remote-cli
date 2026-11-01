@@ -292,6 +292,11 @@ class connect:
         self.rig.close()
 
 
+# Vorlage fuer einen leeren IC-705-Speicherplatz (64 Byte, Feldlage wie in der CI-V-Tabelle Byte 5-68): Standardwerte fuer Ton (88,5 Hz),
+# DTCS (023) und Digital-Squelch; Frequenz, Modus, Ablage, Rufzeichen und Name werden darueber geschrieben.
+TEMPLATE_705 = bytes.fromhex("0000505239041702001000000885000885000023000060074351435143512020444230564f582042444230564f582047444230564f5820202020202020202020")
+
+
 def mem_group(a):
     """IC-9700: Band 144/430/1296 -> Gruppe 1/2/3; IC-705: Speichergruppe 0-99."""
     if a.radio == "9700":
@@ -369,9 +374,11 @@ def mem_cmd(rig, a, has_sub):
             fields[k] = getattr(a, k).upper() if k in ("mode", "duplex") else getattr(a, k)
     if not fields:
         sys.exit("Nichts zu schreiben: --freq, --mode, --name, --filter, --duplex oder --aktuell angeben")
-    base = raw or (ic9700_mem.read_raw(rig, group, 100) if a.radio == "9700" else None)
+    base = raw or (ic9700_mem.read_raw(rig, group, 100) if a.radio == "9700" else TEMPLATE_705)
     if base is None:
-        sys.exit("Der Platz ist leer und es gibt keine Vorlage" + ("" if a.radio == "9700" else " (IC-705: erst im Geraet einmal einen Kanal belegen)"))
+        sys.exit("Der Platz ist leer und es gibt keine Vorlage (Scan-Rand-Kanal 100 nicht lesbar)")
+    if raw is None and a.radio == "705" and not {"freq", "mode"} <= set(fields) and not a.aktuell:
+        sys.exit("Leerer IC-705-Platz: bitte mindestens --freq und --mode angeben (oder --aktuell)")
     new = ic9700_mem.apply_fields(base, fields)
     print("vorher:  ", ic9700_mem.format_row(mem_row(raw, a.kanal)), "\n          " + ic9700_mem.extra_text(raw) if raw else "(leer)")
     print("nachher: ", ic9700_mem.format_row(mem_row(new, a.kanal)), "\n          " + ic9700_mem.extra_text(new))
