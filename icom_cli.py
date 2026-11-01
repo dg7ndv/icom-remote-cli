@@ -64,15 +64,14 @@ AGC = {1: "FAST", 2: "MID", 3: "SLOW"}
 
 
 def power_text(raw, hz, radio):
-    """Sendeleistung 0..255 in Watt (linear, Naeherung): Maximum je Band, beim IC-705 an 13,8 V."""
+    """Sendeleistung 0..255 in Watt: linear bis zum Maximum des Bandes, nach unten begrenzt auf die kleinste Leistung des Geraets.
+    IC-9700 (Datenblatt): 144 MHz 0,5-100 W, 430 MHz 0,5-75 W, 1200 MHz 0,1-10 W. IC-705 (angenommen, an 13,8 V): 0,1-10 W, 70 cm 0,1-5 W."""
     if radio == "9700":
-        pmax = 100.0 if hz < 200e6 else 75.0 if hz < 1e9 else 10.0
-    else:  # IC-705: KW, 6 m und 2 m 10 W, 70 cm 5 W
-        pmax = 5.0 if 420e6 <= hz <= 450e6 else 10.0
-    if raw == 0:
-        return f"Minimum (Max {pmax:g} W)"
-    w = raw / 255 * pmax
-    return f"ca. {w:.1f} W  ({10 * math.log10(w / pmax):+.1f} dB rel. Max {pmax:g} W)"
+        pmin, pmax = (0.5, 100.0) if hz < 200e6 else (0.5, 75.0) if hz < 1e9 else (0.1, 10.0)
+    else:
+        pmin, pmax = (0.1, 5.0) if 420e6 <= hz <= 450e6 else (0.1, 10.0)
+    w = max(pmin, raw / 255 * pmax)
+    return f"ca. {w:.1f} W" + (" (Minimum)" if raw / 255 * pmax <= pmin else "") + f"  [Bereich {pmin:g}-{pmax:g} W]"
 
 
 def data(rig, *cmd):
@@ -384,7 +383,8 @@ def main():
             set_cmd(rig, LEVELS["power"], 0, 0)
             rig.set_freq(144_300_000)
             time.sleep(0.2)
-            print(f"-2mmin: {get_freq(rig) / 1e6:.6f} MHz, Sendeleistung {level(rig, 'power')} (Minimum = 0)", flush=True)
+            v = level(rig, "power")
+            print(f"-2mmin: {get_freq(rig) / 1e6:.6f} MHz, Sendeleistung {v} = {power_text(v, get_freq(rig), a.radio)}", flush=True)
         if a.cmd == "serve":
             serve(rig, a.radio, a.port, a.bind)
         elif a.cmd == "pegel":
