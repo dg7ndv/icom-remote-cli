@@ -63,15 +63,29 @@ RADIO = "9700"  # wird in main() gesetzt (fuer die Leistungsanzeige in status)
 AGC = {1: "FAST", 2: "MID", 3: "SLOW"}
 
 
-def power_text(raw, hz, radio):
-    """Sendeleistung 0..255 in Watt: linear bis zum Maximum des Bandes, nach unten begrenzt auf die kleinste Leistung des Geraets.
-    IC-9700 (Datenblatt): 144 MHz 0,5-100 W, 430 MHz 0,5-75 W, 1200 MHz 0,1-10 W. IC-705 (angenommen, an 13,8 V): 0,1-10 W, 70 cm 0,1-5 W."""
+def vd_volts(rig):
+    """Versorgungsspannung aus dem Vd-Meter (15 15); None, wenn das Geraet sie nicht liefert."""
+    d = data(rig, 0x15, 0x15)
+    if not d or len(d) < 2:
+        return None
+    raw = int(d.hex())
+    return 10 + (raw - 13) * 6 / 228 if raw >= 13 else None
+
+
+def power_text(raw, hz, radio, volts=None):
+    """Sendeleistung 0..255 in Watt: linear bis zum Maximum, nach unten auf die kleinste Leistung des Geraets begrenzt.
+    IC-9700 (Datenblatt): 144 MHz 0,5-100 W, 430 MHz 0,5-75 W, 1200 MHz 0,1-10 W.
+    IC-705 (Datenblatt): 0,5-10 W bei 13,8 V, 0,5-5 W bei 7,4 V (Akku BP-272); dazwischen grob linear geschaetzt."""
+    note = ""
     if radio == "9700":
         pmin, pmax = (0.5, 100.0) if hz < 200e6 else (0.5, 75.0) if hz < 1e9 else (0.1, 10.0)
     else:
-        pmin, pmax = (0.1, 5.0) if 420e6 <= hz <= 450e6 else (0.1, 10.0)
+        pmin, pmax = 0.5, 10.0
+        if volts is not None:
+            pmax = 10.0 if volts >= 11.7 else 5.0 if volts <= 8.5 else 5.0 + (volts - 8.5) / (11.7 - 8.5) * 5.0
+            note = f"  bei {volts:.1f} V"
     w = max(pmin, raw / 255 * pmax)
-    return f"ca. {w:.1f} W" + (" (Minimum)" if raw / 255 * pmax <= pmin else "") + f"  [Bereich {pmin:g}-{pmax:g} W]"
+    return f"ca. {w:.1f} W" + (" (Minimum)" if raw / 255 * pmax <= pmin else "") + f"  [Bereich {pmin:g}-{pmax:g} W{note}]"
 
 
 def data(rig, *cmd):
@@ -177,7 +191,7 @@ def status(rig):
         v = level(rig, n)
         extra = f"  ({HUMAN[n](v)})" if v is not None and n in HUMAN else ""
         if n == "power" and v is not None:
-            extra = "  " + power_text(v, get_freq(rig), RADIO)
+            extra = "  " + power_text(v, get_freq(rig), RADIO, vd_volts(rig))
         print(f"{n:<9} {fmt(v)}{extra}")
     for n, cmd in SWITCHES.items():
         if cmd is None:
@@ -384,7 +398,7 @@ def main():
             rig.set_freq(144_300_000)
             time.sleep(0.2)
             v = level(rig, "power")
-            print(f"-2mmin: {get_freq(rig) / 1e6:.6f} MHz, Sendeleistung {v} = {power_text(v, get_freq(rig), a.radio)}", flush=True)
+            print(f"-2mmin: {get_freq(rig) / 1e6:.6f} MHz, Sendeleistung {v} = {power_text(v, get_freq(rig), a.radio, vd_volts(rig))}", flush=True)
         if a.cmd == "serve":
             serve(rig, a.radio, a.port, a.bind)
         elif a.cmd == "pegel":
@@ -468,7 +482,7 @@ def main():
                     sys.exit("Geraet hat abgelehnt")
             v = level(rig, a.name)
             if v is not None and a.name == "power":
-                print(f"{v}  {power_text(v, get_freq(rig), a.radio)}")
+                print(f"{v}  {power_text(v, get_freq(rig), a.radio, vd_volts(rig))}")
             else:
                 print(fmt(v) if v is None or a.name not in HUMAN else f"{v}  ({HUMAN[a.name](v)})")
         elif a.cmd == "switch":
