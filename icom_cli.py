@@ -196,7 +196,34 @@ def fmt(v):
     return "-" if v is None else v
 
 
+COLORS = {"gruen": "32", "gelb": "33", "rot": "31"}
+
+
+def color(text, name):
+    """ANSI-Farbe nur, wenn die Ausgabe ein Terminal ist (nicht in Pipes und Dateien)."""
+    return f"\033[1;{COLORS[name]}m{text}\033[0m" if sys.stdout.isatty() and not os.environ.get("NO_COLOR") else text
+
+
+def supply_line(rig, radio):
+    """Eine Zeile zur Stromversorgung, bunt: gruen = in Ordnung, gelb = Vorsicht, rot = Senden nicht moeglich oder Akku fast leer.
+    IC-705: Art laut Geraet (1A 0B: 00 = extern, 01 = Akku) plus Spannung; IC-9700 hat keine solche Abfrage, nur die Spannung."""
+    volts = vd_volts(rig, radio)
+    sup = supply_type(rig, radio)
+    vtxt = "?" if volts is None else f"{volts:.1f} V"
+    if volts is not None and volts < 6.0:
+        return color(f"Versorgung: {vtxt} - nur USB? Senden nicht moeglich", "rot")
+    if sup == "Akku":
+        ok = volts is None or volts >= 7.0
+        return color(f"Versorgung: Akku {vtxt}" + ("" if ok else " - Akku fast leer"), "gelb" if ok else "rot") + "  (max. 5 W)"
+    if sup == "extern":
+        ok = volts is None or 11.7 <= volts <= 15.9
+        return color(f"Versorgung: extern {vtxt}" + ("" if ok else " - ausserhalb 13,8 V +-15 %"), "gruen" if ok else "gelb")
+    ok = volts is not None and 11.7 <= volts <= 15.9
+    return color(f"Versorgung: {vtxt}", "gruen" if ok else "gelb")
+
+
 def status(rig):
+    print(supply_line(rig, RADIO))
     mode, filt = get_mode(rig)
     raw, db = smeter(rig)
     print(f"Frequenz  {get_freq(rig) / 1e6:.6f} MHz")
