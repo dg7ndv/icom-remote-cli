@@ -91,6 +91,6 @@ am echten Gerät noch nicht. Mit `--bind 0.0.0.0` kann jeder im Netz Frequenz un
 
 - Der IC-9700 schaltet beim Lesen von Sub kurz zwischen Main und Sub um; danach steht das vorher gewählte Band wieder.
 - Der IC-705 hat nur einen Empfänger (CI-V-Adresse 0xA4, IC-9700: 0xA2).
-- Getestet am IC-9700: Lesen aller Werte, VFO A/B und A<>B, Swap, Scan stoppen, ATT und externer Vorverstärker, Speicher lesen. Am IC-705 wurden nur Lesen sowie Frequenz, Modus und Regler geprüft; die übrigen Befehle sind für den IC-9700 geschrieben und können dort abgelehnt werden. Scan-Start, SAT und V/M sind nicht ausprobiert. `mem recall` am IC-9700 geprueft, `mem write` nur als Vorschau; am IC-705 geht `mem list` (leere Plaetze erkannt), aber `mem write` wurde vom Geraet abgelehnt (auch ein einfacher FM-Kanal in einen leeren Platz); dafuer fehlt noch ein belegter IC-705-Kanal als Vorlage.
+- Getestet am IC-9700: Lesen aller Werte, VFO A/B und A<>B, Swap, Scan stoppen, ATT und externer Vorverstärker, Speicher lesen. Am IC-705 wurden nur Lesen sowie Frequenz, Modus und Regler geprüft; die übrigen Befehle sind für den IC-9700 geschrieben und können dort abgelehnt werden. Scan-Start, SAT und V/M sind nicht ausprobiert. `mem recall` am IC-9700 geprueft, `mem write` nur als Vorschau; am IC-705 (Kanal = 111 Byte: Empfangsdaten, Sende-Kopie, Name) wurde `mem write` mit einem D-STAR-Kanal geprueft; ein leerer Platz muss erst einmal ueber das VFO und den Befehl `09` belegt werden, danach geht `mem write`.
 
 Lizenz: MIT

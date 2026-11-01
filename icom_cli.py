@@ -292,7 +292,7 @@ class connect:
         self.rig.close()
 
 
-# Vorlage fuer einen leeren IC-705-Speicherplatz (64 Byte, Feldlage wie in der CI-V-Tabelle Byte 5-68): Standardwerte fuer Ton (88,5 Hz),
+# Vorlage fuer einen leeren IC-705-Speicherplatz (64-Byte-Sicht wie beim IC-9700; wird beim Schreiben auf 111 Byte erweitert): Standardwerte fuer Ton (88,5 Hz),
 # DTCS (023) und Digital-Squelch; Frequenz, Modus, Ablage, Rufzeichen und Name werden darueber geschrieben.
 TEMPLATE_705 = bytes.fromhex("0000505239041702001000000885000885000023000060074351435143512020444230564f582042444230564f582047444230564f5820202020202020202020")
 
@@ -308,13 +308,21 @@ def mem_group(a):
     return int(a.gruppe)
 
 
+def mem_expand_705(raw):
+    """64-Byte-Sicht -> 111 Byte fuers IC-705: Empfangsdaten (48), gleiche Daten noch einmal als Sende-Kopie (47, ohne das erste Byte), Name (16)."""
+    return raw[:48] + raw[1:48] + raw[48:64]
+
+
 def mem_raw(rig, radio, group, ch):
-    """64 Byte Kanaldaten oder None (leerer Platz). Die Feldlage ist bei beiden Geraeten gleich (Byte 5 ... 68 der CI-V-Tabelle)."""
+    """64 Byte Kanaldaten oder None (leerer Platz). Die Feldlage ist bei beiden Geraeten gleich (Byte 5 ... 68 der CI-V-Tabelle);
+    das IC-705 speichert sie als 111 Byte (siehe mem_expand_705)."""
     if radio == "9700":
         return ic9700_mem.read_raw(rig, group, ch)
     f = rig.civ(0x1A, 0x00, *bytes.fromhex(f"{group:04d}"), *bytes.fromhex(f"{ch:04d}"))
     d = bytes(f[10:-1])
-    return d if f[4] != 0xFA and len(d) == 64 else None
+    if f[4] == 0xFA or len(d) != 111:
+        return None
+    return d[:48] + d[95:111]  # IC-705: 48 Byte Empfang + 47 Byte Sende-Kopie + 16 Byte Name -> gleiche Sicht wie beim IC-9700
 
 
 def mem_row(raw, ch):
@@ -389,7 +397,7 @@ def mem_cmd(rig, a, has_sub):
         r = ic9700_mem.write_channel(rig, group, a.kanal, fields)
         print(r["msg"])
         return
-    ok = rig.civ(0x1A, 0x00, *bytes.fromhex(f"{group:04d}"), *bytes.fromhex(f"{a.kanal:04d}"), *new)[4] == 0xFB
+    ok = rig.civ(0x1A, 0x00, *bytes.fromhex(f"{group:04d}"), *bytes.fromhex(f"{a.kanal:04d}"), *mem_expand_705(new))[4] == 0xFB
     time.sleep(0.3)
     back = mem_raw(rig, a.radio, group, a.kanal)
     with ic9700_mem.LOG.open("a") as fh:
