@@ -47,7 +47,6 @@ import pegel2
 RADIOS = {  # Name -> (CI-V-Adresse, ini-Datei, hat Sub)
     "9700": (0xA2, "ic9700.ini", True),
     "705": (0xA4, "ic705.ini", False),
-    "905": (0xAC, "ic905.ini", False),  # IC-905 (eigenes Geraet, eigene IP in ic905.ini); nicht am Geraet geprueft
 }
 
 MODES = {0: "LSB", 1: "USB", 2: "AM", 3: "CW", 4: "RTTY", 5: "FM", 6: "WFM", 7: "CW-R", 8: "RTTY-R", 0x17: "DV", 0x22: "DD"}
@@ -357,8 +356,7 @@ def main():
     c = configparser.ConfigParser()
     c.read(Path(__file__).with_name(ini))
     if "radio" not in c:
-        sys.exit(f"{ini} fehlt oder hat keinen Abschnitt [radio]"
-                 + ("  (IC-705 gemeint? Dann -r 705 benutzen.)" if a.radio == "905" else ""))
+        sys.exit(f"{ini} fehlt oder hat keinen Abschnitt [radio]")
     r = c["radio"]
     with connect(a.host or r["host"], r["user"], r["password"]) as rig:
         if a.rx:

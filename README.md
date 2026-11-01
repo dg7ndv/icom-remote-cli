@@ -47,7 +47,7 @@ Gerät wählen mit `-r 9700` (Vorgabe, oder Umgebungsvariable `ICOM_RADIO`) oder
 | `config get SCHLÜSSEL` / `config set SCHLÜSSEL WERT` | eine Einstellung lesen bzw. setzen (IC-9700), z. B. `config set 1A050027 5` |
 | `serve [--port P] [--bind IP]` | **rigctld-Server** (Hamlib *NET rigctl*, Modell 2) für WSJT-X, Logbuch- und Rotorprogramme, Vorgabe Port 4532, nur lokal |
 
-`-2mmin` stellt vor dem Befehl 144,300 MHz und die Sendeleistung auf Minimum ein (sendet nicht; Modus bleibt), z. B. `./icom_cli.py -r 705 -2mmin status`. `-r 905` (IC-905, CI-V-Adresse 0xAC, eigene `ic905.ini`) ist angelegt, aber am Gerät nicht geprüft.
+`-2mmin` stellt vor dem Befehl 144,300 MHz und die Sendeleistung auf Minimum ein (sendet nicht; Modus bleibt), z. B. `./icom_cli.py -r 705 -2mmin status`.
 
 Nur IC-9700: `--rx main\|sub` wählt den Empfänger für den Befehl. `--host IP` überschreibt den Host aus der ini-Datei.
 
