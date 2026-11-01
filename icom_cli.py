@@ -18,7 +18,7 @@ Beispiele (statt 'icom_cli.py -r 705' geht auch 'icom_cli.py -r 9700'):
   icom_cli.py -r 9700 level pbt1 150           weitere Regler: pbt1 pbt2 notch_pos cw_pitch cw_speed (0..255)
   icom_cli.py -r 9700 mem list 430 1 20        Speicherkanaele anzeigen (IC-9700: Band 144/430/1296; IC-705: Gruppe 0-99)
   icom_cli.py -r 9700 mem recall 430 3         Kanal ins VFO laden (stellt Frequenz und Modus ein)
-  icom_cli.py -r 9700 mem write 430 5 --aktuell --name TEST   Kanal schreiben (ohne --ja nur Vorschau; alter Inhalt wird protokolliert)
+  icom_cli.py -r 9700 mem write 430 5 --aktuell --name TEST   Kanal schreiben (weitere Felder: --offset 7.6M --ur CQCQCQ --r1 "DB0VOX B" --r2 "DB0VOX G") (ohne --ja nur Vorschau; alter Inhalt wird protokolliert)
   icom_cli.py -r 9700 scope edges [144]        feste Scope-Bereiche je Band lesen; "scope edge 144 4 144.0M 144.5M [--ja]" setzen
   icom_cli.py -r 9700 meters                   Po SWR ALC COMP Vd Id (Po/SWR/ALC nur beim Senden)
   icom_cli.py -r 9700 config list [GRUPPE]     die 134 Einstellungen der Konfiguration; "config get 1644", "config set 1644 1"
@@ -359,6 +359,11 @@ def mem_cmd(rig, a, has_sub):
         fields.update(freq=get_freq(rig), mode=MODES.get(d[0]), filter=d[1])
     if a.freq:
         fields["freq"] = pegel2.parse_hz(a.freq)
+    if a.offset:
+        fields["offset"] = pegel2.parse_hz(a.offset)
+    for k in ("ur", "r1", "r2"):
+        if getattr(a, k) is not None:
+            fields[k] = getattr(a, k)
     for k in ("mode", "name", "filter", "duplex"):
         if getattr(a, k) is not None:
             fields[k] = getattr(a, k).upper() if k in ("mode", "duplex") else getattr(a, k)
@@ -368,8 +373,8 @@ def mem_cmd(rig, a, has_sub):
     if base is None:
         sys.exit("Der Platz ist leer und es gibt keine Vorlage" + ("" if a.radio == "9700" else " (IC-705: erst im Geraet einmal einen Kanal belegen)"))
     new = ic9700_mem.apply_fields(base, fields)
-    print("vorher:  ", ic9700_mem.format_row(mem_row(raw, a.kanal)))
-    print("nachher: ", ic9700_mem.format_row(mem_row(new, a.kanal)))
+    print("vorher:  ", ic9700_mem.format_row(mem_row(raw, a.kanal)), "\n          " + ic9700_mem.extra_text(raw) if raw else "(leer)")
+    print("nachher: ", ic9700_mem.format_row(mem_row(new, a.kanal)), "\n          " + ic9700_mem.extra_text(new))
     if not a.ja:
         print("Nur Vorschau. Zum Schreiben denselben Befehl mit --ja wiederholen.")
         return
@@ -547,6 +552,8 @@ def main():
     p.add_argument("kanal", type=int); p.add_argument("letzter", type=int, nargs="?", help="list: letzter Kanal")
     p.add_argument("--name"); p.add_argument("--freq", help="write: Frequenz, z. B. 144.3M"); p.add_argument("--mode")
     p.add_argument("--filter", type=int, choices=(1, 2, 3)); p.add_argument("--duplex", choices=("off", "dup-", "dup+"))
+    p.add_argument("--offset", help="write: Duplex-Ablage, z. B. 7.6M")
+    p.add_argument("--ur"); p.add_argument("--r1"); p.add_argument("--r2")
     p.add_argument("--aktuell", action="store_true", help="write: Frequenz und Modus des Empfaengers uebernehmen")
     p.add_argument("--ja", action="store_true", help="write: wirklich schreiben (sonst nur Vorschau)")
     sub.add_parser("meters", help="Po SWR ALC COMP Vd Id")

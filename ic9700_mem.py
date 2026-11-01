@@ -97,7 +97,8 @@ def group_of(hz):
 def apply_fields(raw, f):
     """64 Byte Kanaldaten mit geaenderten Feldern (nur diese werden angefasst, Rest bleibt wie er ist).
 
-    Felder: name, freq (Hz), mode ("USB" ...), filter (1-3), data (bool), duplex ("OFF"/"DUP-"/"DUP+"), scan ("-","*1",...).
+    Felder: name, freq (Hz), mode ("USB" ...), filter (1-3), data (bool), duplex ("OFF"/"DUP-"/"DUP+"), scan ("-","*1",...),
+    offset (Hz, Duplex-Ablage), ur, r1, r2 (D-STAR-Rufzeichen).
     Ton-Einstellungen, Ablagefrequenz u. a. werden unveraendert uebernommen."""
     d = bytearray(raw)
     if "scan" in f:
@@ -112,6 +113,12 @@ def apply_fields(raw, f):
         d[8] = 1 if f["data"] else 0
     if "duplex" in f:
         d[9] = (DUP_CODES[f["duplex"]] << 4) | (d[9] & 0x0F)
+    if "offset" in f:  # Duplex-Ablage in Hz: 3 Byte [1 kHz|100 Hz] [100 kHz|10 kHz] [10 MHz|1 MHz], so liefert sie auch der Befehl 0C
+        u = f"{int(round(f['offset'] / 100)):06d}"
+        d[21:24] = bytes([int(u[4]) << 4 | int(u[5]), int(u[2]) << 4 | int(u[3]), int(u[0]) << 4 | int(u[1])])
+    for key, a, b in (("ur", 24, 32), ("r1", 32, 40), ("r2", 40, 48)):  # D-STAR: UR, RPT1, RPT2 (je 8 Zeichen)
+        if key in f:
+            d[a:b] = f[key].upper().encode("ascii", "replace")[:8].ljust(8)
     if "name" in f:
         d[-16:] = f["name"].encode("ascii", "replace")[:16].ljust(16)
     return bytes(d)
@@ -142,6 +149,14 @@ def write_channel(rig, group, ch, fields):
         fh.write(json.dumps({"zeit": time.strftime("%Y-%m-%d %H:%M:%S"), "gruppe": group, "kanal": ch,
                              "alt": old.hex() if old else None, "neu": new.hex(), "ok": ok}) + "\n")
     return {"ok": ok, "msg": msg, "old": old, "new": new, "readback": back}
+
+
+def extra_text(raw):
+    """Duplex-Ablage und D-STAR-Rufzeichen eines Kanals als Text (zur Kontrolle)."""
+    o = raw[21:24]
+    off = ((o[2] >> 4) * 10 + (o[2] & 15)) * 1_000_000 + ((o[1] >> 4) * 100 + (o[1] & 15) * 10) * 1000 + ((o[0] >> 4) * 1000 + (o[0] & 15) * 100)
+    t = lambda a, b: bytes(raw[a:b]).decode("ascii", "replace")  # noqa: E731
+    return f"Ablage {off / 1e6:.3f} MHz  UR '{t(24, 32)}'  R1 '{t(32, 40)}'  R2 '{t(40, 48)}'"
 
 
 def scan_text(n):
