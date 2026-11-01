@@ -46,6 +46,7 @@ Gerät wählen mit `-r 9700` (Vorgabe, oder Umgebungsvariable `ICOM_RADIO`) oder
 | `mem list\|recall\|write GRUPPE KANAL [LETZTER]` | Speicherkanäle anzeigen (`list`), ins VFO laden (`recall`), schreiben (`write`, ohne `--ja` nur Vorschau, der alte Inhalt wird protokolliert). IC-9700: Band 144, 430 oder 1296; IC-705: Speichergruppe 0-99 |
 | `config list [GRUPPE] [--werte]` | die 138 Menüeinstellungen (CI-V 1A 05) nach Gruppen, mit `--werte` samt aktuellem Wert; Liste in `konfiguration_liste.md` |
 | `config get SCHLÜSSEL` / `config set SCHLÜSSEL WERT` | eine Einstellung lesen bzw. setzen (IC-9700), z. B. `config set 1A050027 5` |
+| `scope edges [BAND]` / `scope edge BAND NR VON BIS` | feste Scope-Bereiche (SCOPE > Fixed Edges) je Band No.1-4 lesen bzw. setzen (IC-9700; ohne `--ja` nur Vorschau) |
 | `serve [--port P] [--bind IP]` | **rigctld-Server** (Hamlib *NET rigctl*, Modell 2) für WSJT-X, Logbuch- und Rotorprogramme, Vorgabe Port 4532, nur lokal |
 
 `-2mmin` stellt vor dem Befehl 144,300 MHz und die Sendeleistung auf Minimum ein (sendet nicht; Modus bleibt), z. B. `./icom_cli.py -r 705 -2mmin status`.

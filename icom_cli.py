@@ -19,6 +19,7 @@ Beispiele (statt 'icom_cli.py -r 705' geht auch 'icom_cli.py -r 9700'):
   icom_cli.py -r 9700 mem list 430 1 20        Speicherkanaele anzeigen (IC-9700: Band 144/430/1296; IC-705: Gruppe 0-99)
   icom_cli.py -r 9700 mem recall 430 3         Kanal ins VFO laden (stellt Frequenz und Modus ein)
   icom_cli.py -r 9700 mem write 430 5 --aktuell --name TEST   Kanal schreiben (ohne --ja nur Vorschau; alter Inhalt wird protokolliert)
+  icom_cli.py -r 9700 scope edges [144]        feste Scope-Bereiche je Band lesen; "scope edge 144 4 144.0M 144.5M [--ja]" setzen
   icom_cli.py -r 9700 meters                   Po SWR ALC COMP Vd Id (Po/SWR/ALC nur beim Senden)
   icom_cli.py -r 9700 config list [GRUPPE]     die 134 Einstellungen der Konfiguration; "config get 1644", "config set 1644 1"
   icom_cli.py -r 705 status                  alles auslesen (Frequenz, Modus, S-Meter, Regler, Schalter, Spannung)
@@ -46,6 +47,7 @@ import ic9700_ctl
 import ic9700_lan
 import ic9700_mem
 import ic9700_rigctld
+import ic9700_scope
 import ic9700_setup
 import pegel2
 
@@ -384,6 +386,29 @@ def mem_cmd(rig, a, has_sub):
     print("gespeichert und zurueckgelesen" if ok and back == new else "Geraet hat abgelehnt" if not ok else "geschrieben, Rueckleswert weicht ab (bitte pruefen)")
 
 
+def scope_cmd(rig, a):
+    bands = (a.band,) if a.band else ic9700_scope.FIXED_BANDS
+    if a.aktion == "edges":
+        for b in bands:
+            for n in ((a.nr,) if a.nr else (1, 2, 3, 4)):
+                v = ic9700_scope.read_fixed(rig, b, n)
+                print(f"{b:>4} MHz  No.{n}  " + ("-" if v is None else f"{v[0] / 1e6:.3f} - {v[1] / 1e6:.3f} MHz"))
+        return
+    if not (a.band and a.nr and a.von and a.bis):
+        sys.exit("scope edge BAND NR VON BIS  (z. B. scope edge 144 4 144.0M 144.5M)")
+    lo, hi = pegel2.parse_hz(a.von), pegel2.parse_hz(a.bis)
+    old = ic9700_scope.read_fixed(rig, a.band, a.nr)
+    print("vorher: ", "-" if old is None else f"{old[0] / 1e6:.3f} - {old[1] / 1e6:.3f} MHz")
+    print("nachher:", f"{lo / 1e6:.3f} - {hi / 1e6:.3f} MHz")
+    if not a.ja:
+        print("Nur Vorschau. Zum Schreiben denselben Befehl mit --ja wiederholen.")
+        return
+    try:
+        print("gespeichert und zurueckgelesen" if ic9700_scope.write_fixed(rig, a.band, a.nr, lo, hi) else "abgelehnt oder Rueckleswert weicht ab")
+    except ValueError as e:
+        sys.exit(str(e))
+
+
 def only_9700(a):
     if a.radio != "9700":
         sys.exit("Dieser Befehl gibt es nur fuer den IC-9700")
@@ -525,6 +550,11 @@ def main():
     p.add_argument("--aktuell", action="store_true", help="write: Frequenz und Modus des Empfaengers uebernehmen")
     p.add_argument("--ja", action="store_true", help="write: wirklich schreiben (sonst nur Vorschau)")
     sub.add_parser("meters", help="Po SWR ALC COMP Vd Id")
+    p = sub.add_parser("scope", help="feste Scope-Bereiche (SCOPE > Fixed Edges), IC-9700")
+    p.add_argument("aktion", choices=("edges", "edge"), help="edges: alle anzeigen; edge: einen setzen (ohne --ja nur Vorschau)")
+    p.add_argument("band", nargs="?", choices=ic9700_scope.FIXED_BANDS); p.add_argument("nr", nargs="?", type=int, choices=(1, 2, 3, 4))
+    p.add_argument("von", nargs="?"); p.add_argument("bis", nargs="?")
+    p.add_argument("--ja", action="store_true", help="wirklich schreiben")
     p = sub.add_parser("config", help="Einstellungen der Konfigurationsseite (IC-9700, CI-V 1A 05)")
     p.add_argument("aktion", choices=("list", "get", "set")); p.add_argument("arg", nargs="?"); p.add_argument("wert", nargs="?")
     p.add_argument("--werte", action="store_true", help="list: aktuelle Werte mitlesen (dauert)")
@@ -632,6 +662,9 @@ def main():
             print("ok" if set_cmd(rig, (0x0E, SCANS[a.aktion])) else "vom Geraet abgelehnt")
         elif a.cmd == "mem":
             mem_cmd(rig, a, has_sub)
+        elif a.cmd == "scope":
+            only_9700(a)
+            scope_cmd(rig, a)
         elif a.cmd == "meters":
             meters(rig, a.radio)
         elif a.cmd == "config":
