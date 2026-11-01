@@ -16,6 +16,7 @@ LEVELS = {  # Name -> CI-V-Befehl; Wert 0..255
 }
 # Menueeinstellungen je Band (1A 05 xxxx), nur IC-9700: externer Vorverstaerker und ACC-SEND-Ausgang
 BAND_SETTINGS = {"extpre": ("1A050093", "1A050094", "1A050095"), "accsend": ("1A050117", "1A050118", "1A050119")}
+ATT_ON = 0x10  # Daempferwert fuer "ein": IC-9700 10 dB (0x10), IC-705 20 dB (0x20, nur KW und 50 MHz)
 HAS_BAND_SETTINGS = True  # beim IC-705 ausschalten: dort bedeuten diese Nummern etwas anderes
 BANDS = ((144e6, 148e6), (430e6, 450e6), (1240e6, 1300e6))
 AGC = {1: "FAST", 2: "MID", 3: "SLOW"}
@@ -98,7 +99,7 @@ def set_control(rig, name, value):
             return False
         r = rig.civ(*bytes.fromhex(BAND_SETTINGS[name][i]), 1 if value else 0)
     elif name == "att":
-        r = rig.civ(0x11, 0x10 if value else 0x00)
+        r = rig.civ(0x11, ATT_ON if value else 0x00)
     elif name == "agc":
         r = rig.civ(0x16, 0x12, int(value))
     elif name == "duplex":

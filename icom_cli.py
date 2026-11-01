@@ -10,6 +10,7 @@ Beispiele (statt 'icom_cli.py -r 705' geht auch 'icom_cli.py -r 9700'):
   icom_cli.py -r 705 serve --port 4532 rigctld-Server (Hamlib "NET rigctl", Modell 2) fuer WSJT-X, Log- und Rotorprogramme
   icom_cli.py -r 9700 --rx main vfo exchange   VFO: a b equal (A=B) exchange (A<>B) mem vfo   (--rx waehlt den Empfaenger)
   icom_cli.py -r 9700 swap                     Main und Sub tauschen
+  icom_cli.py -r 705 atu [on|off]              Antennentuner (1C 01) lesen/ein/aus; ein Abstimmlauf wuerde senden und fehlt deshalb
   icom_cli.py -r 9700 switch sat 1             Schalter: preamp nb nr notch rit split sat att extpre accsend
                                                (extpre = externer Vorverstaerker, accsend = ACC-SEND-Ausgang; gelten fuer das Band des Empfaengers)
   icom_cli.py -r 9700 agc fast                 AGC fast|mid|slow;  filter 2;  duplex DUP-;  rit 675 (Offset in Hz)
@@ -302,7 +303,9 @@ def vfo_cmd(rig, aktion):
         print("Speicherbetrieb" if set_cmd(rig, (0x08,)) else "abgelehnt")
     elif aktion == "vfo":
         print("VFO-Betrieb" if set_cmd(rig, (0x07, 0x00)) else "abgelehnt")
-    else:  # exchange
+    elif RADIO == "705":  # IC-705: 07 B0 tauscht VFO A und B direkt
+        print("A<>B" if set_cmd(rig, (0x07, 0xB0)) else "abgelehnt (nicht im Speicher- oder Rufkanalbetrieb)")
+    else:  # exchange (IC-9700: ueber Lesen und kreuzweises Schreiben)
         got = []
         for v in (0x00, 0x01):
             if not set_cmd(rig, (0x07, v)):
@@ -407,6 +410,8 @@ def main():
     p = sub.add_parser("vfo", help="VFO A/B, A=B, A<>B, VFO/Speicher")
     p.add_argument("aktion", choices=("a", "b", "equal", "exchange", "mem", "vfo"))
     sub.add_parser("swap", help="Main und Sub tauschen (IC-9700)")
+    p = sub.add_parser("atu", help="IC-705: Antennentuner-Status lesen, ein- und ausschalten (kein Abstimmlauf, das wuerde senden)")
+    p.add_argument("wert", nargs="?", choices=("on", "off"))
     p = sub.add_parser("agc"); p.add_argument("wert", nargs="?", choices=("fast", "mid", "slow"))
     p = sub.add_parser("filter"); p.add_argument("wert", nargs="?", type=int, choices=(1, 2, 3))
     p = sub.add_parser("duplex"); p.add_argument("wert", nargs="?", choices=("off", "dup-", "dup+"))
@@ -425,6 +430,8 @@ def main():
     global RADIO
     RADIO = a.radio
     ic9700_ctl.HAS_BAND_SETTINGS = a.radio == "9700"
+    if a.radio == "705":
+        ic9700_ctl.ATT_ON = 0x20
     if a.cmd == "switch" and a.name in ic9700_ctl.BAND_SETTINGS and a.radio != "9700":
         sys.exit(f"{a.name} gibt es nur beim IC-9700")
     if a.rx and not has_sub:
@@ -489,6 +496,13 @@ def main():
         elif a.cmd == "swap":
             only_9700(a)
             print("getauscht" if set_cmd(rig, (0x07, 0xB0)) else "abgelehnt")
+        elif a.cmd == "atu":
+            if a.radio != "705":
+                sys.exit("Der Antennentuner-Befehl (1C 01) gilt nur fuer den IC-705")
+            if a.wert:
+                set_cmd(rig, (0x1C, 0x01), 1 if a.wert == "on" else 0)
+            d = data(rig, 0x1C, 0x01)
+            print({0: "aus", 1: "an", 2: "Abstimmlauf"}.get(d[0], d[0]) if d else "-")
         elif a.cmd == "agc":
             if a.wert:
                 ic9700_ctl.set_control(rig, "agc", {"fast": 1, "mid": 2, "slow": 3}[a.wert])

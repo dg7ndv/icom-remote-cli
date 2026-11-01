@@ -41,6 +41,7 @@ Gerät wählen mit `-r 9700` (Vorgabe, oder Umgebungsvariable `ICOM_RADIO`) oder
 | `agc [fast\|mid\|slow]`, `filter [1\|2\|3]`, `duplex [off\|dup-\|dup+]`, `rit [HZ]` | lesen bzw. setzen |
 | `vfo a\|b\|equal\|exchange\|mem\|vfo` | VFO A/B, A=B, A<>B (über Lesen und Schreiben), Speicher-/VFO-Betrieb |
 | `swap` | Main und Sub tauschen (IC-9700) |
+| `atu [on\|off]` | IC-705: Antennentuner-Status (1C 01) lesen, ein- und ausschalten; ein Abstimmlauf fehlt bewusst, weil er sendet |
 | `scan stop\|prog\|mem\|select\|modesel\|df [--span 1..7]\|resume-on\|resume-off` | Scan starten und stoppen; ob gerade gescannt wird, lässt sich per CI-V nicht lesen |
 | `mem 144\|430\|1296 ERSTER [LETZTER]` | Speicherkanäle lesen (IC-9700) |
 | `config list [GRUPPE] [--werte]` | die 134 Menüeinstellungen (CI-V 1A 05) nach Gruppen, mit `--werte` samt aktuellem Wert; Liste in `konfiguration_liste.md` |
@@ -77,6 +78,7 @@ am echten Gerät noch nicht. Mit `--bind 0.0.0.0` kann jeder im Netz Frequenz un
 
 - `ic9700_rigctld.py` – der rigctld-Server (Hamlib-Protokoll), von `serve` benutzt.
 
+- `ci-v_ic705.md` – CI-V-Funktionen des IC-705 im Vergleich zum IC-9700 (Unterschiede, was im CLI drin ist).
 - `ci-v_funktionen.md` – alle CI-V-Funktionen des IC-9700, gruppiert, mit Stand der Umsetzung.
 - `konfiguration_liste.md` – die 134 Menüeinstellungen (Schlüssel und Bezeichnung).
 - `ic9700_ctl.py`, `ic9700_setup.py`, `ic9700_mem.py` – Schalter/Regler, Menüeinstellungen und Speicherkanäle des IC-9700.
