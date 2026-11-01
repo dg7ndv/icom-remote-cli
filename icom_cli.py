@@ -31,6 +31,7 @@ Beispiele (statt 'icom_cli.py -r 705' geht auch 'icom_cli.py -r 9700'):
 """
 import argparse
 import configparser
+import math
 import os
 import sys
 import threading
@@ -58,7 +59,20 @@ SCANS = {"stop": 0x00, "prog": 0x02, "df": 0x03, "mem": 0x22, "select": 0x23, "m
 PITCH = lambda v: f"{300 + round(v * 600 / 255)} Hz"  # noqa: E731
 HUMAN = {"cw_pitch": PITCH, "cw_speed": lambda v: f"{6 + round(v * 42 / 255)} WPM",
          "pbt1": lambda v: f"{v - 128:+d}", "pbt2": lambda v: f"{v - 128:+d}", "notch_pos": lambda v: f"{v - 128:+d}"}
+RADIO = "9700"  # wird in main() gesetzt (fuer die Leistungsanzeige in status)
 AGC = {1: "FAST", 2: "MID", 3: "SLOW"}
+
+
+def power_text(raw, hz, radio):
+    """Sendeleistung 0..255 in Watt (linear, Naeherung): Maximum je Band, beim IC-705 an 13,8 V."""
+    if radio == "9700":
+        pmax = 100.0 if hz < 200e6 else 75.0 if hz < 1e9 else 10.0
+    else:  # IC-705: KW, 6 m und 2 m 10 W, 70 cm 5 W
+        pmax = 5.0 if 420e6 <= hz <= 450e6 else 10.0
+    if raw == 0:
+        return f"Minimum (Max {pmax:g} W)"
+    w = raw / 255 * pmax
+    return f"ca. {w:.1f} W  ({10 * math.log10(w / pmax):+.1f} dB rel. Max {pmax:g} W)"
 
 
 def data(rig, *cmd):
@@ -162,7 +176,10 @@ def status(rig):
     print(f"S-Meter   {db:+6.1f} dB rel. S9 (roh {raw})")
     for n in LEVELS:
         v = level(rig, n)
-        print(f"{n:<9} {fmt(v)}" + (f"  ({HUMAN[n](v)})" if v is not None and n in HUMAN else ""))
+        extra = f"  ({HUMAN[n](v)})" if v is not None and n in HUMAN else ""
+        if n == "power" and v is not None:
+            extra = "  " + power_text(v, get_freq(rig), RADIO)
+        print(f"{n:<9} {fmt(v)}{extra}")
     for n, cmd in SWITCHES.items():
         if cmd is None:
             continue
@@ -347,6 +364,8 @@ def main():
     a = ap.parse_args()
 
     civ, ini, has_sub = RADIOS[a.radio]
+    global RADIO
+    RADIO = a.radio
     ic9700_ctl.HAS_BAND_SETTINGS = a.radio == "9700"
     if a.cmd == "switch" and a.name in ic9700_ctl.BAND_SETTINGS and a.radio != "9700":
         sys.exit(f"{a.name} gibt es nur beim IC-9700")
@@ -448,7 +467,10 @@ def main():
                 if not set_cmd(rig, LEVELS[a.name], *bytes.fromhex(f"{max(0, min(255, a.wert)):04d}")):
                     sys.exit("Geraet hat abgelehnt")
             v = level(rig, a.name)
-            print(fmt(v) if v is None or a.name not in HUMAN else f"{v}  ({HUMAN[a.name](v)})")
+            if v is not None and a.name == "power":
+                print(f"{v}  {power_text(v, get_freq(rig), a.radio)}")
+            else:
+                print(fmt(v) if v is None or a.name not in HUMAN else f"{v}  ({HUMAN[a.name](v)})")
         elif a.cmd == "switch":
             if not ic9700_ctl.set_control(rig, a.name, a.wert):
                 sys.exit("Geraet hat abgelehnt")
