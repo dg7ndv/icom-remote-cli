@@ -16,7 +16,9 @@ Beispiele (statt 'icom_cli.py -r 705' geht auch 'icom_cli.py -r 9700'):
   icom_cli.py -r 9700 agc fast                 AGC fast|mid|slow;  filter 2;  duplex DUP-;  rit 675 (Offset in Hz)
   icom_cli.py -r 9700 scan prog                Scan: stop prog mem select modesel df [--span 4] resume-on resume-off
   icom_cli.py -r 9700 level pbt1 150           weitere Regler: pbt1 pbt2 notch_pos cw_pitch cw_speed (0..255)
-  icom_cli.py -r 9700 mem 430 1 20             Speicherkanaele lesen (144, 430 oder 1296 MHz, erster, letzter)
+  icom_cli.py -r 9700 mem list 430 1 20        Speicherkanaele anzeigen (IC-9700: Band 144/430/1296; IC-705: Gruppe 0-99)
+  icom_cli.py -r 9700 mem recall 430 3         Kanal ins VFO laden (stellt Frequenz und Modus ein)
+  icom_cli.py -r 9700 mem write 430 5 --aktuell --name TEST   Kanal schreiben (ohne --ja nur Vorschau; alter Inhalt wird protokolliert)
   icom_cli.py -r 9700 meters                   Po SWR ALC COMP Vd Id (Po/SWR/ALC nur beim Senden)
   icom_cli.py -r 9700 config list [GRUPPE]     die 134 Einstellungen der Konfiguration; "config get 1644", "config set 1644 1"
   icom_cli.py -r 705 status                  alles auslesen (Frequenz, Modus, S-Meter, Regler, Schalter, Spannung)
@@ -32,6 +34,7 @@ Beispiele (statt 'icom_cli.py -r 705' geht auch 'icom_cli.py -r 9700'):
 """
 import argparse
 import configparser
+import json
 import math
 import os
 import sys
@@ -287,6 +290,100 @@ class connect:
         self.rig.close()
 
 
+def mem_group(a):
+    """IC-9700: Band 144/430/1296 -> Gruppe 1/2/3; IC-705: Speichergruppe 0-99."""
+    if a.radio == "9700":
+        if a.gruppe not in ("144", "430", "1296"):
+            sys.exit("IC-9700: Band 144, 430 oder 1296 angeben")
+        return {"144": 1, "430": 2, "1296": 3}[a.gruppe]
+    if not a.gruppe.isdigit() or not 0 <= int(a.gruppe) <= 99:
+        sys.exit("IC-705: Speichergruppe 0 bis 99 angeben")
+    return int(a.gruppe)
+
+
+def mem_raw(rig, radio, group, ch):
+    """64 Byte Kanaldaten oder None (leerer Platz). Die Feldlage ist bei beiden Geraeten gleich (Byte 5 ... 68 der CI-V-Tabelle)."""
+    if radio == "9700":
+        return ic9700_mem.read_raw(rig, group, ch)
+    f = rig.civ(0x1A, 0x00, *bytes.fromhex(f"{group:04d}"), *bytes.fromhex(f"{ch:04d}"))
+    d = bytes(f[10:-1])
+    return d if f[4] != 0xFA and len(d) == 64 else None
+
+
+def mem_row(raw, ch):
+    if raw is None:
+        return {"ch": ch, "empty": True}
+    return {"ch": ch, "scan": raw[0], "freq": ic9700_mem.freq_from_bcd(raw[1:6]), "mode": ic9700_mem.MODES.get(raw[6], f"?{raw[6]:02x}"),
+            "filter": f"FIL{raw[7]}", "data": bool(raw[8]), "duplex": ic9700_mem.DUPLEX.get(raw[9] >> 4, "?"),
+            "tone": ic9700_mem.TONE.get(raw[9] & 0x0F, "?"), "name": bytes(raw[-16:]).decode("ascii", "replace").strip()}
+
+
+def mem_cmd(rig, a, has_sub):
+    group = mem_group(a)
+    if a.aktion == "list":
+        for ch in range(a.kanal, (a.letzter or a.kanal) + 1):
+            try:
+                raw = mem_raw(rig, a.radio, group, ch)
+            except TimeoutError:
+                raw = None
+            print(ic9700_mem.format_row(mem_row(raw, ch)))
+        return
+    raw = mem_raw(rig, a.radio, group, a.kanal)
+    if a.aktion == "recall":
+        c = mem_row(raw, a.kanal)
+        if c.get("empty"):
+            sys.exit("Der Speicherplatz ist leer")
+        slot0 = None
+        if has_sub:  # IC-9700: der Empfaenger, der schon auf dem Band steht, nimmt die Frequenz (Main und Sub nie auf demselben Band)
+            both = pegel2.read_both(rig)
+            band = ic9700_ctl.band_index(c["freq"])
+            slot = a.rx or next((k for k in ("main", "sub") if ic9700_ctl.band_index(both[k][0]) == band), None)
+            if slot is None:
+                slot = "main" if rig.freq() == both["main"][0] else "sub"
+            slot0 = "main" if rig.freq() == both["main"][0] else "sub"
+            rig.select(slot)
+        rig.set_freq(c["freq"])
+        fil = int(c["filter"][3:])
+        set_cmd(rig, (0x06,), ic9700_mem.MODE_CODES[c["mode"]], fil)
+        set_cmd(rig, (0x1A, 0x06), 1 if c["data"] else 0, fil)
+        if slot0 and slot0 != slot:
+            rig.select(slot0)
+        print(f"geladen{f' in {slot}' if has_sub else ''}: {c['freq'] / 1e6:.6f} MHz {c['mode']} {c['filter']}  {c['name']}")
+        return
+    # write
+    fields = {}
+    if a.aktuell:
+        d = data(rig, 0x04)
+        fields.update(freq=get_freq(rig), mode=MODES.get(d[0]), filter=d[1])
+    if a.freq:
+        fields["freq"] = pegel2.parse_hz(a.freq)
+    for k in ("mode", "name", "filter", "duplex"):
+        if getattr(a, k) is not None:
+            fields[k] = getattr(a, k).upper() if k in ("mode", "duplex") else getattr(a, k)
+    if not fields:
+        sys.exit("Nichts zu schreiben: --freq, --mode, --name, --filter, --duplex oder --aktuell angeben")
+    base = raw or (ic9700_mem.read_raw(rig, group, 100) if a.radio == "9700" else None)
+    if base is None:
+        sys.exit("Der Platz ist leer und es gibt keine Vorlage" + ("" if a.radio == "9700" else " (IC-705: erst im Geraet einmal einen Kanal belegen)"))
+    new = ic9700_mem.apply_fields(base, fields)
+    print("vorher:  ", ic9700_mem.format_row(mem_row(raw, a.kanal)))
+    print("nachher: ", ic9700_mem.format_row(mem_row(new, a.kanal)))
+    if not a.ja:
+        print("Nur Vorschau. Zum Schreiben denselben Befehl mit --ja wiederholen.")
+        return
+    if a.radio == "9700":
+        r = ic9700_mem.write_channel(rig, group, a.kanal, fields)
+        print(r["msg"])
+        return
+    ok = rig.civ(0x1A, 0x00, *bytes.fromhex(f"{group:04d}"), *bytes.fromhex(f"{a.kanal:04d}"), *new)[4] == 0xFB
+    time.sleep(0.3)
+    back = mem_raw(rig, a.radio, group, a.kanal)
+    with ic9700_mem.LOG.open("a") as fh:
+        fh.write(json.dumps({"zeit": time.strftime("%Y-%m-%d %H:%M:%S"), "geraet": "705", "gruppe": group, "kanal": a.kanal,
+                             "alt": raw.hex() if raw else None, "neu": new.hex(), "ok": bool(ok and back == new)}) + "\n")
+    print("gespeichert und zurueckgelesen" if ok and back == new else "Geraet hat abgelehnt" if not ok else "geschrieben, Rueckleswert weicht ab (bitte pruefen)")
+
+
 def only_9700(a):
     if a.radio != "9700":
         sys.exit("Dieser Befehl gibt es nur fuer den IC-9700")
@@ -418,8 +515,15 @@ def main():
     p = sub.add_parser("rit"); p.add_argument("wert", nargs="?", type=int, help="Offset in Hz (-9999..9999)")
     p = sub.add_parser("scan"); p.add_argument("aktion", choices=SCANS)
     p.add_argument("--span", type=int, choices=range(1, 8), default=4, help="dF-Scan: 1=+-5k 2=+-10k 3=+-20k 4=+-50k 5=+-100k 6=+-500k 7=+-1M")
-    p = sub.add_parser("mem", help="Speicherkanaele lesen (IC-9700)")
-    p.add_argument("band", choices=("144", "430", "1296")); p.add_argument("erster", type=int); p.add_argument("letzter", type=int, nargs="?")
+    p = sub.add_parser("mem", help="Speicherkanaele lesen, abrufen und schreiben")
+    p.add_argument("aktion", choices=("list", "recall", "write"),
+                   help="list: anzeigen, recall: Kanal ins VFO laden, write: Kanal schreiben (ohne --ja nur Vorschau)")
+    p.add_argument("gruppe", help="IC-9700: Band 144, 430 oder 1296; IC-705: Speichergruppe 0-99")
+    p.add_argument("kanal", type=int); p.add_argument("letzter", type=int, nargs="?", help="list: letzter Kanal")
+    p.add_argument("--name"); p.add_argument("--freq", help="write: Frequenz, z. B. 144.3M"); p.add_argument("--mode")
+    p.add_argument("--filter", type=int, choices=(1, 2, 3)); p.add_argument("--duplex", choices=("off", "dup-", "dup+"))
+    p.add_argument("--aktuell", action="store_true", help="write: Frequenz und Modus des Empfaengers uebernehmen")
+    p.add_argument("--ja", action="store_true", help="write: wirklich schreiben (sonst nur Vorschau)")
     sub.add_parser("meters", help="Po SWR ALC COMP Vd Id")
     p = sub.add_parser("config", help="Einstellungen der Konfigurationsseite (IC-9700, CI-V 1A 05)")
     p.add_argument("aktion", choices=("list", "get", "set")); p.add_argument("arg", nargs="?"); p.add_argument("wert", nargs="?")
@@ -527,9 +631,7 @@ def main():
                 set_cmd(rig, (0x0E, 0xA0 + a.span))
             print("ok" if set_cmd(rig, (0x0E, SCANS[a.aktion])) else "vom Geraet abgelehnt")
         elif a.cmd == "mem":
-            only_9700(a)
-            for ch in ic9700_mem.read_range(rig, {"144": 1, "430": 2, "1296": 3}[a.band], a.erster, a.letzter or a.erster):
-                print(ic9700_mem.format_row(ch))
+            mem_cmd(rig, a, has_sub)
         elif a.cmd == "meters":
             meters(rig, a.radio)
         elif a.cmd == "config":

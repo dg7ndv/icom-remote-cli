@@ -43,7 +43,7 @@ Gerät wählen mit `-r 9700` (Vorgabe, oder Umgebungsvariable `ICOM_RADIO`) oder
 | `swap` | Main und Sub tauschen (IC-9700) |
 | `atu [on\|off]` | IC-705: Antennentuner-Status (1C 01) lesen, ein- und ausschalten; ein Abstimmlauf fehlt bewusst, weil er sendet |
 | `scan stop\|prog\|mem\|select\|modesel\|df [--span 1..7]\|resume-on\|resume-off` | Scan starten und stoppen; ob gerade gescannt wird, lässt sich per CI-V nicht lesen |
-| `mem 144\|430\|1296 ERSTER [LETZTER]` | Speicherkanäle lesen (IC-9700) |
+| `mem list\|recall\|write GRUPPE KANAL [LETZTER]` | Speicherkanäle anzeigen (`list`), ins VFO laden (`recall`), schreiben (`write`, ohne `--ja` nur Vorschau, der alte Inhalt wird protokolliert). IC-9700: Band 144, 430 oder 1296; IC-705: Speichergruppe 0-99 |
 | `config list [GRUPPE] [--werte]` | die 134 Menüeinstellungen (CI-V 1A 05) nach Gruppen, mit `--werte` samt aktuellem Wert; Liste in `konfiguration_liste.md` |
 | `config get SCHLÜSSEL` / `config set SCHLÜSSEL WERT` | eine Einstellung lesen bzw. setzen (IC-9700), z. B. `config set 1A050027 5` |
 | `serve [--port P] [--bind IP]` | **rigctld-Server** (Hamlib *NET rigctl*, Modell 2) für WSJT-X, Logbuch- und Rotorprogramme, Vorgabe Port 4532, nur lokal |
@@ -90,6 +90,6 @@ am echten Gerät noch nicht. Mit `--bind 0.0.0.0` kann jeder im Netz Frequenz un
 
 - Der IC-9700 schaltet beim Lesen von Sub kurz zwischen Main und Sub um; danach steht das vorher gewählte Band wieder.
 - Der IC-705 hat nur einen Empfänger (CI-V-Adresse 0xA4, IC-9700: 0xA2).
-- Getestet am IC-9700: Lesen aller Werte, VFO A/B und A<>B, Swap, Scan stoppen, ATT und externer Vorverstärker, Speicher lesen. Am IC-705 wurden nur Lesen sowie Frequenz, Modus und Regler geprüft; die übrigen Befehle sind für den IC-9700 geschrieben und können dort abgelehnt werden. Scan-Start, SAT und V/M sind nicht ausprobiert.
+- Getestet am IC-9700: Lesen aller Werte, VFO A/B und A<>B, Swap, Scan stoppen, ATT und externer Vorverstärker, Speicher lesen. Am IC-705 wurden nur Lesen sowie Frequenz, Modus und Regler geprüft; die übrigen Befehle sind für den IC-9700 geschrieben und können dort abgelehnt werden. Scan-Start, SAT und V/M sind nicht ausprobiert. `mem recall` am IC-9700 geprueft, `mem write` nur als Vorschau; am IC-705 sind alle `mem`-Befehle ungeprueft.
 
 Lizenz: MIT
