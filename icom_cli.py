@@ -184,6 +184,34 @@ def status(rig):
             print(f"{k:<9} {c[k]}")
 
 
+class connect:
+    """Anmelden und pruefen, ob das Geraet antwortet; nach einem harten Abbruch haelt es die alte Sitzung noch einige
+    Sekunden fest. Dann bis zu 4 Versuche mit Pause, danach eine verstaendliche Meldung statt eines Tracebacks."""
+
+    def __init__(self, host, user, password, tries=4, pause=5):
+        for n in range(1, tries + 1):
+            rig = None
+            try:
+                rig = ic9700_lan.LanRig(host, user, password)
+                rig.civ(0x19, 0x00)  # Geraete-ID lesen als Lebenszeichen
+                self.rig = rig
+                return
+            except TimeoutError as e:
+                if rig is not None:
+                    rig.close()
+                if n < tries:
+                    print(f"keine Antwort ({e}); neuer Versuch {n + 1}/{tries} in {pause} s ...", file=sys.stderr, flush=True)
+                    time.sleep(pause)
+        sys.exit("Keine Verbindung zum Geraet. Laeuft noch die GUI, wfview oder ein anderes Programm (nur ein Client erlaubt)? "
+                 "Nach einem Abbruch (Strg+C) hilft es, 10-20 s zu warten.")
+
+    def __enter__(self):
+        return self.rig
+
+    def __exit__(self, *exc):
+        self.rig.close()
+
+
 def only_9700(a):
     if a.radio != "9700":
         sys.exit("Dieser Befehl gibt es nur fuer den IC-9700")
@@ -327,7 +355,7 @@ def main():
     if "radio" not in c:
         sys.exit(f"{ini} fehlt oder hat keinen Abschnitt [radio]")
     r = c["radio"]
-    with ic9700_lan.LanRig(a.host or r["host"], r["user"], r["password"]) as rig:
+    with connect(a.host or r["host"], r["user"], r["password"]) as rig:
         if a.rx:
             rig.select(a.rx)
         if a.cmd == "serve":
@@ -424,3 +452,5 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         pass
+    except TimeoutError as e:  # Aussetzer mitten im Befehl (WLAN): kurze Meldung statt Traceback
+        sys.exit(f"Das Geraet hat nicht geantwortet ({e}). Bitte noch einmal versuchen.")
