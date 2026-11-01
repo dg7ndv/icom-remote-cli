@@ -69,7 +69,7 @@ def vd_volts(rig):
     if not d or len(d) < 2:
         return None
     raw = int(d.hex())
-    return 10 + (raw - 13) * 6 / 228 if raw >= 13 else None
+    return 10 + (raw - 13) * 6 / 228 if raw >= 13 else raw * 10 / 13  # unter 10 V grob linear (nur eine Naeherung)
 
 
 def power_text(raw, hz, radio, volts=None):
@@ -81,6 +81,8 @@ def power_text(raw, hz, radio, volts=None):
         pmin, pmax = (0.5, 100.0) if hz < 200e6 else (0.5, 75.0) if hz < 1e9 else (0.1, 10.0)
     else:
         pmin, pmax = 0.5, 10.0
+        if volts is not None and volts < 6.0:  # nur USB-Versorgung (ca. 5 V): der IC-705 sendet dann nicht
+            return f"0 W - Senden nicht moeglich (nur {volts:.1f} V, USB-Versorgung?)"
         if volts is not None:
             pmax = 10.0 if volts >= 11.7 else 5.0 if volts <= 8.5 else 5.0 + (volts - 8.5) / (11.7 - 8.5) * 5.0
             note = f"  bei {volts:.1f} V"
@@ -496,5 +498,8 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         pass
+    except PermissionError as e:
+        sys.exit(f"{e}. Benutzer/Passwort in der ini-Datei pruefen; ist schon ein anderes Programm (GUI, wfview, zweites Terminal) "
+                 "am Geraet angemeldet? Es ist nur ein Client erlaubt.")
     except TimeoutError as e:  # Aussetzer mitten im Befehl (WLAN): kurze Meldung statt Traceback
         sys.exit(f"Das Geraet hat nicht geantwortet ({e}). Bitte noch einmal versuchen.")
