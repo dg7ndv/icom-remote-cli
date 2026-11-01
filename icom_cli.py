@@ -20,6 +20,7 @@ Beispiele (statt 'icom_cli.py -r 705' geht auch 'icom_cli.py -r 9700'):
   icom_cli.py -r 9700 mem recall 430 3         Kanal ins VFO laden (stellt Frequenz und Modus ein)
   icom_cli.py -r 9700 mem write 430 5 --aktuell --name TEST   Kanal schreiben (weitere Felder: --offset 7.6M --ur CQCQCQ --r1 "DB0VOX B" --r2 "DB0VOX G") (ohne --ja nur Vorschau; alter Inhalt wird protokolliert)
   icom_cli.py -r 9700 scope edges [144]        feste Scope-Bereiche je Band lesen; "scope edge 144 4 144.0M 144.5M [--ja]" setzen
+  icom_cli.py -r 9700 dstar_liste --ab 20      D-STAR-Liste (dstar_liste.json) ab Kanal 20 programmieren (ohne --ja nur Plan)
   icom_cli.py -r 9700 meters                   Po SWR ALC COMP Vd Id (Po/SWR/ALC nur beim Senden)
   icom_cli.py -r 9700 config list [GRUPPE]     die 134 Einstellungen der Konfiguration; "config get 1644", "config set 1644 1"
   icom_cli.py -r 705 status                  alles auslesen (Frequenz, Modus, S-Meter, Regler, Schalter, Spannung)
@@ -393,40 +394,78 @@ def mem_cmd(rig, a, has_sub):
     if not a.ja:
         print("Nur Vorschau. Zum Schreiben denselben Befehl mit --ja wiederholen.")
         return
-    if a.radio == "9700":
-        r = ic9700_mem.write_channel(rig, group, a.kanal, fields)
-        print(r["msg"])
-        return
-    ok = rig.civ(0x1A, 0x00, *bytes.fromhex(f"{group:04d}"), *bytes.fromhex(f"{a.kanal:04d}"), *mem_expand_705(new))[4] == 0xFB
+    print(mem_store(rig, a.radio, group, a.kanal, raw, new, fields))
+
+
+def mem_store(rig, radio, group, ch, raw, new, fields):
+    """Kanal wirklich schreiben und zuruecklesen (alter Inhalt wird protokolliert). Gibt eine Meldung zurueck."""
+    if radio == "9700":
+        return ic9700_mem.write_channel(rig, group, ch, fields)["msg"]
+    ok = rig.civ(0x1A, 0x00, *bytes.fromhex(f"{group:04d}"), *bytes.fromhex(f"{ch:04d}"), *mem_expand_705(new))[4] == 0xFB
     time.sleep(0.3)
-    back = mem_raw(rig, a.radio, group, a.kanal)
+    back = mem_raw(rig, radio, group, ch)
     with ic9700_mem.LOG.open("a") as fh:
-        fh.write(json.dumps({"zeit": time.strftime("%Y-%m-%d %H:%M:%S"), "geraet": "705", "gruppe": group, "kanal": a.kanal,
+        fh.write(json.dumps({"zeit": time.strftime("%Y-%m-%d %H:%M:%S"), "geraet": "705", "gruppe": group, "kanal": ch,
                              "alt": raw.hex() if raw else None, "neu": new.hex(), "ok": bool(ok and back == new)}) + "\n")
-    print("gespeichert und zurueckgelesen" if ok and back == new else "Geraet hat abgelehnt" if not ok else "geschrieben, Rueckleswert weicht ab (bitte pruefen)")
+    return ("gespeichert und zurueckgelesen" if ok and back == new else "Geraet hat abgelehnt" if not ok
+            else "geschrieben, Rueckleswert weicht ab (bitte pruefen)")
 
 
-def scope_cmd(rig, a):
-    bands = (a.band,) if a.band else ic9700_scope.FIXED_BANDS
-    if a.aktion == "edges":
-        for b in bands:
-            for n in ((a.nr,) if a.nr else (1, 2, 3, 4)):
-                v = ic9700_scope.read_fixed(rig, b, n)
-                print(f"{b:>4} MHz  No.{n}  " + ("-" if v is None else f"{v[0] / 1e6:.3f} - {v[1] / 1e6:.3f} MHz"))
-        return
-    if not (a.band and a.nr and a.von and a.bis):
-        sys.exit("scope edge BAND NR VON BIS  (z. B. scope edge 144 4 144.0M 144.5M)")
-    lo, hi = pegel2.parse_hz(a.von), pegel2.parse_hz(a.bis)
-    old = ic9700_scope.read_fixed(rig, a.band, a.nr)
-    print("vorher: ", "-" if old is None else f"{old[0] / 1e6:.3f} - {old[1] / 1e6:.3f} MHz")
-    print("nachher:", f"{lo / 1e6:.3f} - {hi / 1e6:.3f} MHz")
+def dstar_liste(rig, a):
+    """D-STAR-Relaisliste (dstar_liste.json) ab Startkanal in den Speicher schreiben. Ohne --ja nur Plan. Belegte Plaetze mit
+    anderem Inhalt werden nur mit --ueberschreiben ersetzt; ein identischer Kanal wird uebersprungen."""
+    cfg = json.loads(Path(a.datei or Path(__file__).with_name("dstar_liste.json")).read_text(encoding="utf-8"))
+    start = a.ab if a.ab is not None else cfg.get("start_kanal", 20)
+    ur = cfg.get("ur", "CQCQCQ")
+    counters = {}
+    plan = []
+    for e in cfg["relais"]:
+        if a.radio not in e.get("geraete", ["9700", "705"]):
+            plan.append((e, None, None, f"nur fuer IC-{'/'.join(e['geraete'])}"))
+            continue
+        if not e.get("bestaetigt") and not a.auch_unbestaetigte:
+            plan.append((e, None, None, "unbestaetigt (mit --auch-unbestaetigte)"))
+            continue
+        band = ic9700_ctl.band_index(e["freq"])
+        if a.radio == "705":
+            if band not in (0, 1) or e["modus"] == "DD":
+                plan.append((e, None, None, "IC-705 hat dafuer kein Band bzw. keinen Modus"))
+                continue
+            group = int(a.gruppe)
+        else:
+            if band is None:
+                plan.append((e, None, None, "ausserhalb der Baender"))
+                continue
+            group = band + 1
+        ch = start + counters.get(group, 0)
+        counters[group] = counters.get(group, 0) + 1
+        if ch > 99:
+            plan.append((e, None, None, "kein Platz bis Kanal 99"))
+            continue
+        plan.append((e, group, ch, ""))
+    for e, group, ch, why in plan:
+        if group is None:
+            print(f"-  {e['name']:<12} uebersprungen: {why}")
+            continue
+        fields = {"freq": e["freq"], "mode": e["modus"], "duplex": e["duplex"], "offset": e.get("ablage", 0), "name": e["name"][:16],
+                  "ur": ur, "r1": e["r1"], "r2": e["r2"], "filter": e.get("filter", 2)}
+        raw = mem_raw(rig, a.radio, group, ch)
+        base = raw or (ic9700_mem.read_raw(rig, group, 100) if a.radio == "9700" else TEMPLATE_705)
+        new = ic9700_mem.apply_fields(base, fields)
+        gtxt = {"9700": {1: "144", 2: "430", 3: "1296"}.get(group), "705": f"Gruppe {group}"}[a.radio]
+        if raw is not None and new == raw:
+            print(f"=  {gtxt:>10} Kanal {ch:02d}  {e['name']:<12} schon vorhanden, unveraendert")
+            continue
+        if raw is not None and not a.ueberschreiben:
+            c = mem_row(raw, ch)
+            print(f"!  {gtxt:>10} Kanal {ch:02d}  {e['name']:<12} Platz belegt mit '{c['name']}' {c['freq'] / 1e6:.4f} MHz - nicht ueberschrieben (--ueberschreiben)")
+            continue
+        if not a.ja:
+            print(f"+  {gtxt:>10} Kanal {ch:02d}  {e['name']:<12} {e['freq'] / 1e6:.4f} MHz {e['modus']} {e['duplex']}  (Plan)")
+            continue
+        print(f"+  {gtxt:>10} Kanal {ch:02d}  {e['name']:<12} {e['freq'] / 1e6:.4f} MHz {e['modus']}: {mem_store(rig, a.radio, group, ch, raw, new, fields)}")
     if not a.ja:
-        print("Nur Vorschau. Zum Schreiben denselben Befehl mit --ja wiederholen.")
-        return
-    try:
-        print("gespeichert und zurueckgelesen" if ic9700_scope.write_fixed(rig, a.band, a.nr, lo, hi) else "abgelehnt oder Rueckleswert weicht ab")
-    except ValueError as e:
-        sys.exit(str(e))
+        print("Nur Plan. Zum Schreiben denselben Befehl mit --ja wiederholen.")
 
 
 def only_9700(a):
@@ -572,6 +611,13 @@ def main():
     p.add_argument("--aktuell", action="store_true", help="write: Frequenz und Modus des Empfaengers uebernehmen")
     p.add_argument("--ja", action="store_true", help="write: wirklich schreiben (sonst nur Vorschau)")
     sub.add_parser("meters", help="Po SWR ALC COMP Vd Id")
+    p = sub.add_parser("dstar_liste", help="D-STAR-Relaisliste (dstar_liste.json) ab einem Startkanal in den Speicher schreiben")
+    p.add_argument("--ab", type=int, help="Startkanal (Vorgabe: start_kanal in der Datei, 20)")
+    p.add_argument("--datei", help="andere Listendatei")
+    p.add_argument("--gruppe", default="0", help="IC-705: Speichergruppe (Vorgabe 0)")
+    p.add_argument("--auch-unbestaetigte", action="store_true", dest="auch_unbestaetigte", help="auch Relais mit bestaetigt=false schreiben")
+    p.add_argument("--ueberschreiben", action="store_true", help="belegte Plaetze mit anderem Inhalt ersetzen")
+    p.add_argument("--ja", action="store_true", help="wirklich schreiben (sonst nur Plan)")
     p = sub.add_parser("scope", help="feste Scope-Bereiche (SCOPE > Fixed Edges), IC-9700")
     p.add_argument("aktion", choices=("edges", "edge"), help="edges: alle anzeigen; edge: einen setzen (ohne --ja nur Vorschau)")
     p.add_argument("band", nargs="?", choices=ic9700_scope.FIXED_BANDS); p.add_argument("nr", nargs="?", type=int, choices=(1, 2, 3, 4))
@@ -687,6 +733,8 @@ def main():
         elif a.cmd == "scope":
             only_9700(a)
             scope_cmd(rig, a)
+        elif a.cmd == "dstar_liste":
+            dstar_liste(rig, a)
         elif a.cmd == "meters":
             meters(rig, a.radio)
         elif a.cmd == "config":

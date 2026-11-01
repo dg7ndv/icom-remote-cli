@@ -44,6 +44,7 @@ Gerät wählen mit `-r 9700` (Vorgabe, oder Umgebungsvariable `ICOM_RADIO`) oder
 | `atu [on\|off]` | IC-705: Antennentuner-Status (1C 01) lesen, ein- und ausschalten; ein Abstimmlauf fehlt bewusst, weil er sendet |
 | `scan stop\|prog\|mem\|select\|modesel\|df [--span 1..7]\|resume-on\|resume-off` | Scan starten und stoppen; ob gerade gescannt wird, lässt sich per CI-V nicht lesen |
 | `mem list\|recall\|write GRUPPE KANAL [LETZTER]` | Speicherkanäle anzeigen (`list`; `write` kann auch `--offset`, `--ur`, `--r1`, `--r2` für D-STAR), ins VFO laden (`recall`), schreiben (`write`, ohne `--ja` nur Vorschau, der alte Inhalt wird protokolliert). IC-9700: Band 144, 430 oder 1296; IC-705: Speichergruppe 0-99 |
+| `dstar_liste [--ab N] [--ja]` | D-STAR-Relaisliste aus `dstar_liste.json` ab Kanal N (Vorgabe 20) in den Speicher schreiben; ohne `--ja` nur der Plan; Relais mit `bestaetigt: false` nur mit `--auch-unbestaetigte`, belegte Plätze nur mit `--ueberschreiben`. IC-9700: je Band ab N, IC-705: Gruppe 0 (`--gruppe`) |
 | `config list [GRUPPE] [--werte]` | die 138 Menüeinstellungen (CI-V 1A 05) nach Gruppen, mit `--werte` samt aktuellem Wert; Liste in `konfiguration_liste.md` |
 | `config get SCHLÜSSEL` / `config set SCHLÜSSEL WERT` | eine Einstellung lesen bzw. setzen (IC-9700), z. B. `config set 1A050027 5` |
 | `scope edges [BAND]` / `scope edge BAND NR VON BIS` | feste Scope-Bereiche (SCOPE > Fixed Edges) je Band No.1-4 lesen bzw. setzen (IC-9700; ohne `--ja` nur Vorschau) |
@@ -79,6 +80,7 @@ am echten Gerät noch nicht. Mit `--bind 0.0.0.0` kann jeder im Netz Frequenz un
 
 - `ic9700_rigctld.py` – der rigctld-Server (Hamlib-Protokoll), von `serve` benutzt.
 
+- `dstar_liste.json` – Relaisliste (Name, Frequenz, Ablage, Rufzeichen RPT1/RPT2, `bestaetigt`) für den Befehl `dstar_liste`; bitte vor dem Programmieren selbst prüfen.
 - `ci-v_ic705.md` – CI-V-Funktionen des IC-705 im Vergleich zum IC-9700 (Unterschiede, was im CLI drin ist).
 - `ci-v_funktionen.md` – alle CI-V-Funktionen des IC-9700, gruppiert, mit Stand der Umsetzung.
 - `konfiguration_liste.md` – die 138 Menüeinstellungen (Schlüssel und Bezeichnung).

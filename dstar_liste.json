@@ -1,0 +1,22 @@
+{
+  "_hinweis": "D-STAR-Relaisliste fuer den Befehl 'icom_cli.py dstar_liste'. Eintraege mit bestaetigt=false werden nur mit --auch-unbestaetigte geschrieben. Frequenzen in Hz.",
+  "start_kanal": 20,
+  "ur": "CQCQCQ",
+  "relais": [
+    {"name": "DB0VOX", "freq": 439525000, "modus": "DV", "duplex": "DUP-", "ablage": 7600000,
+     "r1": "DB0VOX B", "r2": "DB0VOX G", "bestaetigt": true,
+     "quelle": "RepeaterBook (D-STAR, Nuernberg) und Liste des Nutzers; Modul B = 70 cm nach Konvention"},
+    {"name": "DB0VOX DD", "freq": 1242450000, "modus": "DD", "duplex": "OFF", "ablage": 0, "filter": 1,
+     "r1": "DB0VOX A", "r2": "DB0VOX G", "geraete": ["9700"], "bestaetigt": true,
+     "quelle": "Handbuch DB0VOX Digital Data, vom Nutzer eingefuegt (DD nur IC-9700, nur 23 cm; DD nimmt am Geraet nur FIL1 an)"},
+    {"name": "DB0FUE", "freq": 439275000, "modus": "DV", "duplex": "DUP-", "ablage": 7600000,
+     "r1": "DB0FUE B", "r2": "DB0FUE G", "bestaetigt": false,
+     "quelle": "nur eingefuegte Liste; Multimode (DMR/C4FM), D-STAR nicht belegt; Modul geraten"},
+    {"name": "DB0AN", "freq": 439400000, "modus": "DV", "duplex": "DUP-", "ablage": 7600000,
+     "r1": "DB0AN B", "r2": "DB0AN G", "bestaetigt": false,
+     "quelle": "nur eingefuegte Liste; Betriebsart unklar; Modul geraten"},
+    {"name": "DB0NU", "freq": 439500000, "modus": "DV", "duplex": "DUP-", "ablage": 7600000,
+     "r1": "DB0NU B", "r2": "DB0NU G", "bestaetigt": false,
+     "quelle": "RepeaterBook: DMR und D-STAR, Maroldsweisach (ca. 100 km); Modul geraten"}
+  ]
+}
