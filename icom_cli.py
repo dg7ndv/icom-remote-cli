@@ -39,6 +39,7 @@ import configparser
 import json
 import math
 import os
+import signal
 import sys
 import threading
 import time
@@ -497,8 +498,13 @@ def relais_test(rig, a):
     call = a.call.upper()
     f8 = lambda t: t.upper().ljust(8)[:8].encode("ascii")  # noqa: E731
     print(f"Plan: {e['name']} {e['freq'] / 1e6:.4f} MHz DV, {e['duplex']} {e['ablage'] / 1e6:g} MHz, MY {call}, UR CQCQCQ, RPT1 {e['r1']}, RPT2 {e['r2']}")
-    print(f"      Leistung Minimum, Senden {secs:g} s auf Main, vorher 3 s abhoeren" + ("" if a.ja else "   (nur Plan, ohne --ja wird nichts gesendet)"))
-    if not a.ja:
+    watt = min(10.0, a.watt) if a.watt else None
+    if a.hoeren is not None:
+        print(f"      NUR ABHOEREN " + ("unbegrenzt" if not a.hoeren else f"{a.hoeren:g} s") + ", es wird nicht gesendet")
+    else:
+        print(f"      Leistung {'Minimum' if watt is None else f'ca. {watt:g} W'}, Senden {secs:g} s auf Main, vorher 3 s abhoeren"
+              + ("" if a.ja else "   (nur Plan, ohne --ja wird nichts gesendet)"))
+    if not a.ja and a.hoeren is None:
         return
     rig.select("main")
     time.sleep(0.1)
@@ -509,11 +515,60 @@ def relais_test(rig, a):
     rig.civ(0x0D, int(u[4]) << 4 | int(u[5]), int(u[2]) << 4 | int(u[3]), int(u[0]) << 4 | int(u[1]))
     ok1 = rig.civ(0x1F, 0x01, *f8("CQCQCQ"), *f8(e["r1"]), *f8(e["r2"]))[4] == 0xFB
     ok0 = rig.civ(0x1F, 0x00, *f8(call), *b"    ")[4] == 0xFB
-    set_cmd(rig, LEVELS["power"], 0, 0)
+    raw_pw = 0 if watt is None else max(0, min(255, round(watt / 75.0 * 255)))  # 70 cm: Maximum 75 W, linear (Naeherung)
+    set_cmd(rig, LEVELS["power"], *bytes.fromhex(f"{raw_pw:04d}"))
     time.sleep(0.4)
     print(f"Eingestellt: {get_freq(rig) / 1e6:.4f} MHz, Rufzeichen {'gesetzt' if ok0 and ok1 else 'ABGELEHNT'}, Leistung {power_text(level(rig, 'power'), get_freq(rig), '9700')}")
     if not (ok0 and ok1):
         sys.exit("Rufzeichen wurden nicht angenommen - Abbruch ohne Senden")
+    if a.hoeren is not None:  # passives Mithoeren (0 = unbegrenzt bis Strg+C oder kill): Koepfe, Squelch-Oeffnungen und S-Meter ins Log
+        logf = Path(a.log or Path(__file__).with_name(f"hoerlog_{e['name'].replace(' ', '_')}.log"))
+        signal.signal(signal.SIGTERM, lambda *_: (_ for _ in ()).throw(KeyboardInterrupt()))
+
+        def log(text):
+            line = f"{time.strftime('%Y-%m-%d %H:%M:%S')}  {text}"
+            with logf.open("a", encoding="utf-8") as fh:
+                fh.write(line + "\n")
+            print(line, flush=True)
+
+        log(f"START {e['name']} {e['freq'] / 1e6:.4f} MHz, MY {call}, " + ("unbegrenzt" if not a.hoeren else f"{a.hoeren:g} s") + f", Log {logf.name}")
+        last, peak, heard, opened, fails = None, 0, 0, 0, 0
+        t_end = time.time() + a.hoeren if a.hoeren else None
+        t_print, sq_before, peak_all = time.time(), False, 0
+        try:
+            while t_end is None or time.time() < t_end:
+                try:
+                    raw = smeter(rig)[0]
+                    sq = data(rig, 0x15, 0x01)
+                    sq_now = bool(sq and sq[0])
+                    info = dv_rx_info(rig)
+                    fails = 0
+                except TimeoutError:
+                    fails += 1
+                    log(f"keine Antwort vom Geraet ({fails}/10)")
+                    if fails >= 10:
+                        log("ABBRUCH: Verbindung verloren")
+                        break
+                    time.sleep(2)
+                    continue
+                peak, peak_all = max(peak, raw), max(peak_all, raw)
+                if sq_now and not sq_before:
+                    opened += 1
+                    log(f"Squelch offen, S-Meter roh {raw}")
+                sq_before = sq_now
+                if info and info != last:
+                    heard += 1
+                    last = info
+                    log(f"KOPF  MY '{info['mycall']}'  UR '{info['ur']}'  RPT1 '{info['rxrpt1']}'  RPT2 '{info['rxrpt2']}'  Flags {info['flags']}  "
+                        f"{'ueber Relais' if info['mit_relais'] else 'direkt'}  Quittung: {ACK.get(info['ack'], info['ack'])}")
+                if time.time() - t_print >= 300:  # alle 5 Minuten ein Lebenszeichen
+                    log(f"lebt: S-Meter Spitze der letzten 5 min roh {peak}, bisher {heard} Koepfe, {opened}x Squelch offen")
+                    t_print, peak = time.time(), 0
+                time.sleep(0.3)
+        except KeyboardInterrupt:
+            pass
+        log(f"ENDE: {heard} Koepfe, {opened}x Squelch offen, S-Meter Spitze roh {peak_all}")
+        return
     # 1) Abhoeren
     seen, busy = [], False
     end = time.time() + 3
@@ -721,6 +776,9 @@ def main():
     p = sub.add_parser("relais_test", help="Testsendung ueber ein D-STAR-Relais der Liste (IC-9700), prueft die digitale Rueckmeldung")
     p.add_argument("relais", nargs="?", default="DB0VOX"); p.add_argument("--call", default="DG7NDV", help="dein Rufzeichen (MY)")
     p.add_argument("--sekunden", type=float, default=1.5, help="Sendedauer (0,5 bis 3 s)"); p.add_argument("--datei")
+    p.add_argument("--watt", type=float, help="Sendeleistung in W (Vorvorgabe Minimum; hoechstens 10)")
+    p.add_argument("--hoeren", type=float, metavar="SEK", help="nur mithoeren (SEK Sekunden, 0 = unbegrenzt), nichts senden; liest die Rufzeichen der anderen")
+    p.add_argument("--log", help="Logdatei fuer --hoeren (Vorgabe: hoerlog_<Relais>.log im Programmordner)")
     p.add_argument("--ja", action="store_true", help="wirklich senden (sonst nur Plan)")
     p = sub.add_parser("dstar_liste", help="D-STAR-Relaisliste (dstar_liste.json) ab einem Startkanal in den Speicher schreiben")
     p.add_argument("--ab", type=int, help="Startkanal (Vorgabe: start_kanal in der Datei, 20)")
