@@ -124,13 +124,63 @@ def zusammenfuehren(darc, rb):
     return sorted(out, key=lambda e: (e["call"], e["freq_mhz"]))
 
 
+# ---- Region (Bundesland und Regierungsbezirk) aus den Grenzdaten in daten/grenzen/ (OpenStreetMap-/GADM-Grenzen, gemeinfrei bereitgestellt) ----
+_GRENZEN = {}
+
+
+def _polygone(name):
+    if name not in _GRENZEN:
+        doc = json.loads((DATA / "grenzen" / f"{name}.geo.json").read_text(encoding="utf-8"))
+        out = []
+        for f in doc["features"]:
+            pr = f["properties"]
+            label = pr.get("name") if name == "bundeslaender" else pr.get("NAME_2")
+            g = f["geometry"]
+            for poly in (g["coordinates"] if g["type"] == "MultiPolygon" else [g["coordinates"]]):
+                xs = [pt[0] for pt in poly[0]]
+                ys = [pt[1] for pt in poly[0]]
+                out.append((label, (min(xs), max(xs), min(ys), max(ys)), poly))
+        _GRENZEN[name] = out
+    return _GRENZEN[name]
+
+
+def _im_ring(x, y, ring):
+    inside, j = False, len(ring) - 1
+    for i in range(len(ring)):
+        xi, yi, xj, yj = ring[i][0], ring[i][1], ring[j][0], ring[j][1]
+        if (yi > y) != (yj > y) and x < (xj - xi) * (y - yi) / (yj - yi) + xi:
+            inside = not inside
+        j = i
+    return inside
+
+
+def region_von(lat, lon):
+    """(Bundesland, Regierungsbezirk) zu einer Koordinate; leere Texte, wenn nichts passt (z. B. Ausland oder Randlage)."""
+    def finde(name):
+        for label, (x0, x1, y0, y1), poly in _polygone(name):
+            if x0 <= lon <= x1 and y0 <= lat <= y1 and _im_ring(lon, lat, poly[0]) and not any(_im_ring(lon, lat, h) for h in poly[1:]):
+                return label
+        return ""
+    try:
+        return finde("bundeslaender"), finde("regierungsbezirke")
+    except (OSError, ValueError, KeyError):
+        return "", ""
+
+
+def region_eintragen(liste):
+    """Jedem Eintrag mit Koordinaten 'land' und 'bezirk' hinzufuegen (Eintraege ohne Koordinaten bleiben leer)."""
+    for e in liste:
+        e["land"], e["bezirk"] = region_von(e["lat"], e["lon"]) if e.get("lat") is not None else ("", "")
+    return liste
+
+
 def aktualisieren(progress=None):
     """Beide Seiten neu lesen, zusammenfuehren und speichern. Gibt (Anzahl, Meldung) zurueck."""
     if progress:
         progress("RepeaterBook wird gelesen ...")
     rb = repeaterbook_holen()
     darc = darc_holen(progress)
-    liste = zusammenfuehren(darc, rb)
+    liste = region_eintragen(zusammenfuehren(darc, rb))
     DATA.mkdir(exist_ok=True)
     OUT.write_text(json.dumps({"quelle": "DARC-Relaisliste + RepeaterBook", "abgerufen": time.strftime("%Y-%m-%d %H:%M"),
                                "hinweis": "Ablage aus der DARC-Eingabefrequenz; ohne DARC-Eintrag Standardwert je Band. Modul A=23 cm, B=70 cm, C=2 m.",
@@ -147,10 +197,18 @@ STAEDTE_FM = STAEDTE + ["Würzburg", "Bayreuth", "Augsburg", "Ulm", "Karlsruhe",
                         "Tübingen", "Aachen", "Mönchengladbach", "Wilhelmshaven", "Neubrandenburg", "Ansbach", "Weiden", "Schweinfurt", "Landshut", "Memmingen"]
 
 
-def fm_holen(progress=None):
+BAYERN_ORTE = ["Fürth", "Erlangen", "Schwabach", "Roth", "Weißenburg", "Gunzenhausen", "Neumarkt", "Amberg", "Hof", "Coburg", "Kronach", "Kulmbach",
+               "Forchheim", "Hersbruck", "Rothenburg", "Dinkelsbühl", "Feuchtwangen", "Neustadt Aisch", "Aschaffenburg", "Bad Kissingen", "Straubing",
+               "Deggendorf", "Freising", "Fürstenfeldbruck", "Starnberg", "Garmisch-Partenkirchen", "Füssen", "Kaufbeuren", "Lindau", "Traunstein",
+               "Altötting", "Bad Reichenhall", "Berchtesgaden", "Cham", "Schwandorf", "Selb", "Bayreuth", "Pegnitz", "Eichstätt", "Donauwörth", "Dillingen",
+               "Neu-Ulm", "Günzburg", "Mindelheim", "Landsberg am Lech", "Weilheim", "Miesbach", "Erding", "Mühldorf", "Dachau", "Pfaffenhofen"]
+
+
+def fm_holen(progress=None, orte=None):
     """Alle FM-Relais der DARC-Listen (je Stadt die 100 naechsten, zusammengefuehrt)."""
     alle = {}
-    for i, s in enumerate(STAEDTE_FM, 1):
+    orte = orte or STAEDTE_FM
+    for i, s in enumerate(orte, 1):
         try:
             for x in darc_abfrage(s, "fm"):
                 alle.setdefault((x["call"], round(x["ausgabe"] or 0, 4)), x)
@@ -158,7 +216,7 @@ def fm_holen(progress=None):
             if progress:
                 progress(f"FM {s}: Fehler {e}")
         if progress:
-            progress(f"FM-Liste {i}/{len(STAEDTE_FM)} ({s}): {len(alle)} Eintraege")
+            progress(f"FM-Liste {i}/{len(orte)} ({s}): {len(alle)} Eintraege")
         time.sleep(1.5)
     return list(alle.values())
 
@@ -183,8 +241,8 @@ def fm_zusammenfuehren(darc):
 
 
 def aktualisieren_fm(progress=None):
-    """FM-Relaisliste neu lesen und speichern. Gibt (Anzahl, Meldung) zurueck."""
-    liste = fm_zusammenfuehren(fm_holen(progress))
+    """FM-Relaisliste neu lesen und speichern (alle Staedte plus zusaetzliche Orte in Bayern, damit dort nichts fehlt). Gibt (Anzahl, Meldung) zurueck."""
+    liste = region_eintragen(fm_zusammenfuehren(fm_holen(progress, STAEDTE_FM + [o for o in BAYERN_ORTE if o not in STAEDTE_FM])))
     DATA.mkdir(exist_ok=True)
     FM_OUT.write_text(json.dumps({"quelle": "DARC-Relaisliste (FM, je Stadt die 100 naechsten Eintraege)", "abgerufen": time.strftime("%Y-%m-%d %H:%M"),
                                   "hinweis": "Ausgabe/Eingabe/CTCSS aus der DARC-Liste; ein Betriebszustand ist dort nicht enthalten. In dicht besiedelten Gegenden "

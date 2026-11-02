@@ -19,7 +19,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Sachsen-Anhalt",
+   "bezirk": "Halle"
   },
   {
    "call": "DB0ADB",
@@ -37,7 +39,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0AFZ",
@@ -55,7 +59,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Hessen",
+   "bezirk": "Kassel"
   },
   {
    "call": "DB0AMK",
@@ -73,7 +79,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0ARB",
@@ -91,7 +99,9 @@
    "zugang": "CC 1 71.9",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0AUE",
@@ -109,7 +119,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0BA",
@@ -127,7 +139,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Köln"
   },
   {
    "call": "DB0BES",
@@ -145,7 +159,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0BHN",
@@ -163,7 +179,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Niedersachsen",
+   "bezirk": "Luneburg"
   },
   {
    "call": "DB0BI",
@@ -181,7 +199,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Detmold"
   },
   {
    "call": "DB0BLG",
@@ -199,7 +219,9 @@
    "zugang": "CC 1 88.5",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0BOH",
@@ -217,7 +239,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0BQ",
@@ -235,7 +259,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0BRO",
@@ -253,7 +279,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0BS",
@@ -271,7 +299,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Arnsberg"
   },
   {
    "call": "DB0BS",
@@ -289,7 +319,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Arnsberg"
   },
   {
    "call": "DB0BS",
@@ -307,7 +339,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Arnsberg"
   },
   {
    "call": "DB0BT",
@@ -325,7 +359,9 @@
    "zugang": "CC 1 94.8",
    "darc": true,
    "rb": true,
-   "pruefen": "DARC: Ausgabe und Eingabe vertauscht, bitte pruefen"
+   "pruefen": "DARC: Ausgabe und Eingabe vertauscht, bitte pruefen",
+   "land": "Bayern",
+   "bezirk": "Oberfranken"
   },
   {
    "call": "DB0BU",
@@ -343,7 +379,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0BUX",
@@ -361,7 +399,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0CHV",
@@ -379,7 +419,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0CI",
@@ -397,7 +439,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Baden-Württemberg",
+   "bezirk": "Freiburg"
   },
   {
    "call": "DB0CWS",
@@ -415,7 +459,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0DAM",
@@ -433,7 +479,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0DB",
@@ -451,7 +499,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0DBN",
@@ -469,7 +519,9 @@
    "zugang": "103.5",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0DBR",
@@ -487,7 +539,9 @@
    "zugang": "CC 1 88.5",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0DDO",
@@ -505,7 +559,9 @@
    "zugang": "RAN 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Arnsberg"
   },
   {
    "call": "DB0DF",
@@ -523,7 +579,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Berlin",
+   "bezirk": "Berlin"
   },
   {
    "call": "DB0DJ",
@@ -541,7 +599,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Baden-Württemberg",
+   "bezirk": "Karlsruhe"
   },
   {
    "call": "DB0DJ",
@@ -559,7 +619,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Baden-Württemberg",
+   "bezirk": "Karlsruhe"
   },
   {
    "call": "DB0DJ",
@@ -577,7 +639,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Baden-Württemberg",
+   "bezirk": "Karlsruhe"
   },
   {
    "call": "DB0DLR",
@@ -595,7 +659,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Niedersachsen",
+   "bezirk": "Braunschweig"
   },
   {
    "call": "DB0DMR",
@@ -613,7 +679,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0DON",
@@ -631,7 +699,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Schwaben"
   },
   {
    "call": "DB0DOS",
@@ -649,7 +719,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Niedersachsen",
+   "bezirk": "Weser-Ems"
   },
   {
    "call": "DB0DRB",
@@ -667,7 +739,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Rheinland-Pfalz",
+   "bezirk": "Trier"
   },
   {
    "call": "DB0DRE",
@@ -685,7 +759,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Munster"
   },
   {
    "call": "DB0DRI",
@@ -703,7 +779,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0DUX",
@@ -721,7 +799,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Düsseldorf"
   },
   {
    "call": "DB0DWL",
@@ -739,7 +819,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Schleswig-Holstein",
+   "bezirk": "Schleswig-Holstein"
   },
   {
    "call": "DB0DWL",
@@ -757,7 +839,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0DY",
@@ -775,7 +859,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Munster"
   },
   {
    "call": "DB0DY",
@@ -793,7 +879,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0EA",
@@ -811,7 +899,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0EBZ",
@@ -829,7 +919,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0EEE",
@@ -847,7 +939,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0EFW",
@@ -865,7 +959,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0EIS",
@@ -883,7 +979,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Arnsberg"
   },
   {
    "call": "DB0ELD",
@@ -901,7 +999,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0ERZ",
@@ -919,7 +1019,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Sachsen",
+   "bezirk": "Chemnitz"
   },
   {
    "call": "DB0ESS",
@@ -937,7 +1039,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0ESS",
@@ -955,7 +1059,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0ESS",
@@ -973,7 +1079,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0EW",
@@ -991,7 +1099,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0FA",
@@ -1009,7 +1119,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0FEU",
@@ -1027,7 +1139,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0FEU",
@@ -1045,7 +1159,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0FHS",
@@ -1063,7 +1179,9 @@
    "zugang": "CC 1 88.5",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Mecklenburg-Vorpommern",
+   "bezirk": "Mecklenburg-Vorpommern"
   },
   {
    "call": "DB0FIB",
@@ -1081,7 +1199,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Sachsen",
+   "bezirk": "Chemnitz"
   },
   {
    "call": "DB0FRB",
@@ -1099,7 +1219,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Baden-Württemberg",
+   "bezirk": "Freiburg"
   },
   {
    "call": "DB0FSG",
@@ -1117,7 +1239,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Oberbayern"
   },
   {
    "call": "DB0FTC",
@@ -1135,7 +1259,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Rheinland-Pfalz",
+   "bezirk": "Rheinhessen-Pfalz"
   },
   {
    "call": "DB0FWS",
@@ -1153,7 +1279,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0GER",
@@ -1171,7 +1299,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0GIS",
@@ -1189,7 +1319,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0GM",
@@ -1207,7 +1339,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Köln"
   },
   {
    "call": "DB0GZL",
@@ -1225,7 +1359,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0HAA",
@@ -1243,7 +1379,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Arnsberg"
   },
   {
    "call": "DB0HAS",
@@ -1261,7 +1399,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Unterfranken"
   },
   {
    "call": "DB0HAW",
@@ -1279,7 +1419,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": "DARC: Ausgabe und Eingabe vertauscht, bitte pruefen"
+   "pruefen": "DARC: Ausgabe und Eingabe vertauscht, bitte pruefen",
+   "land": "Schleswig-Holstein",
+   "bezirk": "Schleswig-Holstein"
   },
   {
    "call": "DB0HBO",
@@ -1297,7 +1439,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0HBO",
@@ -1315,7 +1459,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0HDF",
@@ -1333,7 +1479,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Thüringen",
+   "bezirk": "Thüringen"
   },
   {
    "call": "DB0HEL",
@@ -1351,7 +1499,9 @@
    "zugang": "CC 1 91.5",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0HEW",
@@ -1369,7 +1519,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Niedersachsen",
+   "bezirk": "Luneburg"
   },
   {
    "call": "DB0HFD",
@@ -1387,7 +1539,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Detmold"
   },
   {
    "call": "DB0HFT",
@@ -1405,7 +1559,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bremen",
+   "bezirk": "Bremen"
   },
   {
    "call": "DB0HGW",
@@ -1423,7 +1579,9 @@
    "zugang": "CC 1 82.5",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0HGW",
@@ -1441,7 +1599,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0HK",
@@ -1459,7 +1619,9 @@
    "zugang": "67.0",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0HOB",
@@ -1477,7 +1639,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Oberbayern"
   },
   {
    "call": "DB0HPA",
@@ -1495,7 +1659,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0HQN",
@@ -1513,7 +1679,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Sachsen-Anhalt",
+   "bezirk": "Halle"
   },
   {
    "call": "DB0HQN",
@@ -1531,7 +1699,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Sachsen-Anhalt",
+   "bezirk": "Halle"
   },
   {
    "call": "DB0HRF",
@@ -1549,7 +1719,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Hessen",
+   "bezirk": "Darmstadt"
   },
   {
    "call": "DB0HRF",
@@ -1567,7 +1739,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Hessen",
+   "bezirk": "Darmstadt"
   },
   {
    "call": "DB0HRH",
@@ -1585,7 +1759,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0HRM",
@@ -1603,7 +1779,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0HRO",
@@ -1621,7 +1799,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Mecklenburg-Vorpommern",
+   "bezirk": "Mecklenburg-Vorpommern"
   },
   {
    "call": "DB0HRR",
@@ -1639,7 +1819,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Hessen",
+   "bezirk": "Kassel"
   },
   {
    "call": "DB0HSK",
@@ -1657,7 +1839,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0HZG",
@@ -1675,7 +1859,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0ICM",
@@ -1693,7 +1879,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0IDS",
@@ -1711,7 +1899,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Hessen",
+   "bezirk": "Darmstadt"
   },
   {
    "call": "DB0IKS",
@@ -1729,7 +1919,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0IR",
@@ -1747,7 +1939,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0KEV",
@@ -1765,7 +1959,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0KH",
@@ -1783,7 +1979,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Hessen",
+   "bezirk": "Kassel"
   },
   {
    "call": "DB0KLI",
@@ -1801,7 +1999,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Baden-Württemberg",
+   "bezirk": "Freiburg"
   },
   {
    "call": "DB0KLI",
@@ -1819,7 +2019,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Baden-Württemberg",
+   "bezirk": "Freiburg"
   },
   {
    "call": "DB0KR",
@@ -1837,7 +2039,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Unterfranken"
   },
   {
    "call": "DB0LBX",
@@ -1855,7 +2059,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Baden-Württemberg",
+   "bezirk": "Stuttgart"
   },
   {
    "call": "DB0LE",
@@ -1873,7 +2079,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0LFH",
@@ -1891,7 +2099,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Hessen",
+   "bezirk": "Gießen"
   },
   {
    "call": "DB0LGH",
@@ -1909,7 +2119,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0LIN",
@@ -1927,7 +2139,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Hessen",
+   "bezirk": "Darmstadt"
   },
   {
    "call": "DB0LJ",
@@ -1945,7 +2159,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Rheinland-Pfalz",
+   "bezirk": "Koblenz"
   },
   {
    "call": "DB0LOS",
@@ -1963,7 +2179,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0MAD",
@@ -1981,7 +2199,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Baden-Württemberg",
+   "bezirk": "Karlsruhe"
   },
   {
    "call": "DB0MDW",
@@ -1999,7 +2219,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0MDX",
@@ -2017,7 +2239,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Hessen",
+   "bezirk": "Gießen"
   },
   {
    "call": "DB0MMR",
@@ -2035,7 +2259,9 @@
    "zugang": "CC 8",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Oberbayern"
   },
   {
    "call": "DB0MMR",
@@ -2053,7 +2279,9 @@
    "zugang": "CC 8",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Oberbayern"
   },
   {
    "call": "DB0MOT",
@@ -2071,7 +2299,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Hessen",
+   "bezirk": "Darmstadt"
   },
   {
    "call": "DB0MOT",
@@ -2089,7 +2319,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Hessen",
+   "bezirk": "Darmstadt"
   },
   {
    "call": "DB0NDR",
@@ -2107,7 +2339,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Hamburg",
+   "bezirk": "Hamburg"
   },
   {
    "call": "DB0NEY",
@@ -2125,7 +2359,9 @@
    "zugang": "CC 1 NAC 293 RAN 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0NG",
@@ -2143,7 +2379,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": "DARC: Ausgabe und Eingabe vertauscht, bitte pruefen"
+   "pruefen": "DARC: Ausgabe und Eingabe vertauscht, bitte pruefen",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Munster"
   },
   {
    "call": "DB0NGR",
@@ -2161,7 +2399,9 @@
    "zugang": "100.0",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0NGU",
@@ -2179,7 +2419,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0NLH",
@@ -2197,7 +2439,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0NMS",
@@ -2215,7 +2459,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": "DARC: Ausgabe und Eingabe vertauscht, bitte pruefen"
+   "pruefen": "DARC: Ausgabe und Eingabe vertauscht, bitte pruefen",
+   "land": "Schleswig-Holstein",
+   "bezirk": "Schleswig-Holstein"
   },
   {
    "call": "DB0NPR",
@@ -2233,7 +2479,9 @@
    "zugang": "CC 1 103.5",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Rheinland-Pfalz",
+   "bezirk": "Koblenz"
   },
   {
    "call": "DB0NU",
@@ -2251,7 +2499,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Unterfranken"
   },
   {
    "call": "DB0OAL",
@@ -2269,7 +2519,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Schwaben"
   },
   {
    "call": "DB0OFL",
@@ -2287,7 +2539,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Niedersachsen",
+   "bezirk": "Weser-Ems"
   },
   {
    "call": "DB0OHA",
@@ -2305,7 +2559,9 @@
    "zugang": "CC 1 88.5",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Niedersachsen",
+   "bezirk": "Braunschweig"
   },
   {
    "call": "DB0OL",
@@ -2323,7 +2579,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Niedersachsen",
+   "bezirk": "Weser-Ems"
   },
   {
    "call": "DB0OLF",
@@ -2341,7 +2599,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Munster"
   },
   {
    "call": "DB0OST",
@@ -2359,7 +2619,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0OTV",
@@ -2377,7 +2639,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0OVP",
@@ -2395,7 +2659,9 @@
    "zugang": "CC 1 88.5",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0OW",
@@ -2413,7 +2679,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0OX",
@@ -2431,7 +2699,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0OX",
@@ -2449,7 +2719,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Niedersachsen",
+   "bezirk": "Weser-Ems"
   },
   {
    "call": "DB0PBG",
@@ -2467,7 +2739,9 @@
    "zugang": "CC 1 123.0",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0PBS",
@@ -2485,7 +2759,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Detmold"
   },
   {
    "call": "DB0PEG",
@@ -2503,7 +2779,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Oberfranken"
   },
   {
    "call": "DB0POB",
@@ -2521,7 +2799,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0POB",
@@ -2539,7 +2819,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Oberbayern"
   },
   {
    "call": "DB0RDH",
@@ -2557,7 +2839,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Niederbayern"
   },
   {
    "call": "DB0RDH",
@@ -2575,7 +2859,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Niederbayern"
   },
   {
    "call": "DB0RDH",
@@ -2593,7 +2879,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Niederbayern"
   },
   {
    "call": "DB0REU",
@@ -2611,7 +2899,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0RHN",
@@ -2629,7 +2919,9 @@
    "zugang": "1750",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0RIG",
@@ -2647,7 +2939,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Baden-Württemberg",
+   "bezirk": "Tübingen"
   },
   {
    "call": "DB0RIG",
@@ -2665,7 +2959,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0RKB",
@@ -2683,7 +2979,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0RKB",
@@ -2701,7 +2999,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0RKB",
@@ -2719,7 +3019,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0RKD",
@@ -2737,7 +3039,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0ROE",
@@ -2755,7 +3059,9 @@
    "zugang": "CC 1 NAC 923 RAN 1 85.4",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0ROE",
@@ -2773,7 +3079,9 @@
    "zugang": "CC 1 NAC 923 RAN 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0RPL",
@@ -2791,7 +3099,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Rheinland-Pfalz",
+   "bezirk": "Koblenz"
   },
   {
    "call": "DB0RSR",
@@ -2809,7 +3119,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Niedersachsen",
+   "bezirk": "Braunschweig"
   },
   {
    "call": "DB0RTG",
@@ -2827,7 +3139,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Düsseldorf"
   },
   {
    "call": "DB0RTN",
@@ -2845,7 +3159,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Niedersachsen",
+   "bezirk": "Luneburg"
   },
   {
    "call": "DB0RTV",
@@ -2863,7 +3179,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0RZ",
@@ -2881,7 +3199,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0SAC",
@@ -2899,7 +3219,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0SBX",
@@ -2917,7 +3239,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0SBX",
@@ -2935,7 +3259,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0SD",
@@ -2953,7 +3279,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0SDA",
@@ -2971,7 +3299,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0SIF",
@@ -2989,7 +3319,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0SKF",
@@ -3007,7 +3339,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Baden-Württemberg",
+   "bezirk": "Karlsruhe"
   },
   {
    "call": "DB0SL",
@@ -3025,7 +3359,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": "DARC: Ausgabe und Eingabe vertauscht, bitte pruefen"
+   "pruefen": "DARC: Ausgabe und Eingabe vertauscht, bitte pruefen",
+   "land": "Bayern",
+   "bezirk": "Niederbayern"
   },
   {
    "call": "DB0SLF",
@@ -3043,7 +3379,9 @@
    "zugang": "CC 1 1750",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0SLK",
@@ -3061,7 +3399,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0SN",
@@ -3079,7 +3419,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Niedersachsen",
+   "bezirk": "Braunschweig"
   },
   {
    "call": "DB0SWR",
@@ -3097,7 +3439,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Baden-Württemberg",
+   "bezirk": "Stuttgart"
   },
   {
    "call": "DB0TA",
@@ -3115,7 +3459,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Brandenburg",
+   "bezirk": "Brandenburg"
   },
   {
    "call": "DB0TIT",
@@ -3133,7 +3479,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Baden-Württemberg",
+   "bezirk": "Freiburg"
   },
   {
    "call": "DB0TOD",
@@ -3151,7 +3499,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Baden-Württemberg",
+   "bezirk": "Freiburg"
   },
   {
    "call": "DB0TUD",
@@ -3169,7 +3519,9 @@
    "zugang": "CC 1 88.5",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0TUV",
@@ -3187,7 +3539,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0TUX",
@@ -3205,7 +3559,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0TVH",
@@ -3223,7 +3579,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Niedersachsen",
+   "bezirk": "Hannover"
   },
   {
    "call": "DB0TVM",
@@ -3241,7 +3599,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0UT",
@@ -3259,7 +3619,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0VA",
@@ -3277,7 +3639,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Hessen",
+   "bezirk": "Darmstadt"
   },
   {
    "call": "DB0VEL",
@@ -3295,7 +3659,9 @@
    "zugang": "CSQ",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0VER",
@@ -3313,7 +3679,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Niedersachsen",
+   "bezirk": "Luneburg"
   },
   {
    "call": "DB0VOX",
@@ -3331,7 +3699,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Mittelfranken"
   },
   {
    "call": "DB0VOX",
@@ -3349,7 +3719,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Mittelfranken"
   },
   {
    "call": "DB0VQ",
@@ -3367,7 +3739,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0VR",
@@ -3385,7 +3759,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0WA",
@@ -3403,7 +3779,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Köln"
   },
   {
    "call": "DB0WBD",
@@ -3421,7 +3799,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0WE",
@@ -3439,7 +3819,9 @@
    "zugang": "67.0",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Düsseldorf"
   },
   {
    "call": "DB0WE",
@@ -3457,7 +3839,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Düsseldorf"
   },
   {
    "call": "DB0WIZ",
@@ -3475,7 +3859,9 @@
    "zugang": "88.5",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Hessen",
+   "bezirk": "Kassel"
   },
   {
    "call": "DB0WK",
@@ -3493,7 +3879,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0WO",
@@ -3511,7 +3899,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Niedersachsen",
+   "bezirk": "Weser-Ems"
   },
   {
    "call": "DB0WTS",
@@ -3529,7 +3919,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0WUN",
@@ -3547,7 +3939,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0WUN",
@@ -3565,7 +3959,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0WV",
@@ -3583,7 +3979,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Baden-Württemberg",
+   "bezirk": "Tübingen"
   },
   {
    "call": "DB0WZ",
@@ -3601,7 +3999,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Unterfranken"
   },
   {
    "call": "DB0WZB",
@@ -3619,7 +4019,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0WZH",
@@ -3637,7 +4039,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Unterfranken"
   },
   {
    "call": "DB0XJ",
@@ -3655,7 +4059,9 @@
    "zugang": "CC 1 88.5",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Niedersachsen",
+   "bezirk": "Luneburg"
   },
   {
    "call": "DB0XP",
@@ -3673,7 +4079,9 @@
    "zugang": "CC 1 NAC 293 123.0",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Hessen",
+   "bezirk": "Kassel"
   },
   {
    "call": "DB0XR",
@@ -3691,7 +4099,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0XTK",
@@ -3709,7 +4119,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Oberbayern"
   },
   {
    "call": "DB0YCC",
@@ -3727,7 +4139,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Oberpfalz"
   },
   {
    "call": "DB0YCF",
@@ -3745,7 +4159,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Oberpfalz"
   },
   {
    "call": "DB0ZAV",
@@ -3763,7 +4179,9 @@
    "zugang": "127.3",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0ZB",
@@ -3781,7 +4199,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0ZD",
@@ -3799,7 +4219,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DB0ZKA",
@@ -3817,7 +4239,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Schwaben"
   },
   {
    "call": "DF0MHR",
@@ -3835,7 +4259,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DF0MHR",
@@ -3853,7 +4279,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0BT",
@@ -3871,7 +4299,9 @@
    "zugang": "CC 1 94.8",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0DWD",
@@ -3889,7 +4319,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0ESS",
@@ -3907,7 +4339,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Schwaben"
   },
   {
    "call": "DM0EWE",
@@ -3925,7 +4359,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Mecklenburg-Vorpommern",
+   "bezirk": "Mecklenburg-Vorpommern"
   },
   {
    "call": "DM0FFL",
@@ -3943,7 +4379,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Niederbayern"
   },
   {
    "call": "DM0FI",
@@ -3961,7 +4399,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Brandenburg",
+   "bezirk": "Brandenburg"
   },
   {
    "call": "DM0GAP",
@@ -3979,7 +4419,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0GER",
@@ -3997,7 +4439,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0GZ",
@@ -4015,7 +4459,9 @@
    "zugang": "",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Bayern",
+   "bezirk": "Schwaben"
   },
   {
    "call": "DM0HEI",
@@ -4033,7 +4479,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0HHW",
@@ -4051,7 +4499,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0HMB",
@@ -4069,7 +4519,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0HMB",
@@ -4087,7 +4539,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0HMB",
@@ -4105,7 +4559,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0LC",
@@ -4123,7 +4579,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0LEI",
@@ -4141,7 +4599,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0LUE",
@@ -4159,7 +4619,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0MHD",
@@ -4177,7 +4639,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0NEY",
@@ -4195,7 +4659,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0NGU",
@@ -4213,7 +4679,9 @@
    "zugang": "123.0",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0PX",
@@ -4231,7 +4699,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0RLB",
@@ -4249,7 +4719,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0RUG",
@@ -4267,7 +4739,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0SAT",
@@ -4285,7 +4759,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0WM",
@@ -4303,7 +4779,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0WM",
@@ -4321,7 +4799,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DM0WR",
@@ -4339,7 +4819,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Sachsen-Anhalt",
+   "bezirk": "Magdeburg"
   },
   {
    "call": "DM0WW",
@@ -4357,7 +4839,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DO0BRE",
@@ -4375,7 +4859,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DO0DEL",
@@ -4393,7 +4879,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DO0ERK",
@@ -4411,7 +4899,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DO0HWI",
@@ -4429,7 +4919,9 @@
    "zugang": "88.5",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DO0KL",
@@ -4447,7 +4939,9 @@
    "zugang": "74.4",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Düsseldorf"
   },
   {
    "call": "DO0KL",
@@ -4465,7 +4959,9 @@
    "zugang": "CC 1",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Nordrhein-Westfalen",
+   "bezirk": "Düsseldorf"
   },
   {
    "call": "DO0SRE",
@@ -4483,7 +4979,9 @@
    "zugang": "",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DO0TPB",
@@ -4501,7 +4999,9 @@
    "zugang": "",
    "darc": true,
    "rb": false,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Schleswig-Holstein",
+   "bezirk": "Schleswig-Holstein"
   },
   {
    "call": "DO0TPB",
@@ -4519,7 +5019,9 @@
    "zugang": "CC 1 94.8",
    "darc": true,
    "rb": true,
-   "pruefen": ""
+   "pruefen": "",
+   "land": "Schleswig-Holstein",
+   "bezirk": "Schleswig-Holstein"
   },
   {
    "call": "DO0UN",
@@ -4537,7 +5039,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   },
   {
    "call": "DO0WIL",
@@ -4555,7 +5059,9 @@
    "zugang": "CC 1",
    "darc": false,
    "rb": true,
-   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste"
+   "pruefen": "nur RepeaterBook: nicht in der DARC-D-STAR-Liste",
+   "land": "",
+   "bezirk": ""
   }
  ]
 }
