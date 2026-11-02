@@ -1,0 +1,4646 @@
+{
+ "quelle": "https://relaislisten.darc.de/cgi-bin/relais.pl (type=ds), mehrere Abfragen",
+ "abgerufen": "2026-11-02",
+ "relais": [
+  {
+   "call": "DB0ABL",
+   "locator": "JO61DA",
+   "ausgabe": 439.9,
+   "eingabe": 430.5,
+   "info": "Neuposa, JO61DA Thueringen(o)",
+   "modul": "B",
+   "lat": 51.00649,
+   "lon": 12.28825
+  },
+  {
+   "call": "DB0AFZ",
+   "locator": "JO41RG",
+   "ausgabe": 439.475,
+   "eingabe": 431.875,
+   "info": "AFU-Zentrum / AFU-Zentrum (i)",
+   "modul": "B",
+   "lat": 51.26689,
+   "lon": 9.42677
+  },
+  {
+   "call": "DB0BA",
+   "locator": "JO30NX",
+   "ausgabe": 439.5875,
+   "eingabe": 431.9875,
+   "info": "Cologne, JO30NX / Cologne, JO30NX (i)",
+   "modul": "A",
+   "lat": 50.99444,
+   "lon": 7.13076
+  },
+  {
+   "call": "DB0BHN",
+   "locator": "JO43GN",
+   "ausgabe": 439.5375,
+   "eingabe": 431.9375,
+   "info": "Bremerhaven-Zentrum / Bremerhaven-Zentrum (i)",
+   "modul": "B",
+   "lat": 53.5485,
+   "lon": 8.5793
+  },
+  {
+   "call": "DB0BI",
+   "locator": "JO42FA",
+   "ausgabe": 438.425,
+   "eingabe": 430.825,
+   "info": "Bielefeld, JO42FA Germany(o)",
+   "modul": "B",
+   "lat": 52.01454,
+   "lon": 8.47351
+  },
+  {
+   "call": "DB0BS",
+   "locator": "JO31OL",
+   "ausgabe": 129.8,
+   "eingabe": 127.0,
+   "info": "Bochum / Bochum (i)",
+   "modul": "A",
+   "lat": 51.47304,
+   "lon": 7.22587
+  },
+  {
+   "call": "DB0BS",
+   "locator": "JO31OL",
+   "ausgabe": 145.5875,
+   "eingabe": 144.9875,
+   "info": "Bochum / Bochum (i)",
+   "modul": "C",
+   "lat": 51.47304,
+   "lon": 7.22587
+  },
+  {
+   "call": "DB0BS",
+   "locator": "JO31OL",
+   "ausgabe": 439.45,
+   "eingabe": 431.85,
+   "info": "Bochum / Bochum (i)",
+   "modul": "B",
+   "lat": 51.47304,
+   "lon": 7.22587
+  },
+  {
+   "call": "DB0BT",
+   "locator": "JN59SV",
+   "ausgabe": 431.5,
+   "eingabe": 439.9,
+   "info": "Bayreuth JN59tw Germany(o)",
+   "modul": "B",
+   "lat": 49.888,
+   "lon": 11.5577
+  },
+  {
+   "call": "DB0CI",
+   "locator": "JN48EF",
+   "ausgabe": 439.5,
+   "eingabe": 431.9,
+   "info": "Schramberg-Sulgen / Schramberg-Sulgen (i)",
+   "modul": "B",
+   "lat": 48.21833,
+   "lon": 8.41454
+  },
+  {
+   "call": "DB0DDO",
+   "locator": "JO31RM",
+   "ausgabe": 145.725,
+   "eingabe": 145.125,
+   "info": "Dortmund / Dortmund (i)",
+   "modul": "C",
+   "lat": 51.51069,
+   "lon": 7.46693
+  },
+  {
+   "call": "DB0DF",
+   "locator": "JO62RM",
+   "ausgabe": 439.4625,
+   "eingabe": 431.8625,
+   "info": "Berlin / / Berlin / (i)",
+   "modul": "B",
+   "lat": 52.53555,
+   "lon": 13.48555
+  },
+  {
+   "call": "DB0DJ",
+   "locator": "JN48GV",
+   "ausgabe": 145.7625,
+   "eingabe": 145.1625,
+   "info": "Karlsbad / Karlsbad (i)",
+   "modul": "C",
+   "lat": 48.87722,
+   "lon": 8.50833
+  },
+  {
+   "call": "DB0DJ",
+   "locator": "JN48GV",
+   "ausgabe": 439.5,
+   "eingabe": 431.9,
+   "info": "Karlsbad / Karlsbad (i)",
+   "modul": "B",
+   "lat": 48.87722,
+   "lon": 8.50833
+  },
+  {
+   "call": "DB0DJ",
+   "locator": "JN48GV",
+   "ausgabe": 1298.575,
+   "eingabe": 1270.575,
+   "info": "Karlsbad / Karlsbad (i)",
+   "modul": "A",
+   "lat": 48.87722,
+   "lon": 8.50833
+  },
+  {
+   "call": "DB0DLR",
+   "locator": "JO52GH",
+   "ausgabe": 439.4875,
+   "eingabe": 431.8875,
+   "info": "Braunschweig EDVE / Braunschweig EDVE (i)",
+   "modul": "B",
+   "lat": 52.31559,
+   "lon": 10.56381
+  },
+  {
+   "call": "DB0DON",
+   "locator": "JN58JR",
+   "ausgabe": 439.4688,
+   "eingabe": 431.8687,
+   "info": "Donauwoerth / Donauwoerth (i)",
+   "modul": "B",
+   "lat": 48.73329,
+   "lon": 10.7893
+  },
+  {
+   "call": "DB0DOS",
+   "locator": "JO42AE",
+   "ausgabe": 439.4563,
+   "eingabe": 431.8562,
+   "info": "Osnabrueck / Osnabrueck (i)",
+   "modul": "B",
+   "lat": 52.18127,
+   "lon": 8.03698
+  },
+  {
+   "call": "DB0DRB",
+   "locator": "JN39EX",
+   "ausgabe": 438.425,
+   "eingabe": 430.825,
+   "info": "Hisel / Hisel (i)",
+   "modul": "B",
+   "lat": 49.96567,
+   "lon": 6.36733
+  },
+  {
+   "call": "DB0DRE",
+   "locator": "JO31OO",
+   "ausgabe": 439.525,
+   "eingabe": 431.925,
+   "info": "Recklinghausen Germany(o)",
+   "modul": "B",
+   "lat": 51.61541,
+   "lon": 7.22552
+  },
+  {
+   "call": "DB0DUX",
+   "locator": "JO31JE",
+   "ausgabe": 438.4875,
+   "eingabe": 430.8875,
+   "info": "Duesseldorf, JO31JF Germany(o)",
+   "modul": "B",
+   "lat": 51.20656,
+   "lon": 6.79046
+  },
+  {
+   "call": "DB0DWL",
+   "locator": "JO53IU",
+   "ausgabe": 439.925,
+   "eingabe": 430.525,
+   "info": "Lubeck, JO53iu Germany(o)",
+   "modul": "B",
+   "lat": 53.85681,
+   "lon": 10.66977
+  },
+  {
+   "call": "DB0DY",
+   "locator": "JO32WE",
+   "ausgabe": 438.2,
+   "eingabe": 430.6,
+   "info": "Lengerich / Lengerich (i)",
+   "modul": "B",
+   "lat": 52.16788,
+   "lon": 7.90378
+  },
+  {
+   "call": "DB0EIS",
+   "locator": "JO40AU",
+   "ausgabe": 439.4812,
+   "eingabe": 431.8812,
+   "info": "Siegen---Eisernhardt / Siegen---Eisernhardt(i)",
+   "modul": "B",
+   "lat": 50.8421,
+   "lon": 8.03482
+  },
+  {
+   "call": "DB0ERZ",
+   "locator": "JO60HK",
+   "ausgabe": 439.525,
+   "eingabe": 431.925,
+   "info": "Auersberg / Auersberg (i)",
+   "modul": "B",
+   "lat": 50.45535,
+   "lon": 12.64693
+  },
+  {
+   "call": "DB0FHS",
+   "locator": "JO64MI",
+   "ausgabe": 438.775,
+   "eingabe": 431.175,
+   "info": "Stralsund JO64MI / Stralsund JO64MI (i)",
+   "modul": "B",
+   "lat": 54.3397,
+   "lon": 13.0754
+  },
+  {
+   "call": "DB0FIB",
+   "locator": "JO60LK",
+   "ausgabe": 439.5875,
+   "eingabe": 431.9875,
+   "info": "Fichtelberg / Fichtelberg (i)",
+   "modul": "B",
+   "lat": 50.42895,
+   "lon": 12.95461
+  },
+  {
+   "call": "DB0FRB",
+   "locator": "JN38WA",
+   "ausgabe": 439.5625,
+   "eingabe": 431.9625,
+   "info": "Freiburg, JN38WA / Freiburg, JN38WA (i)",
+   "modul": "B",
+   "lat": 48.01945,
+   "lon": 7.83856
+  },
+  {
+   "call": "DB0FSG",
+   "locator": "JN58VK",
+   "ausgabe": 439.9375,
+   "eingabe": 430.5375,
+   "info": "nr Langenbach Germany(o)",
+   "modul": "B",
+   "lat": 48.43424,
+   "lon": 11.81959
+  },
+  {
+   "call": "DB0FTC",
+   "locator": "JN49BO",
+   "ausgabe": 439.4875,
+   "eingabe": 431.8875,
+   "info": "Quirnheim, JN49BO / Quirnheim, JN49BO (i)",
+   "modul": "B",
+   "lat": 49.5939,
+   "lon": 8.1508
+  },
+  {
+   "call": "DB0GM",
+   "locator": "JO30SX",
+   "ausgabe": 438.45,
+   "eingabe": 430.85,
+   "info": "Gummersbach / Gummersbach (i)",
+   "modul": "B",
+   "lat": 50.99467,
+   "lon": 7.53166
+  },
+  {
+   "call": "DB0HAA",
+   "locator": "JO31SI",
+   "ausgabe": 439.5875,
+   "eingabe": 431.9875,
+   "info": "Hagen / Hagen (i)",
+   "modul": "B",
+   "lat": 51.3646,
+   "lon": 7.50803
+  },
+  {
+   "call": "DB0HAS",
+   "locator": "JO50HA",
+   "ausgabe": 439.4812,
+   "eingabe": 431.8812,
+   "info": "Zeil am Main, JO50ha Germany(o)",
+   "modul": "B",
+   "lat": 50.0137,
+   "lon": 10.591
+  },
+  {
+   "call": "DB0HAW",
+   "locator": "JO54CH",
+   "ausgabe": 431.8,
+   "eingabe": 439.4,
+   "info": "Kiel / Kiel (i)",
+   "modul": "B",
+   "lat": 54.33063,
+   "lon": 10.18017
+  },
+  {
+   "call": "DB0HDF",
+   "locator": "JO50WV",
+   "ausgabe": 439.85,
+   "eingabe": 430.45,
+   "info": "JO50WV -9,4MHz / JO50WV -9,4MHz (i)",
+   "modul": "B",
+   "lat": 50.90775,
+   "lon": 11.85282
+  },
+  {
+   "call": "DB0HEW",
+   "locator": "JO53EJ",
+   "ausgabe": 438.55,
+   "eingabe": 430.95,
+   "info": "JO53EJ / JO53EJ (i)",
+   "modul": "B",
+   "lat": 53.41453,
+   "lon": 10.41187
+  },
+  {
+   "call": "DB0HFD",
+   "locator": "JO42ID",
+   "ausgabe": 438.525,
+   "eingabe": 430.925,
+   "info": "Herford, JO42ID / Herford, JO42ID (i)",
+   "modul": "B",
+   "lat": 52.14517,
+   "lon": 8.72217
+  },
+  {
+   "call": "DB0HFT",
+   "locator": "JO43JB",
+   "ausgabe": 439.4875,
+   "eingabe": 431.8875,
+   "info": "Bremen / Bremen (i)",
+   "modul": "B",
+   "lat": 53.07258,
+   "lon": 8.79356
+  },
+  {
+   "call": "DB0HOB",
+   "locator": "JN67DR",
+   "ausgabe": 438.425,
+   "eingabe": 430.825,
+   "info": "Bergstation Hochries Germany(o)",
+   "modul": "B",
+   "lat": 47.748,
+   "lon": 12.25
+  },
+  {
+   "call": "DB0HQN",
+   "locator": "JO61BJ",
+   "ausgabe": 144.925,
+   "eingabe": 144.925,
+   "info": "Kabelsketal, JO61BJ Deutschland(o)",
+   "modul": "C",
+   "lat": 51.41416,
+   "lon": 12.15002
+  },
+  {
+   "call": "DB0HQN",
+   "locator": "JO61BJ",
+   "ausgabe": 439.95,
+   "eingabe": 430.55,
+   "info": "Kabelsketal, JO61BJ Germany(o)",
+   "modul": "B",
+   "lat": 51.41395,
+   "lon": 12.15002
+  },
+  {
+   "call": "DB0HRF",
+   "locator": "JO40FF",
+   "ausgabe": 439.45,
+   "eingabe": 431.85,
+   "info": "Gr.Feldberg/Taunus / Gr.Feldberg/Taunus (i)",
+   "modul": "B",
+   "lat": 50.23195,
+   "lon": 8.4584
+  },
+  {
+   "call": "DB0HRF",
+   "locator": "JO40FF",
+   "ausgabe": 1242.45,
+   "eingabe": 1270.45,
+   "info": "Gr.Feldberg/Taunus / Gr.Feldberg/Taunus (i)",
+   "modul": "A",
+   "lat": 50.23195,
+   "lon": 8.4584
+  },
+  {
+   "call": "DB0HRO",
+   "locator": "JO64AD",
+   "ausgabe": 438.5,
+   "eingabe": 430.9,
+   "info": "Rostock Germany,DE(o)",
+   "modul": "B",
+   "lat": 54.13,
+   "lon": 12.05
+  },
+  {
+   "call": "DB0HRR",
+   "locator": "JO40RT",
+   "ausgabe": 145.7,
+   "eingabe": 145.1,
+   "info": "Rimberg, JO40rt / Rimberg, JO40rt (i)",
+   "modul": "C",
+   "lat": 50.79749,
+   "lon": 9.46114
+  },
+  {
+   "call": "DB0IDS",
+   "locator": "JO40CF",
+   "ausgabe": 438.4125,
+   "eingabe": 430.8125,
+   "info": "Idstein, JO40CF / Idstein, JO40CF (i)",
+   "modul": "B",
+   "lat": 50.2203,
+   "lon": 8.2481
+  },
+  {
+   "call": "DB0KH",
+   "locator": "JO40RV",
+   "ausgabe": 439.5625,
+   "eingabe": 431.9625,
+   "info": "DSTAR Knuell / DSTAR Knuell (i)",
+   "modul": "B",
+   "lat": 50.91314,
+   "lon": 9.41838
+  },
+  {
+   "call": "DB0KLI",
+   "locator": "JN48JC",
+   "ausgabe": 145.7375,
+   "eingabe": 145.1375,
+   "info": "Klippeneck / Klippeneck (i)",
+   "modul": "C",
+   "lat": 48.10717,
+   "lon": 8.75617
+  },
+  {
+   "call": "DB0KLI",
+   "locator": "JN48JC",
+   "ausgabe": 439.925,
+   "eingabe": 430.525,
+   "info": "Klippeneck / Klippeneck (i)",
+   "modul": "B",
+   "lat": 48.10717,
+   "lon": 8.75617
+  },
+  {
+   "call": "DB0KR",
+   "locator": "JO50EB",
+   "ausgabe": 438.225,
+   "eingabe": 430.625,
+   "info": "Gresshausen, JO50EB Bavaria, Germany(o)",
+   "modul": "B",
+   "lat": 50.045,
+   "lon": 10.385
+  },
+  {
+   "call": "DB0LBX",
+   "locator": "JN48OV",
+   "ausgabe": 439.55,
+   "eingabe": 431.95,
+   "info": "DStar Ludwigsburg / DStar Ludwigsburg (i)",
+   "modul": "B",
+   "lat": 48.8829,
+   "lon": 9.1892
+  },
+  {
+   "call": "DB0LFH",
+   "locator": "JO40JN",
+   "ausgabe": 438.425,
+   "eingabe": 430.825,
+   "info": "Fernwald-Steinbach, Germany(o)",
+   "modul": "B",
+   "lat": 50.55045,
+   "lon": 8.76343
+  },
+  {
+   "call": "DB0LIN",
+   "locator": "JN49JQ",
+   "ausgabe": 438.6125,
+   "eingabe": 431.0125,
+   "info": "Lindenfels - 430 Mhz Hessen(o)",
+   "modul": "B",
+   "lat": 49.68256,
+   "lon": 8.78524
+  },
+  {
+   "call": "DB0LJ",
+   "locator": "JO30QJ",
+   "ausgabe": 439.825,
+   "eingabe": 430.425,
+   "info": "Kruft, JO30QJ / Kruft, JO30QJ (i)",
+   "modul": "B",
+   "lat": 50.3882,
+   "lon": 7.341
+  },
+  {
+   "call": "DB0MAD",
+   "locator": "JN49GK",
+   "ausgabe": 438.475,
+   "eingabe": 430.875,
+   "info": "Mannheim, JN49GK / Mannheim, JN49GK (i)",
+   "modul": "B",
+   "lat": 49.43,
+   "lon": 8.532
+  },
+  {
+   "call": "DB0MDX",
+   "locator": "JO40JT",
+   "ausgabe": 439.5125,
+   "eingabe": 431.9125,
+   "info": "Marburg Germany(o)",
+   "modul": "B",
+   "lat": 50.81,
+   "lon": 8.81
+  },
+  {
+   "call": "DB0MMR",
+   "locator": "JN68ID",
+   "ausgabe": 145.575,
+   "eingabe": 144.975,
+   "info": "Halsbach JN68ID / Halsbach JN68ID (i)",
+   "modul": "C",
+   "lat": 48.1393,
+   "lon": 12.66861
+  },
+  {
+   "call": "DB0MMR",
+   "locator": "JN68ID",
+   "ausgabe": 438.2125,
+   "eingabe": 430.6125,
+   "info": "Halsbach JN68ID / Halsbach JN68ID (i)",
+   "modul": "B",
+   "lat": 48.1393,
+   "lon": 12.66861
+  },
+  {
+   "call": "DB0MOT",
+   "locator": "JO40FF",
+   "ausgabe": 439.4375,
+   "eingabe": 431.8375,
+   "info": "Kleiner Feldberg, JO Germany(o)",
+   "modul": "B",
+   "lat": 50.2218,
+   "lon": 8.4462
+  },
+  {
+   "call": "DB0MOT",
+   "locator": "JO40FF",
+   "ausgabe": 1242.7,
+   "eingabe": 1270.7,
+   "info": "23cm, Kleiner Feldbe Germany(o)",
+   "modul": "A",
+   "lat": 50.2218,
+   "lon": 8.4462
+  },
+  {
+   "call": "DB0NDR",
+   "locator": "JO43XN",
+   "ausgabe": 439.4875,
+   "eingabe": 431.8875,
+   "info": "Hamburg Germany / Hamburg Germany(i)",
+   "modul": "B",
+   "lat": 53.57608,
+   "lon": 9.99039
+  },
+  {
+   "call": "DB0NEY",
+   "locator": "JO33NR",
+   "ausgabe": 439.8,
+   "eingabe": 430.4,
+   "info": "Norderney / Norderney (i)",
+   "modul": "B",
+   "lat": 53.71,
+   "lon": 7.14351
+  },
+  {
+   "call": "DB0NG",
+   "locator": "JO31NQ",
+   "ausgabe": 431.975,
+   "eingabe": 439.575,
+   "info": "MARL, JO31NQ / MARL, JO31NQ (i)",
+   "modul": "B",
+   "lat": 51.68462,
+   "lon": 7.10027
+  },
+  {
+   "call": "DB0NMS",
+   "locator": "JO54AB",
+   "ausgabe": 430.35,
+   "eingabe": 439.75,
+   "info": "Neumuenster, JO54AB / Neumuenster, JO54AB (i)",
+   "modul": "B",
+   "lat": 54.05305,
+   "lon": 10.03729
+  },
+  {
+   "call": "DB0NPR",
+   "locator": "JO30RN",
+   "ausgabe": 439.2125,
+   "eingabe": 431.6125,
+   "info": "Breitscheid, JO30RN Germany(o)",
+   "modul": "B",
+   "lat": 50.56366,
+   "lon": 7.45495
+  },
+  {
+   "call": "DB0NU",
+   "locator": "JO50IE",
+   "ausgabe": 439.5,
+   "eingabe": 431.9,
+   "info": "Altenstein, JO50IE / Altenstein, JO50IE (i)",
+   "modul": "B",
+   "lat": 50.17547,
+   "lon": 10.73991
+  },
+  {
+   "call": "DB0OAL",
+   "locator": "JN57JN",
+   "ausgabe": 438.325,
+   "eingabe": 430.725,
+   "info": "Tegelberg/Allgaeu / Tegelberg/Allgaeu (i)",
+   "modul": "B",
+   "lat": 47.5597,
+   "lon": 10.7789
+  },
+  {
+   "call": "DB0OFL",
+   "locator": "JO33SD",
+   "ausgabe": 433.7,
+   "eingabe": 433.7,
+   "info": "Ostfriesland Country(o)",
+   "modul": "X",
+   "lat": 53.12761,
+   "lon": 7.5383
+  },
+  {
+   "call": "DB0OHA",
+   "locator": "JO51EP",
+   "ausgabe": 439.5625,
+   "eingabe": 431.9625,
+   "info": "Herzberg am Harz, JO / Herzberg am Harz, JO(i)",
+   "modul": "B",
+   "lat": 51.66617,
+   "lon": 10.34333
+  },
+  {
+   "call": "DB0OL",
+   "locator": "JO43CD",
+   "ausgabe": 438.375,
+   "eingabe": 430.775,
+   "info": "Oldenburg Hafen / Oldenburg Hafen (i)",
+   "modul": "B",
+   "lat": 53.1419,
+   "lon": 8.24209
+  },
+  {
+   "call": "DB0OLF",
+   "locator": "JO31QQ",
+   "ausgabe": 439.55,
+   "eingabe": 431.95,
+   "info": "Olfen, JO31QQ / Olfen, JO31QQ(i)",
+   "modul": "B",
+   "lat": 51.69902,
+   "lon": 7.38115
+  },
+  {
+   "call": "DB0OX",
+   "locator": "JO33OO",
+   "ausgabe": 439.3,
+   "eingabe": 431.7,
+   "info": "Norden, JO33oo / Norden, JO33oo (i)",
+   "modul": "B",
+   "lat": 53.59083,
+   "lon": 7.19139
+  },
+  {
+   "call": "DB0PBS",
+   "locator": "JO41JR",
+   "ausgabe": 439.55,
+   "eingabe": 431.95,
+   "info": "Paderborn Universita Germany(o)",
+   "modul": "B",
+   "lat": 51.70923,
+   "lon": 8.76873
+  },
+  {
+   "call": "DB0PEG",
+   "locator": "JN59SS",
+   "ausgabe": 438.9375,
+   "eingabe": 431.3375,
+   "info": "Pegnitz Germany(o)",
+   "modul": "B",
+   "lat": 49.75801,
+   "lon": 11.53274
+  },
+  {
+   "call": "DB0POB",
+   "locator": "JN58QP",
+   "ausgabe": 439.5,
+   "eingabe": 431.9,
+   "info": "Pobenhausen (JN58QP) / Pobenhausen (JN58QP)(i)",
+   "modul": "B",
+   "lat": 48.65933,
+   "lon": 11.383
+  },
+  {
+   "call": "DB0RDH",
+   "locator": "JN68KW",
+   "ausgabe": 145.7375,
+   "eingabe": 145.1375,
+   "info": "Grandsberg / Grandsberg (i)",
+   "modul": "C",
+   "lat": 48.9487,
+   "lon": 12.85025
+  },
+  {
+   "call": "DB0RDH",
+   "locator": "JN68KW",
+   "ausgabe": 439.475,
+   "eingabe": 431.875,
+   "info": "Grandsberg / Grandsberg (i)",
+   "modul": "B",
+   "lat": 48.9487,
+   "lon": 12.85025
+  },
+  {
+   "call": "DB0RDH",
+   "locator": "JN68KW",
+   "ausgabe": 1298.45,
+   "eingabe": 1270.45,
+   "info": "Grandsberg / Grandsberg (i)",
+   "modul": "A",
+   "lat": 48.9487,
+   "lon": 12.85025
+  },
+  {
+   "call": "DB0RIG",
+   "locator": "JN48MA",
+   "ausgabe": 439.0,
+   "eingabe": 432.0,
+   "info": "Messelberg / Messelberg (i)",
+   "modul": "B",
+   "lat": 48.0,
+   "lon": 9.0
+  },
+  {
+   "call": "DB0RPL",
+   "locator": "JO30UK",
+   "ausgabe": 438.525,
+   "eingabe": 430.925,
+   "info": "Hoehr-Grenzhausen / Hoehr-Grenzhausen (i)",
+   "modul": "B",
+   "lat": 50.42433,
+   "lon": 7.73217
+  },
+  {
+   "call": "DB0RSR",
+   "locator": "JO52MD",
+   "ausgabe": 438.4,
+   "eingabe": 430.8,
+   "info": "Bueddenstedt, JO52MD Germany(o)",
+   "modul": "B",
+   "lat": 52.15527,
+   "lon": 11.04269
+  },
+  {
+   "call": "DB0RTG",
+   "locator": "JO31FE",
+   "ausgabe": 439.2,
+   "eingabe": 431.6,
+   "info": "Ratingen, JO31KK Germany(o)",
+   "modul": "B",
+   "lat": 51.17,
+   "lon": 6.49
+  },
+  {
+   "call": "DB0RTN",
+   "locator": "JO43QC",
+   "ausgabe": 439.4375,
+   "eingabe": 431.8375,
+   "info": "Rotenburg Germany(o)",
+   "modul": "B",
+   "lat": 53.1096,
+   "lon": 9.39647
+  },
+  {
+   "call": "DB0SKF",
+   "locator": "JN48EK",
+   "ausgabe": 438.275,
+   "eingabe": 445.875,
+   "info": "Freudenstadt / Freudenstadt (i)",
+   "modul": "B",
+   "lat": 48.43658,
+   "lon": 8.38908
+  },
+  {
+   "call": "DB0SL",
+   "locator": "JN68MV",
+   "ausgabe": 431.85,
+   "eingabe": 439.45,
+   "info": "Greising Germany(o)",
+   "modul": "B",
+   "lat": 48.8757,
+   "lon": 13.02316
+  },
+  {
+   "call": "DB0SN",
+   "locator": "JO41VL",
+   "ausgabe": 439.5,
+   "eingabe": 431.9,
+   "info": "Hoher Hagen Dransfeld, Germany(o)",
+   "modul": "B",
+   "lat": 51.474,
+   "lon": 9.76618
+  },
+  {
+   "call": "DB0SWR",
+   "locator": "JN49RQ",
+   "ausgabe": 438.375,
+   "eingabe": 430.775,
+   "info": "Wertheim/Main / Wertheim/Main (i)",
+   "modul": "B",
+   "lat": 49.68774,
+   "lon": 9.46974
+  },
+  {
+   "call": "DB0TA",
+   "locator": "JO62TP",
+   "ausgabe": 438.35,
+   "eingabe": 430.75,
+   "info": "Berlin-Birkholzaue / Berlin-Birkholzaue (i)",
+   "modul": "B",
+   "lat": 52.63864,
+   "lon": 13.6101
+  },
+  {
+   "call": "DB0TIT",
+   "locator": "JN47CW",
+   "ausgabe": 439.4875,
+   "eingabe": 431.8875,
+   "info": "Titisee JN47CW Germany(o)",
+   "modul": "B",
+   "lat": 47.94745,
+   "lon": 8.23326
+  },
+  {
+   "call": "DB0TOD",
+   "locator": "JN37XS",
+   "ausgabe": 438.5,
+   "eingabe": 430.9,
+   "info": "Hochkopf Todtmoos GermanyBaden Wuertte(o)",
+   "modul": "B",
+   "lat": 47.76626,
+   "lon": 7.9916
+  },
+  {
+   "call": "DB0TVH",
+   "locator": "JO42UJ",
+   "ausgabe": 439.55,
+   "eingabe": 431.95,
+   "info": "Hannover JO42UJ / Hannover JO42UJ (i)",
+   "modul": "B",
+   "lat": 52.3797,
+   "lon": 9.74367
+  },
+  {
+   "call": "DB0VA",
+   "locator": "JO40BC",
+   "ausgabe": 438.325,
+   "eingabe": 430.725,
+   "info": "Hohe Wurzel Taunus J / Hohe Wurzel Taunus J(i)",
+   "modul": "B",
+   "lat": 50.1093,
+   "lon": 8.1333
+  },
+  {
+   "call": "DB0VER",
+   "locator": "JO42PX",
+   "ausgabe": 439.15,
+   "eingabe": 431.55,
+   "info": "Verden Germany(o)",
+   "modul": "B",
+   "lat": 52.99856,
+   "lon": 9.27014
+  },
+  {
+   "call": "DB0VOX",
+   "locator": "JN59MK",
+   "ausgabe": 439.525,
+   "eingabe": 431.925,
+   "info": "Fernmeldeturm / Fernmeldeturm (i)",
+   "modul": "B",
+   "lat": 49.42595,
+   "lon": 11.03896
+  },
+  {
+   "call": "DB0VOX",
+   "locator": "JN59MK",
+   "ausgabe": 1242.45,
+   "eingabe": 1242.45,
+   "info": "Fernmeldeturm / Fernmeldeturm (i)",
+   "modul": "AD",
+   "lat": 49.42595,
+   "lon": 11.03896
+  },
+  {
+   "call": "DB0WA",
+   "locator": "JO30AR",
+   "ausgabe": 438.5875,
+   "eingabe": 430.9875,
+   "info": "Aachen / Aachen (i)",
+   "modul": "B",
+   "lat": 50.74561,
+   "lon": 6.04296
+  },
+  {
+   "call": "DB0WE",
+   "locator": "JO31LJ",
+   "ausgabe": 439.5125,
+   "eingabe": 431.9125,
+   "info": "Essen-Bredeney Germany(o)",
+   "modul": "B",
+   "lat": 51.40928,
+   "lon": 6.98988
+  },
+  {
+   "call": "DB0WE",
+   "locator": "JO31LJ",
+   "ausgabe": 1298.6,
+   "eingabe": 1270.6,
+   "info": "Essen Goetheschule(o)",
+   "modul": "A",
+   "lat": 51.40928,
+   "lon": 6.98988
+  },
+  {
+   "call": "DB0WIZ",
+   "locator": "JO41VG",
+   "ausgabe": 438.45,
+   "eingabe": 430.85,
+   "info": "Witzenhausen, JO41WH / Witzenhausen, JO41WH(i)",
+   "modul": "B",
+   "lat": 51.29164,
+   "lon": 9.77472
+  },
+  {
+   "call": "DB0WO",
+   "locator": "JO33RF",
+   "ausgabe": 439.45,
+   "eingabe": 431.85,
+   "info": "Leer / Leer (i)",
+   "modul": "B",
+   "lat": 53.2368,
+   "lon": 7.4673
+  },
+  {
+   "call": "DB0WV",
+   "locator": "JN47QT",
+   "ausgabe": 439.5625,
+   "eingabe": 431.9625,
+   "info": "Hoechsten, JN47qt Illmensee(o)",
+   "modul": "B",
+   "lat": 47.8227,
+   "lon": 9.4013
+  },
+  {
+   "call": "DB0WZ",
+   "locator": "JN49WS",
+   "ausgabe": 439.9625,
+   "eingabe": 430.5625,
+   "info": "Wuerzburg JN49XS / Wuerzburg JN49XS (i)",
+   "modul": "B",
+   "lat": 49.7799,
+   "lon": 9.9083
+  },
+  {
+   "call": "DB0WZH",
+   "locator": "JN49VT",
+   "ausgabe": 430.3875,
+   "eingabe": 430.3875,
+   "info": "Wuerzburg-Hettstadt, / Wuerzburg-Hettstadt,(i)",
+   "modul": "B",
+   "lat": 49.803,
+   "lon": 9.814
+  },
+  {
+   "call": "DB0XJ",
+   "locator": "JO43RO",
+   "ausgabe": 438.8,
+   "eingabe": 431.2,
+   "info": "Stade, JO43RO / Stade, JO43RO (i)",
+   "modul": "B",
+   "lat": 53.5954,
+   "lon": 9.44319
+  },
+  {
+   "call": "DB0XP",
+   "locator": "JO41UE",
+   "ausgabe": 439.2625,
+   "eingabe": 431.6625,
+   "info": "Hess. Lichtenau JO41 / Hess. Lichtenau JO41(i)",
+   "modul": "B",
+   "lat": 51.1965,
+   "lon": 9.72933
+  },
+  {
+   "call": "DB0XTK",
+   "locator": "JN68IF",
+   "ausgabe": 438.3625,
+   "eingabe": 430.7625,
+   "info": "Neuotting JN68IF / Neuotting JN68IF (i)",
+   "modul": "B",
+   "lat": 48.23715,
+   "lon": 12.68403
+  },
+  {
+   "call": "DB0YCC",
+   "locator": "JN69IE",
+   "ausgabe": 439.125,
+   "eingabe": 431.525,
+   "info": "JN69IE Germany-Bavaria(o)",
+   "modul": "B",
+   "lat": 49.19654,
+   "lon": 12.68331
+  },
+  {
+   "call": "DB0YCF",
+   "locator": "JN69JH",
+   "ausgabe": 439.5,
+   "eingabe": 431.9,
+   "info": "Furth im Wald Bayern(o)",
+   "modul": "B",
+   "lat": 49.31272,
+   "lon": 12.82117
+  },
+  {
+   "call": "DB0ZKA",
+   "locator": "JN58KI",
+   "ausgabe": 438.4,
+   "eingabe": 430.8,
+   "info": "Augsburg / Augsburg (i)",
+   "modul": "B",
+   "lat": 48.33795,
+   "lon": 10.90067
+  },
+  {
+   "call": "DM0ESS",
+   "locator": "JN57DM",
+   "ausgabe": 439.95,
+   "eingabe": 430.55,
+   "info": "Sonthofen, JN57DM / Sonthofen, JN57DM (i)",
+   "modul": "B",
+   "lat": 47.51206,
+   "lon": 10.28033
+  },
+  {
+   "call": "DM0EWE",
+   "locator": "JO73AP",
+   "ausgabe": 434.7875,
+   "eingabe": 434.7875,
+   "info": "Torgelow / Torgelow (i)",
+   "modul": "B",
+   "lat": 53.62725,
+   "lon": 14.01548
+  },
+  {
+   "call": "DM0FFL",
+   "locator": "JN68BN",
+   "ausgabe": 438.375,
+   "eingabe": 430.775,
+   "info": "JN68BN / JN68BN (i)",
+   "modul": "B",
+   "lat": 48.56916,
+   "lon": 12.11312
+  },
+  {
+   "call": "DM0FI",
+   "locator": "JO61UO",
+   "ausgabe": 438.225,
+   "eingabe": 430.625,
+   "info": "Finsterwalde JO61UP Germany(o)",
+   "modul": "B",
+   "lat": 51.62188,
+   "lon": 13.72034
+  },
+  {
+   "call": "DM0GZ",
+   "locator": "JN58FM",
+   "ausgabe": 1299.225,
+   "eingabe": 1240.225,
+   "info": "Gundremmingen JN58FM / Gundremmingen JN58FM(i)",
+   "modul": "A",
+   "lat": 48.5133,
+   "lon": 10.4203
+  },
+  {
+   "call": "DM0NEY",
+   "locator": "JO33NR",
+   "ausgabe": 439.875,
+   "eingabe": 430.475,
+   "info": "Norderney / Norderney (i)",
+   "modul": "B",
+   "lat": 53.71,
+   "lon": 7.14351
+  },
+  {
+   "call": "DM0WR",
+   "locator": "JO51JU",
+   "ausgabe": 430.375,
+   "eingabe": 430.375,
+   "info": "Wernigerode, JO51JT Germany(o)",
+   "modul": "B",
+   "lat": 51.8605,
+   "lon": 10.8073
+  },
+  {
+   "call": "DO0KL",
+   "locator": "JO31GL",
+   "ausgabe": 145.6375,
+   "eingabe": 145.0375,
+   "info": "Kamp-Lintfort, JO31G / Kamp-Lintfort, JO31G(i)",
+   "modul": "C",
+   "lat": 51.49454,
+   "lon": 6.54748
+  },
+  {
+   "call": "DO0KL",
+   "locator": "JO31GL",
+   "ausgabe": 439.1375,
+   "eingabe": 431.5375,
+   "info": "Kamp-Lintfort, JO31G / Kamp-Lintfort, JO31G(i)",
+   "modul": "B",
+   "lat": 51.49454,
+   "lon": 6.54748
+  },
+  {
+   "call": "DO0TPB",
+   "locator": "JO53HJ",
+   "ausgabe": 144.8125,
+   "eingabe": 144.8125,
+   "info": "Basedow / Basedow (i)",
+   "modul": "C",
+   "lat": 53.41465,
+   "lon": 10.58825
+  },
+  {
+   "call": "DO0TPB",
+   "locator": "JO53HJ",
+   "ausgabe": 438.8375,
+   "eingabe": 446.4375,
+   "info": "Basedow / Basedow (i)",
+   "modul": "B",
+   "lat": 53.41465,
+   "lon": 10.58825
+  },
+  {
+   "call": "F1JIO",
+   "locator": "JN39KF",
+   "ausgabe": 438.8,
+   "eingabe": 431.2,
+   "info": "PETITE-ROSSELLE France(o)",
+   "modul": "D",
+   "lat": 49.21034,
+   "lon": 6.86109
+  },
+  {
+   "call": "F1JIO",
+   "locator": "JN39KF",
+   "ausgabe": 438.95,
+   "eingabe": 431.35,
+   "info": "PETITE-ROSSELLE France(o)",
+   "modul": "E",
+   "lat": 49.21034,
+   "lon": 6.86109
+  },
+  {
+   "call": "F1RIV",
+   "locator": "JN37IR",
+   "ausgabe": 434.8875,
+   "eingabe": 434.8875,
+   "info": "Plancher-Bas 70290 France JN37IR83CT(o)",
+   "modul": "B",
+   "lat": 47.72172,
+   "lon": 6.73414
+  },
+  {
+   "call": "F1ZGK",
+   "locator": "JN38BP",
+   "ausgabe": 439.35,
+   "eingabe": 431.75,
+   "info": "Nancy JN38BP / Nancy JN38BP (i)",
+   "modul": "B",
+   "lat": 48.6538,
+   "lon": 6.1095
+  },
+  {
+   "call": "F1ZOK",
+   "locator": "JN38VT",
+   "ausgabe": 439.8375,
+   "eingabe": 430.4375,
+   "info": "Haguenau / Haguenau(i)",
+   "modul": "B",
+   "lat": 48.81875,
+   "lon": 7.78759
+  },
+  {
+   "call": "F1ZSG",
+   "locator": "JN38MA",
+   "ausgabe": 439.975,
+   "eingabe": 430.575,
+   "info": "Relais du Chitelet / Relais du Chitelet(i)",
+   "modul": "B",
+   "lat": 48.03209,
+   "lon": 7.0012
+  },
+  {
+   "call": "F1ZVF",
+   "locator": "JN38RL",
+   "ausgabe": 430.3625,
+   "eingabe": 439.7625,
+   "info": "Bischoffsheim / Bischoffsheim(i)",
+   "modul": "B",
+   "lat": 48.4787,
+   "lon": 7.4805
+  },
+  {
+   "call": "F4EOT",
+   "locator": "JO20AC",
+   "ausgabe": 435.0,
+   "eingabe": 435.0,
+   "info": "Lez FONTAINE JO20AE France(o)",
+   "modul": "B",
+   "lat": 50.1,
+   "lon": 4.0
+  },
+  {
+   "call": "F4FXL",
+   "locator": "JN38TT",
+   "ausgabe": 439.85,
+   "eingabe": 430.45,
+   "info": "desc1 desc2(o)",
+   "modul": "C",
+   "lat": 48.825,
+   "lon": 7.6047
+  },
+  {
+   "call": "F4FXL",
+   "locator": "JN38TT",
+   "ausgabe": 439.975,
+   "eingabe": 430.575,
+   "info": "desc1 desc2(o)",
+   "modul": "B",
+   "lat": 48.825,
+   "lon": 7.6047
+  },
+  {
+   "call": "F4FYE",
+   "locator": "JN39BH",
+   "ausgabe": 434.05,
+   "eingabe": 434.05,
+   "info": "Florange, JN39BH France(o)",
+   "modul": "Z",
+   "lat": 49.3191,
+   "lon": 6.1225
+  },
+  {
+   "call": "F4LAA",
+   "locator": "JN38UN",
+   "ausgabe": 439.4,
+   "eingabe": 430.0,
+   "info": "Lingolsheim, JN38un France(o)",
+   "modul": "B",
+   "lat": 48.56372,
+   "lon": 7.68764
+  },
+  {
+   "call": "F4LQY",
+   "locator": "JN27NN",
+   "ausgabe": 434.5,
+   "eingabe": 434.5,
+   "info": "Is Sur Tille, JN27NM France(o)",
+   "modul": "B",
+   "lat": 47.55297,
+   "lon": 5.1116
+  },
+  {
+   "call": "F5JFA",
+   "locator": "JN38TM",
+   "ausgabe": 434.45,
+   "eingabe": 434.45,
+   "info": "Blaesheim JN38TM France(o)",
+   "modul": "M",
+   "lat": 48.50306,
+   "lon": 7.59962
+  },
+  {
+   "call": "F5JFA",
+   "locator": "JN38TM",
+   "ausgabe": 439.925,
+   "eingabe": 430.525,
+   "info": "Blaesheim JN38TM20FR France(o)",
+   "modul": "A",
+   "lat": 48.50309,
+   "lon": 7.60184
+  },
+  {
+   "call": "F5UJA",
+   "locator": "JN38RL",
+   "ausgabe": 439.9,
+   "eingabe": 430.5,
+   "info": "Rosheim, JN38RL France(o)",
+   "modul": "B",
+   "lat": 48.49425,
+   "lon": 7.45716
+  },
+  {
+   "call": "F5ZEE",
+   "locator": "JN38TX",
+   "ausgabe": 145.6875,
+   "eingabe": 145.0875,
+   "info": "Vosges du Nord / Vosges du Nord (i)",
+   "modul": "C",
+   "lat": 48.9787,
+   "lon": 7.6152
+  },
+  {
+   "call": "F5ZEE",
+   "locator": "JN38TX",
+   "ausgabe": 439.8,
+   "eingabe": 430.4,
+   "info": "Vosges du Nord / Vosges du Nord (i)",
+   "modul": "B",
+   "lat": 48.9787,
+   "lon": 7.6152
+  },
+  {
+   "call": "F5ZOW",
+   "locator": "JN38UO",
+   "ausgabe": 439.85,
+   "eingabe": 430.45,
+   "info": "Strasbourg / Strasbourg(i)",
+   "modul": "B",
+   "lat": 48.5838,
+   "lon": 7.744
+  },
+  {
+   "call": "F6ASS",
+   "locator": "JN38VT",
+   "ausgabe": 430.05,
+   "eingabe": 430.05,
+   "info": "Haguenau France(o)",
+   "modul": "B",
+   "lat": 48.8287,
+   "lon": 7.7963
+  },
+  {
+   "call": "F6CNO",
+   "locator": "JN39KB",
+   "ausgabe": 431.4,
+   "eingabe": 431.4,
+   "info": "Hoste, JN39KB France(o)",
+   "modul": "B",
+   "lat": 49.0699,
+   "lon": 6.889
+  },
+  {
+   "call": "HB3XTK",
+   "locator": "JN47GI",
+   "ausgabe": 439.925,
+   "eingabe": 430.525,
+   "info": "Zuerich Schweiz(o)",
+   "modul": "B",
+   "lat": 47.37083,
+   "lon": 8.54697
+  },
+  {
+   "call": "HB3YAQ",
+   "locator": "JN47DB",
+   "ausgabe": 433.5,
+   "eingabe": 433.5,
+   "info": "Lucerne, JN47db Switzerland(o)",
+   "modul": "D",
+   "lat": 47.05113,
+   "lon": 8.25519
+  },
+  {
+   "call": "HB9BC",
+   "locator": "JN37WJ",
+   "ausgabe": 145.75,
+   "eingabe": 145.15,
+   "info": "Laeufelfingen, JN37W / Laeufelfingen, JN37W(i)",
+   "modul": "C",
+   "lat": 47.3818,
+   "lon": 7.84419
+  },
+  {
+   "call": "HB9BEN",
+   "locator": "JN46BR",
+   "ausgabe": 432.85,
+   "eingabe": 432.85,
+   "info": "JN46BR Schweiz(o)",
+   "modul": "D",
+   "lat": 46.74909,
+   "lon": 8.10171
+  },
+  {
+   "call": "HB9BXR",
+   "locator": "JN47JH",
+   "ausgabe": 430.0125,
+   "eingabe": 430.0125,
+   "info": "Wetzikon Switzerland(o)",
+   "modul": "B",
+   "lat": 47.33,
+   "lon": 8.78
+  },
+  {
+   "call": "HB9BXRGG",
+   "locator": "JN47JH",
+   "ausgabe": 430.0125,
+   "eingabe": 430.0125,
+   "info": "Wetzikon, JN47JH Switzerland(o)",
+   "modul": "D",
+   "lat": 47.33,
+   "lon": 8.78
+  },
+  {
+   "call": "HB9DR",
+   "locator": "JN47QJ",
+   "ausgabe": 438.675,
+   "eingabe": 431.075,
+   "info": "St.Gallen West / St.Gallen West (i)",
+   "modul": "B",
+   "lat": 47.40492,
+   "lon": 9.34734
+  },
+  {
+   "call": "HB9DSF",
+   "locator": "JN47HG",
+   "ausgabe": 439.2375,
+   "eingabe": 431.6375,
+   "info": "Horgen, JN47HG Schweiz(o)",
+   "modul": "B",
+   "lat": 47.25798,
+   "lon": 8.60037
+  },
+  {
+   "call": "HB9EAS",
+   "locator": "JN37SM",
+   "ausgabe": 439.5375,
+   "eingabe": 431.9375,
+   "info": "Basel / Basel (i)",
+   "modul": "B",
+   "lat": 47.52817,
+   "lon": 7.5815
+  },
+  {
+   "call": "HB9EMG",
+   "locator": "JN47JJ",
+   "ausgabe": 430.0,
+   "eingabe": 439.9995,
+   "info": "Mobile Switzerland(o)",
+   "modul": "B",
+   "lat": 47.40809,
+   "lon": 8.763
+  },
+  {
+   "call": "HB9ESA",
+   "locator": "JN36HU",
+   "ausgabe": 433.6,
+   "eingabe": 433.6,
+   "info": "VD, JN36HU Switzerland(o)",
+   "modul": "B",
+   "lat": 46.8496,
+   "lon": 6.62967
+  },
+  {
+   "call": "HB9FBQ",
+   "locator": "JN46GD",
+   "ausgabe": 430.625,
+   "eingabe": 430.625,
+   "info": "VOGORNO Switzerland(o)",
+   "modul": "B",
+   "lat": 46.1333,
+   "lon": 8.538
+  },
+  {
+   "call": "HB9FG",
+   "locator": "JN37KA",
+   "ausgabe": 438.45,
+   "eingabe": 430.85,
+   "info": "Les Geneveys s Coffr / Les Geneveys s Coffr(i)",
+   "modul": "B",
+   "lat": 47.01782,
+   "lon": 6.84961
+  },
+  {
+   "call": "HB9FLL",
+   "locator": "JN36CG",
+   "ausgabe": 430.0,
+   "eingabe": 430.0,
+   "info": "Geneva Switzerland(o)",
+   "modul": "B",
+   "lat": 46.2884,
+   "lon": 6.22
+  },
+  {
+   "call": "HB9FSW",
+   "locator": "JN47RD",
+   "ausgabe": 432.85,
+   "eingabe": 432.85,
+   "info": "Buchs, JN47rd Switzerland(o)",
+   "modul": "B",
+   "lat": 47.1645,
+   "lon": 9.48483
+  },
+  {
+   "call": "HB9GFX",
+   "locator": "JN47DN",
+   "ausgabe": 434.95,
+   "eingabe": 434.95,
+   "info": "Doettingen JN47DN Switzerland(o)",
+   "modul": "D",
+   "lat": 47.56672,
+   "lon": 8.25637
+  },
+  {
+   "call": "HB9H",
+   "locator": "JN46NG",
+   "ausgabe": 439.0,
+   "eingabe": 431.4,
+   "info": "Sta Maria Calanca, J Switzerland(o)",
+   "modul": "D",
+   "lat": 46.25932,
+   "lon": 9.14759
+  },
+  {
+   "call": "HB9HBY",
+   "locator": "JN36HM",
+   "ausgabe": 145.28,
+   "eingabe": 145.28,
+   "info": "Lausanne Suisse(o)",
+   "modul": "C",
+   "lat": 46.53932,
+   "lon": 6.63363
+  },
+  {
+   "call": "HB9HER",
+   "locator": "JN36GT",
+   "ausgabe": 439.825,
+   "eingabe": 432.825,
+   "info": "Bullet JN36GT Switzerland(o)",
+   "modul": "B",
+   "lat": 46.82949,
+   "lon": 6.55095
+  },
+  {
+   "call": "HB9HIK",
+   "locator": "JN37LA",
+   "ausgabe": 439.4875,
+   "eingabe": 431.8875,
+   "info": "Neuchatel, JN37LA Switzerland(o)",
+   "modul": "B",
+   "lat": 47.00606,
+   "lon": 6.96483
+  },
+  {
+   "call": "HB9HJI",
+   "locator": "JN47PN",
+   "ausgabe": 439.55,
+   "eingabe": 431.95,
+   "info": "Amriswil, JN47PN Switzerland(o)",
+   "modul": "C",
+   "lat": 47.55145,
+   "lon": 9.28905
+  },
+  {
+   "call": "HB9HJL",
+   "locator": "JN47GS",
+   "ausgabe": 438.55,
+   "eingabe": 430.95,
+   "info": "Beggingen, JN47GS Switzerland(o)",
+   "modul": "B",
+   "lat": 47.76625,
+   "lon": 8.52837
+  },
+  {
+   "call": "HB9HLI",
+   "locator": "JN37JB",
+   "ausgabe": 438.35,
+   "eingabe": 430.75,
+   "info": "Le Locle Switzerland(o)",
+   "modul": "B",
+   "lat": 47.04809,
+   "lon": 6.75699
+  },
+  {
+   "call": "HB9HOI",
+   "locator": "JN47NK",
+   "ausgabe": 432.8,
+   "eingabe": 432.8,
+   "info": "Bichwil, JN47NK Switzerland(o)",
+   "modul": "B",
+   "lat": 47.422,
+   "lon": 9.13
+  },
+  {
+   "call": "HB9IAC",
+   "locator": "JN36BK",
+   "ausgabe": 145.7625,
+   "eingabe": 145.1625,
+   "info": "La Barillette 1510 M / La Barillette 1510 M(i)",
+   "modul": "C",
+   "lat": 46.42944,
+   "lon": 6.12583
+  },
+  {
+   "call": "HB9IJS",
+   "locator": "JN46CU",
+   "ausgabe": 433.675,
+   "eingabe": 433.675,
+   "info": "Wilen Sarnen Switzerland(o)",
+   "modul": "B",
+   "lat": 46.86313,
+   "lon": 8.19428
+  },
+  {
+   "call": "HB9LU",
+   "locator": "JN47DB",
+   "ausgabe": 439.575,
+   "eingabe": 431.975,
+   "info": "Sonnenberg - Luzern / Sonnenberg - Luzern (i)",
+   "modul": "B",
+   "lat": 47.0443,
+   "lon": 8.2734
+  },
+  {
+   "call": "HB9MM",
+   "locator": "JN36FQ",
+   "ausgabe": 438.85,
+   "eingabe": 431.25,
+   "info": "La Praz Suisse(o)",
+   "modul": "B",
+   "lat": 46.669,
+   "lon": 6.425
+  },
+  {
+   "call": "HB9PS",
+   "locator": "JN36MC",
+   "ausgabe": 144.9,
+   "eingabe": 144.9,
+   "info": "Martigny, JN36MC Switzerland(o)",
+   "modul": "C",
+   "lat": 46.103,
+   "lon": 7.072
+  },
+  {
+   "call": "HB9RL",
+   "locator": "JN46JE",
+   "ausgabe": 438.775,
+   "eingabe": 431.175,
+   "info": "Locarno, JN46JE Switzerland(o)",
+   "modul": "B",
+   "lat": 46.20088,
+   "lon": 8.78931
+  },
+  {
+   "call": "HB9RL",
+   "locator": "JN46HH",
+   "ausgabe": 439.15,
+   "eingabe": 431.55,
+   "info": "Valle Maggia, JN46HH Switzerland(o)",
+   "modul": "E",
+   "lat": 46.31879,
+   "lon": 8.6399
+  },
+  {
+   "call": "HB9RL",
+   "locator": "JN46GK",
+   "ausgabe": 439.25,
+   "eingabe": 431.65,
+   "info": "Robiei, JN46GK Switzerland(o)",
+   "modul": "F",
+   "lat": 46.44317,
+   "lon": 8.51241
+  },
+  {
+   "call": "HB9TMM",
+   "locator": "JN36RW",
+   "ausgabe": 433.9,
+   "eingabe": 433.9,
+   "info": "Bern, JN36RW Switzerland(o)",
+   "modul": "B",
+   "lat": 46.94931,
+   "lon": 7.4638
+  },
+  {
+   "call": "HB9TUO",
+   "locator": "JN46JF",
+   "ausgabe": 433.2,
+   "eingabe": 433.2,
+   "info": "Malai - Gordevio Ticino - Switzerland(o)",
+   "modul": "A",
+   "lat": 46.23902,
+   "lon": 8.75531
+  },
+  {
+   "call": "HB9TUO",
+   "locator": "JN46IF",
+   "ausgabe": 433.6,
+   "eingabe": 433.6,
+   "info": "Gordevio, JN46JF Switzerland(o)",
+   "modul": "M",
+   "lat": 46.20954,
+   "lon": 8.70696
+  },
+  {
+   "call": "HB9UCQ",
+   "locator": "JN36MO",
+   "ausgabe": 145.2375,
+   "eingabe": 145.2375,
+   "info": "Le Paquier Montbarry / Le Paquier Montbarry(i)",
+   "modul": "C",
+   "lat": 46.5946,
+   "lon": 7.0582
+  },
+  {
+   "call": "HB9UCQ",
+   "locator": "JN36MO",
+   "ausgabe": 438.375,
+   "eingabe": 430.775,
+   "info": "Le Paquier Montbarry / Le Paquier Montbarry(i)",
+   "modul": "B",
+   "lat": 46.5946,
+   "lon": 7.0582
+  },
+  {
+   "call": "HB9VD",
+   "locator": "JN36HU",
+   "ausgabe": 438.3125,
+   "eingabe": 430.7125,
+   "info": "Test VB / Test VB (i)",
+   "modul": "A",
+   "lat": 46.84962,
+   "lon": 6.62968
+  },
+  {
+   "call": "HB9VD",
+   "locator": "JN36HU",
+   "ausgabe": 439.5125,
+   "eingabe": 431.9125,
+   "info": "Test VB / Test VB (i)",
+   "modul": "B",
+   "lat": 46.84962,
+   "lon": 6.62968
+  },
+  {
+   "call": "HB9WNM",
+   "locator": "JN47JL",
+   "ausgabe": 439.9,
+   "eingabe": 430.2,
+   "info": "Winterthur, jn47jl Switzerland(o)",
+   "modul": "B",
+   "lat": 47.48653,
+   "lon": 8.79743
+  },
+  {
+   "call": "HB9ZG",
+   "locator": "JN47GA",
+   "ausgabe": 439.4625,
+   "eingabe": 431.8625,
+   "info": "Rigi Scheidegg, JN47 Switzerland(o)",
+   "modul": "B",
+   "lat": 47.02767,
+   "lon": 8.51992
+  },
+  {
+   "call": "HB9ZRH",
+   "locator": "JN47FI",
+   "ausgabe": 145.575,
+   "eingabe": 144.975,
+   "info": "2m DSTAR, Uetliberg, / 2m DSTAR, Uetliberg,(i)",
+   "modul": "C",
+   "lat": 47.34963,
+   "lon": 8.49088
+  },
+  {
+   "call": "IK2YYL",
+   "locator": "JN45JU",
+   "ausgabe": 431.425,
+   "eingabe": 436.425,
+   "info": "CDF-Varese, JN45JU Italy(o)",
+   "modul": "B",
+   "lat": 45.8683,
+   "lon": 8.7728
+  },
+  {
+   "call": "IN3FZO",
+   "locator": "JN56OG",
+   "ausgabe": 430.65,
+   "eingabe": 430.65,
+   "info": "Bolzano Italy(o)",
+   "modul": "B",
+   "lat": 46.28,
+   "lon": 11.19
+  },
+  {
+   "call": "IN3IJJ",
+   "locator": "JN56XU",
+   "ausgabe": 430.55,
+   "eingabe": 438.425,
+   "info": "Gais JN56xu Suedtirol(o)",
+   "modul": "B",
+   "lat": 46.83527,
+   "lon": 11.95226
+  },
+  {
+   "call": "IN3LHF",
+   "locator": "JN56IH",
+   "ausgabe": 144.925,
+   "eingabe": 144.925,
+   "info": "Peio, JN56IH Italy(o)",
+   "modul": "C",
+   "lat": 46.32861,
+   "lon": 10.71681
+  },
+  {
+   "call": "IN3LHF",
+   "locator": "JN56IH",
+   "ausgabe": 432.475,
+   "eingabe": 432.475,
+   "info": "Celentino-Peio TN, J Italy(o)",
+   "modul": "D",
+   "lat": 46.3286,
+   "lon": 10.7168
+  },
+  {
+   "call": "IR2UED",
+   "locator": "JN45SS",
+   "ausgabe": 431.5375,
+   "eingabe": 433.1375,
+   "info": "Valcava Italia(o)",
+   "modul": "B",
+   "lat": 45.787,
+   "lon": 9.514
+  },
+  {
+   "call": "IR2UG",
+   "locator": "JN45NT",
+   "ausgabe": 430.025,
+   "eingabe": 431.625,
+   "info": "Brunate ITALY(o)",
+   "modul": "B",
+   "lat": 45.82548,
+   "lon": 9.09934
+  },
+  {
+   "call": "IR2UGK",
+   "locator": "JN46PD",
+   "ausgabe": 430.1875,
+   "eingabe": 431.7875,
+   "info": "Stazzona, JN46qd Italy(o)",
+   "modul": "B",
+   "lat": 46.14778,
+   "lon": 9.27278
+  },
+  {
+   "call": "IR2ZYF",
+   "locator": "JN45MT",
+   "ausgabe": 430.15,
+   "eingabe": 431.75,
+   "info": "Como, jn45nt Italia(o)",
+   "modul": "B",
+   "lat": 45.80751,
+   "lon": 9.0813
+  },
+  {
+   "call": "IR3CT",
+   "locator": "JN66SL",
+   "ausgabe": 430.35,
+   "eingabe": 431.95,
+   "info": "M(o)",
+   "modul": "B",
+   "lat": 46.48229,
+   "lon": 13.5199
+  },
+  {
+   "call": "IR3EB",
+   "locator": "JN56FO",
+   "ausgabe": 431.525,
+   "eingabe": 433.125,
+   "info": "Chavalatsch, Stilfs IT(o)",
+   "modul": "B",
+   "lat": 46.6148,
+   "lon": 10.49206
+  },
+  {
+   "call": "IR3EF",
+   "locator": "JN66OF",
+   "ausgabe": 145.5875,
+   "eingabe": 144.9875,
+   "info": "ircDDB Gateway FVG / ircDDB Gateway FVG(i)",
+   "modul": "C",
+   "lat": 46.2363,
+   "lon": 13.2433
+  },
+  {
+   "call": "IR3UAN",
+   "locator": "JN66ER",
+   "ausgabe": 430.5875,
+   "eingabe": 435.5875,
+   "info": "Helm, Sexten IT(o)",
+   "modul": "B",
+   "lat": 46.71563,
+   "lon": 12.37
+  },
+  {
+   "call": "IR3UAP",
+   "locator": "JN56UQ",
+   "ausgabe": 145.575,
+   "eingabe": 144.975,
+   "info": "Plose, Bozen IT(o)",
+   "modul": "C",
+   "lat": 46.69874,
+   "lon": 11.73383
+  },
+  {
+   "call": "IR3UFF",
+   "locator": "JN66SL",
+   "ausgabe": 431.4125,
+   "eingabe": 433.0125,
+   "info": "ircDDB Gateway FVG / ircDDB Gateway FVG(i)",
+   "modul": "B",
+   "lat": 46.4766,
+   "lon": 13.5202
+  },
+  {
+   "call": "IR3UFM",
+   "locator": "JN56FT",
+   "ausgabe": 430.5875,
+   "eingabe": 435.5875,
+   "info": "Schoeneben, Graun IT(o)",
+   "modul": "B",
+   "lat": 46.79619,
+   "lon": 10.49377
+  },
+  {
+   "call": "IR3UGD",
+   "locator": "JN56PU",
+   "ausgabe": 431.5375,
+   "eingabe": 433.1375,
+   "info": "Jaufen, Sterzing IT(o)",
+   "modul": "B",
+   "lat": 46.84093,
+   "lon": 11.30162
+  },
+  {
+   "call": "IR3UIB",
+   "locator": "JN66LM",
+   "ausgabe": 433.125,
+   "eingabe": 431.525,
+   "info": "ircDDB Gateway FVG / ircDDB Gateway FVG(i)",
+   "modul": "B",
+   "lat": 46.50699,
+   "lon": 12.93285
+  },
+  {
+   "call": "IR3ZVM",
+   "locator": "JN66AL",
+   "ausgabe": 430.362,
+   "eingabe": 431.962,
+   "info": "Colle Santa Lucia Italy(o)",
+   "modul": "B",
+   "lat": 46.48794,
+   "lon": 12.05133
+  },
+  {
+   "call": "IR3ZWD",
+   "locator": "JN66DC",
+   "ausgabe": 431.4875,
+   "eingabe": 433.0875,
+   "info": "Belluno italy(o)",
+   "modul": "B",
+   "lat": 46.09538,
+   "lon": 12.30393
+  },
+  {
+   "call": "IR3ZWF",
+   "locator": "JN66GC",
+   "ausgabe": 430.025,
+   "eingabe": 431.625,
+   "info": "ircDDB Gateway FVG / ircDDB Gateway FVG(i)",
+   "modul": "B",
+   "lat": 46.1244,
+   "lon": 12.557
+  },
+  {
+   "call": "IR3ZXV",
+   "locator": "JN66BN",
+   "ausgabe": 430.2125,
+   "eingabe": 431.8125,
+   "info": "Cortina-Hyden Italy(o)",
+   "modul": "B",
+   "lat": 46.54751,
+   "lon": 12.08499
+  },
+  {
+   "call": "IR3ZZV",
+   "locator": "JN66LK",
+   "ausgabe": 145.6125,
+   "eingabe": 145.0125,
+   "info": "ircDDB Gateway FVG / ircDDB Gateway FVG(i)",
+   "modul": "C",
+   "lat": 46.43181,
+   "lon": 12.995
+  },
+  {
+   "call": "IT9AKQ",
+   "locator": "JN45JT",
+   "ausgabe": 430.2125,
+   "eingabe": 433.7125,
+   "info": "Varese, JN45JT Italy(o)",
+   "modul": "B",
+   "lat": 45.81383,
+   "lon": 8.80133
+  },
+  {
+   "call": "IU2HUQ",
+   "locator": "JN56NK",
+   "ausgabe": 433.65,
+   "eingabe": 433.65,
+   "info": "Borgo d Anaunia Italy(o)",
+   "modul": "B",
+   "lat": 46.43667,
+   "lon": 11.12333
+  },
+  {
+   "call": "IW2ETR",
+   "locator": "JN46SD",
+   "ausgabe": 430.15,
+   "eingabe": 430.15,
+   "info": "Morbegno SO, JN46sd ITALIA(o)",
+   "modul": "B",
+   "lat": 46.14583,
+   "lon": 9.54167
+  },
+  {
+   "call": "IW2FUT",
+   "locator": "JN46QA",
+   "ausgabe": 144.75,
+   "eingabe": 144.75,
+   "info": "Bindo, JN46qa Italy(o)",
+   "modul": "C",
+   "lat": 46.00806,
+   "lon": 9.37972
+  },
+  {
+   "call": "IW2HNB",
+   "locator": "JN45RW",
+   "ausgabe": 433.75,
+   "eingabe": 433.75,
+   "info": "Cremeno, JN45rw Italia(o)",
+   "modul": "B",
+   "lat": 45.92687,
+   "lon": 9.4556
+  },
+  {
+   "call": "IW2NOO",
+   "locator": "JN45IX",
+   "ausgabe": 144.63,
+   "eingabe": 144.69,
+   "info": "Veddasca, JN46JB North Italy(o)",
+   "modul": "C",
+   "lat": 45.98945,
+   "lon": 8.72776
+  },
+  {
+   "call": "IW2NOO",
+   "locator": "JN46JB",
+   "ausgabe": 433.6,
+   "eingabe": 433.6,
+   "info": "Veddasca, JN46JB North Italy(o)",
+   "modul": "B",
+   "lat": 46.07382,
+   "lon": 8.78129
+  },
+  {
+   "call": "IW3AAD",
+   "locator": "JN56NB",
+   "ausgabe": 432.475,
+   "eingabe": 432.475,
+   "info": "Trento, JN56NB Italy(o)",
+   "modul": "B",
+   "lat": 46.0459,
+   "lon": 11.1518
+  },
+  {
+   "call": "IW3BYL",
+   "locator": "JN56NC",
+   "ausgabe": 430.5,
+   "eingabe": 435.5,
+   "info": "Trento Italy(o)",
+   "modul": "B",
+   "lat": 46.08546,
+   "lon": 11.14557
+  },
+  {
+   "call": "IZ7UNM",
+   "locator": "JO80MA",
+   "ausgabe": 431.1,
+   "eingabe": 431.1,
+   "info": "TARANTO ITALY(o)",
+   "modul": "B",
+   "lat": 50.0,
+   "lon": 17.0
+  },
+  {
+   "call": "LX0DML",
+   "locator": "JN39BQ",
+   "ausgabe": 438.3375,
+   "eingabe": 430.7375,
+   "info": "Blaschette / Blaschette (i)",
+   "modul": "B",
+   "lat": 49.69717,
+   "lon": 6.1605
+  },
+  {
+   "call": "LX0DRD",
+   "locator": "JN29XO",
+   "ausgabe": 439.0375,
+   "eingabe": 431.4375,
+   "info": "Dippech / Dippech (i)",
+   "modul": "B",
+   "lat": 49.589,
+   "lon": 5.97433
+  },
+  {
+   "call": "LX0DRH",
+   "locator": "JN29VU",
+   "ausgabe": 438.2,
+   "eingabe": 430.6,
+   "info": "Riesenhaff / Riesenhaff (i)",
+   "modul": "B",
+   "lat": 49.841,
+   "lon": 5.81167
+  },
+  {
+   "call": "LX0DRJ",
+   "locator": "JN39DR",
+   "ausgabe": 439.4,
+   "eingabe": 431.8,
+   "info": "Junglinster / Junglinster (i)",
+   "modul": "B",
+   "lat": 49.71883,
+   "lon": 6.2635
+  },
+  {
+   "call": "LX0DRN",
+   "locator": "JN29XW",
+   "ausgabe": 438.3125,
+   "eingabe": 430.7125,
+   "info": "Nocher / Nocher (i)",
+   "modul": "B",
+   "lat": 49.94417,
+   "lon": 5.9675
+  },
+  {
+   "call": "LX0DRV",
+   "locator": "JN39BW",
+   "ausgabe": 438.525,
+   "eingabe": 430.925,
+   "info": "Ronnebesch / Ronnebesch (i)",
+   "modul": "B",
+   "lat": 49.94217,
+   "lon": 6.1505
+  },
+  {
+   "call": "LX3YV",
+   "locator": "JN39AO",
+   "ausgabe": 438.125,
+   "eingabe": 430.525,
+   "info": "Bertrange , JN39ao Luxembourg(o)",
+   "modul": "B",
+   "lat": 49.60763,
+   "lon": 6.058
+  },
+  {
+   "call": "M0MMS",
+   "locator": "JN49IJ",
+   "ausgabe": 434.6,
+   "eingabe": 434.6,
+   "info": "Heidelberg Germany(o)",
+   "modul": "B",
+   "lat": 49.3759,
+   "lon": 8.6943
+  },
+  {
+   "call": "MD7DVM",
+   "locator": "JN59MV",
+   "ausgabe": 145.3,
+   "eingabe": 145.3,
+   "info": "myCity myCountry(o)",
+   "modul": "C",
+   "lat": 49.8754,
+   "lon": 11.0233
+  },
+  {
+   "call": "NFJN39",
+   "locator": "JN39PR",
+   "ausgabe": 446.0062,
+   "eingabe": 446.0062,
+   "info": "Idar-Oberstein, JN39 Germany(o)",
+   "modul": "B",
+   "lat": 49.7139,
+   "lon": 7.3062
+  },
+  {
+   "call": "OE1XDS",
+   "locator": "JN88EF",
+   "ausgabe": 145.575,
+   "eingabe": 144.975,
+   "info": "VIENNA AKH / VIENNA AKH (i)",
+   "modul": "C",
+   "lat": 48.22042,
+   "lon": 16.34633
+  },
+  {
+   "call": "OE1XDS",
+   "locator": "JN88EF",
+   "ausgabe": 438.525,
+   "eingabe": 430.925,
+   "info": "VIENNA AKH / VIENNA AKH (i)",
+   "modul": "B",
+   "lat": 48.22042,
+   "lon": 16.34633
+  },
+  {
+   "call": "OE1XDS",
+   "locator": "JN88EF",
+   "ausgabe": 1294.425,
+   "eingabe": 1294.425,
+   "info": "VIENNA AKH / VIENNA AKH (i)",
+   "modul": "AD",
+   "lat": 48.22042,
+   "lon": 16.34633
+  },
+  {
+   "call": "OE1XDS",
+   "locator": "JN88EF",
+   "ausgabe": 1298.65,
+   "eingabe": 1270.65,
+   "info": "VIENNA AKH / VIENNA AKH (i)",
+   "modul": "A",
+   "lat": 48.22042,
+   "lon": 16.34633
+  },
+  {
+   "call": "OE1XQU",
+   "locator": "JN88EE",
+   "ausgabe": 438.825,
+   "eingabe": 431.225,
+   "info": "Wien/Wienerberg / Wien/Wienerberg (i)",
+   "modul": "B",
+   "lat": 48.1686,
+   "lon": 16.3463
+  },
+  {
+   "call": "OE2JPO",
+   "locator": "JN67NV",
+   "ausgabe": 431.55,
+   "eingabe": 431.55,
+   "info": "Seekirchen, JN67NV Austria(o)",
+   "modul": "B",
+   "lat": 47.88897,
+   "lon": 13.12662
+  },
+  {
+   "call": "OE3CMW",
+   "locator": "JN88DL",
+   "ausgabe": 430.325,
+   "eingabe": 430.325,
+   "info": "Bruderndorf Austria(o)",
+   "modul": "B",
+   "lat": 48.46799,
+   "lon": 16.29761
+  },
+  {
+   "call": "OE3EGH",
+   "locator": "JN88GE",
+   "ausgabe": 433.5,
+   "eingabe": 433.5,
+   "info": "Gross-Enzersdorf, JN Austria(o)",
+   "modul": "B",
+   "lat": 48.20177,
+   "lon": 16.55218
+  },
+  {
+   "call": "OE3MBU",
+   "locator": "JN87BQ",
+   "ausgabe": 439.0125,
+   "eingabe": 431.4125,
+   "info": "Pitten, JN87BQ Austria(o)",
+   "modul": "B",
+   "lat": 47.70537,
+   "lon": 16.15552
+  },
+  {
+   "call": "OE3OGC",
+   "locator": "JN78WI",
+   "ausgabe": 439.125,
+   "eingabe": 431.525,
+   "info": "Zwentendorf a(o)",
+   "modul": "B",
+   "lat": 48.3434,
+   "lon": 15.91052
+  },
+  {
+   "call": "OE3OKS",
+   "locator": "JN87AR",
+   "ausgabe": 432.7,
+   "eingabe": 432.7,
+   "info": "Ternitz, DMR-OE3 Austria, AT(o)",
+   "modul": "B",
+   "lat": 47.7112,
+   "lon": 16.02282
+  },
+  {
+   "call": "OE3PUT",
+   "locator": "JN88EE",
+   "ausgabe": 433.025,
+   "eingabe": 433.025,
+   "info": "Korneuburg Austria(o)",
+   "modul": "B",
+   "lat": 48.2049,
+   "lon": 16.3662
+  },
+  {
+   "call": "OE3SCC",
+   "locator": "JN88DI",
+   "ausgabe": 433.7125,
+   "eingabe": 433.7125,
+   "info": "Korneuburg, JN88DI Austria(o)",
+   "modul": "B",
+   "lat": 48.34766,
+   "lon": 16.3286
+  },
+  {
+   "call": "OE3TWH",
+   "locator": "JN88EC",
+   "ausgabe": 438.1,
+   "eingabe": 430.5,
+   "info": "Portable Austria(o)",
+   "modul": "B",
+   "lat": 48.1177,
+   "lon": 16.3499
+  },
+  {
+   "call": "OE3XDA",
+   "locator": "JN78LA",
+   "ausgabe": 145.575,
+   "eingabe": 144.975,
+   "info": "HOCHKOGELBERG / HOCHKOGELBERG (i)",
+   "modul": "C",
+   "lat": 48.03428,
+   "lon": 14.95127
+  },
+  {
+   "call": "OE3XPA",
+   "locator": "JN78SB",
+   "ausgabe": 438.45,
+   "eingabe": 430.85,
+   "info": "Kaiserkogel, JN78sb Austria(o)",
+   "modul": "B",
+   "lat": 48.0596,
+   "lon": 15.53968
+  },
+  {
+   "call": "OE3XVI",
+   "locator": "JN77VW",
+   "ausgabe": 438.275,
+   "eingabe": 430.675,
+   "info": "Unterberg / Unterberg (i)",
+   "modul": "B",
+   "lat": 47.938,
+   "lon": 15.81859
+  },
+  {
+   "call": "OE3XVJ",
+   "locator": "JN87CU",
+   "ausgabe": 438.225,
+   "eingabe": 430.625,
+   "info": "FH Wiener Neustadt, / FH Wiener Neustadt, (i)",
+   "modul": "B",
+   "lat": 47.83907,
+   "lon": 16.24789
+  },
+  {
+   "call": "OE3XWU",
+   "locator": "JN77WM",
+   "ausgabe": 439.075,
+   "eingabe": 431.475,
+   "info": "Hochwechsel / Hochwechsel (i)",
+   "modul": "B",
+   "lat": 47.53041,
+   "lon": 15.91459
+  },
+  {
+   "call": "OE3XWW",
+   "locator": "JN87AM",
+   "ausgabe": 145.7625,
+   "eingabe": 145.1625,
+   "info": "Moenichk.Schwaig70cm / Moenichk.Schwaig70cm(i)",
+   "modul": "C",
+   "lat": 47.51556,
+   "lon": 16.00103
+  },
+  {
+   "call": "OE3XWW",
+   "locator": "JN87AM",
+   "ausgabe": 438.575,
+   "eingabe": 430.975,
+   "info": "Moenichk.Schwaig70cm / Moenichk.Schwaig70cm(i)",
+   "modul": "B",
+   "lat": 47.51556,
+   "lon": 16.00103
+  },
+  {
+   "call": "OE4CEN",
+   "locator": "JN87BC",
+   "ausgabe": 434.8,
+   "eingabe": 434.8,
+   "info": "Deutsch Kaltenbrunn Austria(o)",
+   "modul": "B",
+   "lat": 47.08696,
+   "lon": 16.10612
+  },
+  {
+   "call": "OE4XSB",
+   "locator": "JN87FV",
+   "ausgabe": 438.3625,
+   "eingabe": 430.7625,
+   "info": "Sonnenberg / Sonnenberg (i)",
+   "modul": "B",
+   "lat": 47.87546,
+   "lon": 16.476
+  },
+  {
+   "call": "OE5AHN",
+   "locator": "JN88EF",
+   "ausgabe": 433.45,
+   "eingabe": 433.45,
+   "info": "Ternberg, JN77EW Austria(o)",
+   "modul": "B",
+   "lat": 48.2085,
+   "lon": 16.3721
+  },
+  {
+   "call": "OE5LHF",
+   "locator": "JN68WC",
+   "ausgabe": 432.7,
+   "eingabe": 432.7,
+   "info": "Lambach, JN68wc Oesterreich(o)",
+   "modul": "B",
+   "lat": 48.0895,
+   "lon": 13.85328
+  },
+  {
+   "call": "OE5MCM",
+   "locator": "JN68RF",
+   "ausgabe": 432.7,
+   "eingabe": 432.7,
+   "info": "Ried im Innkreis Austria(o)",
+   "modul": "B",
+   "lat": 48.20857,
+   "lon": 13.48793
+  },
+  {
+   "call": "OE5PFF",
+   "locator": "JN78DH",
+   "ausgabe": 432.6,
+   "eingabe": 432.6,
+   "info": "Linz, JN78DH Austria(o)",
+   "modul": "B",
+   "lat": 48.30878,
+   "lon": 14.29901
+  },
+  {
+   "call": "OE5UAM",
+   "locator": "JN68QA",
+   "ausgabe": 433.45,
+   "eingabe": 433.45,
+   "info": "Timelkam, JN68ta Austria(o)",
+   "modul": "B",
+   "lat": 48.0,
+   "lon": 13.36
+  },
+  {
+   "call": "OE5XGL",
+   "locator": "JN67VV",
+   "ausgabe": 438.2625,
+   "eingabe": 438.2625,
+   "info": "Gmunden / Gmunden (i)",
+   "modul": "B",
+   "lat": 47.8983,
+   "lon": 13.8223
+  },
+  {
+   "call": "OE5XIM",
+   "locator": "JN78DN",
+   "ausgabe": 439.0625,
+   "eingabe": 431.4625,
+   "info": "Sternstein / Sternstein (i)",
+   "modul": "B",
+   "lat": 48.5597,
+   "lon": 14.269
+  },
+  {
+   "call": "OE5XKL",
+   "locator": "JN67UM",
+   "ausgabe": 438.5,
+   "eingabe": 431.5,
+   "info": "Krippenstein / Krippenstein (i)",
+   "modul": "B",
+   "lat": 47.52417,
+   "lon": 13.69222
+  },
+  {
+   "call": "OE5XOL",
+   "locator": "JN78DJ",
+   "ausgabe": 438.525,
+   "eingabe": 430.925,
+   "info": "Breitenstein, JN78DJ / Breitenstein, JN78DJ(i)",
+   "modul": "B",
+   "lat": 48.4158,
+   "lon": 14.2742
+  },
+  {
+   "call": "OE5XTP",
+   "locator": "JN68TA",
+   "ausgabe": 144.825,
+   "eingabe": 144.825,
+   "info": "Voecklabruck / Voecklabruck (i)",
+   "modul": "C",
+   "lat": 48.02083,
+   "lon": 13.64333
+  },
+  {
+   "call": "OE6JFG",
+   "locator": "JN77MA",
+   "ausgabe": 434.825,
+   "eingabe": 434.825,
+   "info": "Steiermark Austria(o)",
+   "modul": "B",
+   "lat": 47.0,
+   "lon": 15.0
+  },
+  {
+   "call": "OE6OCG",
+   "locator": "JN77QA",
+   "ausgabe": 438.125,
+   "eingabe": 430.525,
+   "info": "JN77TA Austria(o)",
+   "modul": "B",
+   "lat": 47.03,
+   "lon": 15.36
+  },
+  {
+   "call": "OE6TXW",
+   "locator": "JN87AK",
+   "ausgabe": 433.6125,
+   "eingabe": 433.6125,
+   "info": "Friedberg, JN87ak Austria(o)",
+   "modul": "B",
+   "lat": 47.4416,
+   "lon": 16.0597
+  },
+  {
+   "call": "OE6XAG",
+   "locator": "JN77RE",
+   "ausgabe": 437.975,
+   "eingabe": 430.375,
+   "info": "Schoeckl-Graz / Schoeckl-Graz (i)",
+   "modul": "B",
+   "lat": 47.19885,
+   "lon": 15.46692
+  },
+  {
+   "call": "OE7ERJ",
+   "locator": "JN57HD",
+   "ausgabe": 432.0,
+   "eingabe": 432.0,
+   "info": "Meran von Nordtirol, Tirol(o)",
+   "modul": "C",
+   "lat": 47.15278,
+   "lon": 10.58429
+  },
+  {
+   "call": "OE7ERJ",
+   "locator": "JN57HD",
+   "ausgabe": 433.0,
+   "eingabe": 433.0,
+   "info": "Zams, JN57HD Austria(o)",
+   "modul": "B",
+   "lat": 47.15177,
+   "lon": 10.58428
+  },
+  {
+   "call": "OE7RMT",
+   "locator": "JN57JG",
+   "ausgabe": 432.45,
+   "eingabe": 432.45,
+   "info": "Tarrenz Austria(o)",
+   "modul": "C",
+   "lat": 47.2792,
+   "lon": 10.7674
+  },
+  {
+   "call": "OE7RMT",
+   "locator": "JN57JG",
+   "ausgabe": 432.6,
+   "eingabe": 432.6,
+   "info": "Tarrenz Austria(o)",
+   "modul": "A",
+   "lat": 47.2792,
+   "lon": 10.7674
+  },
+  {
+   "call": "OE7RMT",
+   "locator": "JN57JG",
+   "ausgabe": 432.65,
+   "eingabe": 432.65,
+   "info": "Tarrenz Austria(o)",
+   "modul": "B",
+   "lat": 47.2792,
+   "lon": 10.7674
+  },
+  {
+   "call": "OE7XLH",
+   "locator": "JN66KU",
+   "ausgabe": 438.625,
+   "eingabe": 438.625,
+   "info": "Iselsberg JN66KU / Iselsberg JN66KU (i)",
+   "modul": "B",
+   "lat": 46.848,
+   "lon": 12.8558
+  },
+  {
+   "call": "OE7XOT",
+   "locator": "JN57JG",
+   "ausgabe": 439.1,
+   "eingabe": 431.5,
+   "info": "Obtarrenz JN57JG / Obtarrenz JN57JG (i)",
+   "modul": "B",
+   "lat": 47.2792,
+   "lon": 10.7674
+  },
+  {
+   "call": "OE8HAM",
+   "locator": "JN76CN",
+   "ausgabe": 432.6,
+   "eingabe": 432.6,
+   "info": "JN76CN Austria(o)",
+   "modul": "B",
+   "lat": 46.5609,
+   "lon": 14.2259
+  },
+  {
+   "call": "OE9BGI",
+   "locator": "JN47MA",
+   "ausgabe": 431.15,
+   "eingabe": 431.15,
+   "info": "Dornbirn Austria(o)",
+   "modul": "E",
+   "lat": 47.0,
+   "lon": 9.0
+  },
+  {
+   "call": "OE9MNR",
+   "locator": "JN47UL",
+   "ausgabe": 144.8625,
+   "eingabe": 144.8625,
+   "info": "Wolfurt, JN47ul Austria(o)",
+   "modul": "C",
+   "lat": 47.47344,
+   "lon": 9.74401
+  },
+  {
+   "call": "OE9MRR",
+   "locator": "JN47TL",
+   "ausgabe": 433.15,
+   "eingabe": 433.15,
+   "info": "Gaissau Austria(o)",
+   "modul": "B",
+   "lat": 47.47095,
+   "lon": 9.59585
+  },
+  {
+   "call": "OE9XVI",
+   "locator": "JN47TF",
+   "ausgabe": 438.2,
+   "eingabe": 430.6,
+   "info": "Frastanz JN47TF / Frastanz JN47TF (i)",
+   "modul": "B",
+   "lat": 47.2092,
+   "lon": 9.591
+  },
+  {
+   "call": "OK0BCA",
+   "locator": "JO70UQ",
+   "ausgabe": 438.9,
+   "eingabe": 431.3,
+   "info": "JO70UQ / JO70UQ (i)",
+   "modul": "B",
+   "lat": 50.684,
+   "lon": 15.701
+  },
+  {
+   "call": "OK0BDV",
+   "locator": "JN78IR",
+   "ausgabe": 438.925,
+   "eingabe": 431.325,
+   "info": "Dobra Voda JN78IR / Dobra Voda JN78IR (i)",
+   "modul": "B",
+   "lat": 48.73836,
+   "lon": 14.72428
+  },
+  {
+   "call": "OK0BLI",
+   "locator": "JN78BR",
+   "ausgabe": 439.1,
+   "eingabe": 431.5,
+   "info": "Cerna v Posumavi Lip / Cerna v Posumavi Lip(i)",
+   "modul": "B",
+   "lat": 48.72368,
+   "lon": 14.09064
+  },
+  {
+   "call": "OK0BPI",
+   "locator": "JN79AI",
+   "ausgabe": 438.2125,
+   "eingabe": 430.6125,
+   "info": "NW Pisek Czechia(o)",
+   "modul": "B",
+   "lat": 49.35894,
+   "lon": 14.06843
+  },
+  {
+   "call": "OK0BPT",
+   "locator": "JN78AX",
+   "ausgabe": 439.075,
+   "eingabe": 431.475,
+   "info": "Libin Czech republic(o)",
+   "modul": "B",
+   "lat": 48.97858,
+   "lon": 14.01115
+  },
+  {
+   "call": "OK0DG",
+   "locator": "JN79GA",
+   "ausgabe": 439.0,
+   "eingabe": 431.4,
+   "info": "Adamov, Ceske Budejo / Adamov, Ceske Budejo(i)",
+   "modul": "B",
+   "lat": 49.00272,
+   "lon": 14.55106
+  },
+  {
+   "call": "OK0DJ",
+   "locator": "JO70LR",
+   "ausgabe": 439.15,
+   "eingabe": 431.55,
+   "info": "Jested, JO70LR / Jested, JO70LR (i)",
+   "modul": "B",
+   "lat": 50.7328,
+   "lon": 14.9847
+  },
+  {
+   "call": "OK0DRB",
+   "locator": "JO60RB",
+   "ausgabe": 439.4875,
+   "eingabe": 431.8875,
+   "info": "Plavec, Jesenice / Plavec, Jesenice (i)",
+   "modul": "B",
+   "lat": 50.07965,
+   "lon": 13.49988
+  },
+  {
+   "call": "OK0DRO",
+   "locator": "JN69TR",
+   "ausgabe": 438.6,
+   "eingabe": 431.0,
+   "info": "Rokycany / Rokycany (i)",
+   "modul": "B",
+   "lat": 49.73401,
+   "lon": 13.59715
+  },
+  {
+   "call": "OK0DV",
+   "locator": "JN79SV",
+   "ausgabe": 439.275,
+   "eingabe": 431.675,
+   "info": "Zelezne Hory, JN79SV / Zelezne Hory, JN79SV(i)",
+   "modul": "B",
+   "lat": 49.8963,
+   "lon": 15.5753
+  },
+  {
+   "call": "OK0RZJ",
+   "locator": "JN79HW",
+   "ausgabe": 438.925,
+   "eingabe": 431.325,
+   "info": "Strancice Czech Rep(o)",
+   "modul": "B",
+   "lat": 49.95453,
+   "lon": 14.66265
+  },
+  {
+   "call": "OK1LN",
+   "locator": "JN79AI",
+   "ausgabe": 438.2125,
+   "eingabe": 430.6125,
+   "info": "NW Pisek Czechia(o)",
+   "modul": "B",
+   "lat": 49.35894,
+   "lon": 14.06843
+  },
+  {
+   "call": "OK1MDS",
+   "locator": "JN79FT",
+   "ausgabe": 438.25,
+   "eingabe": 432.25,
+   "info": "Slapy, JN79FT Czech Republic(o)",
+   "modul": "B",
+   "lat": 49.82622,
+   "lon": 14.43861
+  },
+  {
+   "call": "OK1MFI",
+   "locator": "JN79IU",
+   "ausgabe": 438.8,
+   "eingabe": 431.2,
+   "info": "Pysely, JN79IV Czech Republic(o)",
+   "modul": "B",
+   "lat": 49.87,
+   "lon": 14.67
+  },
+  {
+   "call": "OK1SLA",
+   "locator": "JO60HF",
+   "ausgabe": 433.2,
+   "eingabe": 433.2,
+   "info": "Lomnice u Sokolova, CZ(o)",
+   "modul": "B",
+   "lat": 50.213,
+   "lon": 12.6283
+  },
+  {
+   "call": "OK2HF",
+   "locator": "JN89HI",
+   "ausgabe": 430.05,
+   "eingabe": 430.05,
+   "info": "jn89hi Czech(o)",
+   "modul": "B",
+   "lat": 49.351,
+   "lon": 16.655
+  },
+  {
+   "call": "OK4MJ",
+   "locator": "JN69RQ",
+   "ausgabe": 449.81,
+   "eingabe": 449.81,
+   "info": "Stary Plzenec, JN69R CZ(o)",
+   "modul": "B",
+   "lat": 49.69387,
+   "lon": 13.46635
+  },
+  {
+   "call": "ON0AN",
+   "locator": "JO21FF",
+   "ausgabe": 439.35,
+   "eingabe": 431.75,
+   "info": "Antwerp BELGIUM(o)",
+   "modul": "B",
+   "lat": 51.23999,
+   "lon": 4.46379
+  },
+  {
+   "call": "ON0CPS",
+   "locator": "JO20FJ",
+   "ausgabe": 439.5625,
+   "eingabe": 431.9625,
+   "info": "Charleroi, JO20fj / Charleroi, JO20fj (i)",
+   "modul": "B",
+   "lat": 50.41304,
+   "lon": 4.45253
+  },
+  {
+   "call": "ON0DP",
+   "locator": "JO21EC",
+   "ausgabe": 438.4625,
+   "eingabe": 430.8625,
+   "info": "Boom / Boom (i)",
+   "modul": "B",
+   "lat": 51.10248,
+   "lon": 4.36738
+  },
+  {
+   "call": "ON0DP",
+   "locator": "JO21EC",
+   "ausgabe": 1298.225,
+   "eingabe": 1270.225,
+   "info": "Boom / Boom (i)",
+   "modul": "A",
+   "lat": 51.10248,
+   "lon": 4.36738
+  },
+  {
+   "call": "ON0DV",
+   "locator": "JO30AP",
+   "ausgabe": 439.3,
+   "eingabe": 431.7,
+   "info": "Eupen, JO30AP Belgium(o)",
+   "modul": "B",
+   "lat": 50.633,
+   "lon": 6.00904
+  },
+  {
+   "call": "ON0LEE",
+   "locator": "JO10XX",
+   "ausgabe": 439.3,
+   "eingabe": 431.7,
+   "info": "JO10XX Belgium(o)",
+   "modul": "B",
+   "lat": 50.97659,
+   "lon": 3.9962
+  },
+  {
+   "call": "ON0PLL",
+   "locator": "JO20BL",
+   "ausgabe": 439.4375,
+   "eingabe": 431.8375,
+   "info": "La Louviere / La Louviere (i)",
+   "modul": "B",
+   "lat": 50.49578,
+   "lon": 4.09982
+  },
+  {
+   "call": "ON0ULG",
+   "locator": "JO20SO",
+   "ausgabe": 145.625,
+   "eingabe": 145.025,
+   "info": "University of Liege / University of Liege (i)",
+   "modul": "C",
+   "lat": 50.58669,
+   "lon": 5.56925
+  },
+  {
+   "call": "ON0ULG",
+   "locator": "JO20SO",
+   "ausgabe": 439.525,
+   "eingabe": 431.925,
+   "info": "University of Liege / University of Liege (i)",
+   "modul": "B",
+   "lat": 50.58669,
+   "lon": 5.56925
+  },
+  {
+   "call": "ON4RN",
+   "locator": "JO21DC",
+   "ausgabe": 432.2,
+   "eingabe": 432.2,
+   "info": "Antwerp, JO21FE Belgium(o)",
+   "modul": "B",
+   "lat": 51.11,
+   "lon": 4.26
+  },
+  {
+   "call": "ON4WX",
+   "locator": "JN29MW",
+   "ausgabe": 434.0,
+   "eingabe": 434.0,
+   "info": "Bievre, JN29mw Belgium(o)",
+   "modul": "B",
+   "lat": 49.94,
+   "lon": 5.02
+  },
+  {
+   "call": "ON7DS",
+   "locator": "JO21FD",
+   "ausgabe": 433.45,
+   "eingabe": 433.45,
+   "info": "JO21FD BELGIUM(o)",
+   "modul": "B",
+   "lat": 51.12765,
+   "lon": 4.47224
+  },
+  {
+   "call": "ON7GE",
+   "locator": "JO20CL",
+   "ausgabe": 430.2,
+   "eingabe": 430.2,
+   "info": "La Hestre, JO20CL Belgium(o)",
+   "modul": "B",
+   "lat": 50.47715,
+   "lon": 4.24226
+  },
+  {
+   "call": "ON7HH",
+   "locator": "JO20IN",
+   "ausgabe": 434.975,
+   "eingabe": 434.975,
+   "info": "Gembloux Belgium(o)",
+   "modul": "B",
+   "lat": 50.57567,
+   "lon": 4.71693
+  },
+  {
+   "call": "ON7YG",
+   "locator": "JO20BL",
+   "ausgabe": 431.65,
+   "eingabe": 431.65,
+   "info": "JO20BL Belgium(o)",
+   "modul": "B",
+   "lat": 50.49152,
+   "lon": 4.1599
+  },
+  {
+   "call": "ON8MJ",
+   "locator": "JO20KR",
+   "ausgabe": 432.3,
+   "eingabe": 439.9,
+   "info": "Jodoigne, JO20KR Country(o)",
+   "modul": "B",
+   "lat": 50.72271,
+   "lon": 4.86393
+  },
+  {
+   "call": "ON8PMO",
+   "locator": "JO21BD",
+   "ausgabe": 439.925,
+   "eingabe": 432.325,
+   "info": "SINT-NIKLAAS, JO21BE BELGIUM(o)",
+   "modul": "B",
+   "lat": 51.16,
+   "lon": 4.14
+  },
+  {
+   "call": "ON9AID",
+   "locator": "JO20GS",
+   "ausgabe": 438.8,
+   "eingabe": 431.2,
+   "info": "Overijse, JO20GS Belgium(o)",
+   "modul": "B",
+   "lat": 50.77301,
+   "lon": 4.53489
+  },
+  {
+   "call": "OO7D",
+   "locator": "JO10XX",
+   "ausgabe": 439.3,
+   "eingabe": 431.7,
+   "info": "Lede JO10XX Belgium(o)",
+   "modul": "B",
+   "lat": 50.97659,
+   "lon": 3.9962
+  },
+  {
+   "call": "OV9LLA",
+   "locator": "JO57FK",
+   "ausgabe": 434.6,
+   "eingabe": 432.6,
+   "info": "Kig-ud Frederikshavn / Kig-ud Frederikshavn(i)",
+   "modul": "B",
+   "lat": 57.42037,
+   "lon": 10.45381
+  },
+  {
+   "call": "OZ0KBR",
+   "locator": "JO55VF",
+   "ausgabe": 434.9625,
+   "eingabe": 434.9625,
+   "info": "Naestved Danmark(o)",
+   "modul": "B",
+   "lat": 55.2127,
+   "lon": 11.7643
+  },
+  {
+   "call": "OZ1ACH",
+   "locator": "JO53NI",
+   "ausgabe": 434.925,
+   "eingabe": 432.925,
+   "info": "Korsoer - JO55NI41 Danmark(o)",
+   "modul": "B",
+   "lat": 53.34092,
+   "lon": 11.11961
+  },
+  {
+   "call": "OZ1ARQ",
+   "locator": "JO54WS",
+   "ausgabe": 433.45,
+   "eingabe": 433.45,
+   "info": "Nyk(o)",
+   "modul": "B",
+   "lat": 54.7566,
+   "lon": 11.8375
+  },
+  {
+   "call": "OZ1CGK",
+   "locator": "JO55RS",
+   "ausgabe": 433.9,
+   "eingabe": 433.9,
+   "info": "Horve, JO55RS Denmark(o)",
+   "modul": "B",
+   "lat": 55.75838,
+   "lon": 11.45895
+  },
+  {
+   "call": "OZ1LLL",
+   "locator": "JO56IL",
+   "ausgabe": 433.4,
+   "eingabe": 433.4,
+   "info": "Grenaa, JO56IL Danmark(o)",
+   "modul": "B",
+   "lat": 56.47872,
+   "lon": 10.7204
+  },
+  {
+   "call": "OZ1MCX",
+   "locator": "JO57AA",
+   "ausgabe": 432.5125,
+   "eingabe": 432.5125,
+   "info": "Klarup, JO57AA Country, DK(o)",
+   "modul": "B",
+   "lat": 57.01153,
+   "lon": 10.05403
+  },
+  {
+   "call": "OZ1MLX",
+   "locator": "JO65HP",
+   "ausgabe": 434.05,
+   "eingabe": 434.05,
+   "info": "Copenhagen, JO65 Denmark(o)",
+   "modul": "B",
+   "lat": 55.66075,
+   "lon": 12.60506
+  },
+  {
+   "call": "OZ1REC",
+   "locator": "JO57AC",
+   "ausgabe": 434.55,
+   "eingabe": 432.55,
+   "info": "Vodskov / Vodskov (i)",
+   "modul": "B",
+   "lat": 57.1126,
+   "lon": 10.0312
+  },
+  {
+   "call": "OZ1REH",
+   "locator": "JO46LC",
+   "ausgabe": 434.5375,
+   "eingabe": 432.5375,
+   "info": "Herning D-Star / Herning D-Star (i)",
+   "modul": "B",
+   "lat": 56.10567,
+   "lon": 8.9855
+  },
+  {
+   "call": "OZ2CEH",
+   "locator": "JO45VB",
+   "ausgabe": 434.525,
+   "eingabe": 432.525,
+   "info": "HarborMountain, L0C4 Denmark(o)",
+   "modul": "B",
+   "lat": 55.0421,
+   "lon": 9.79336
+  },
+  {
+   "call": "OZ2D",
+   "locator": "JO65EO",
+   "ausgabe": 434.4,
+   "eingabe": 434.4,
+   "info": "Ishoej, JO65EO Denmark(o)",
+   "modul": "D",
+   "lat": 55.61482,
+   "lon": 12.34664
+  },
+  {
+   "call": "OZ2DST",
+   "locator": "JO47XG",
+   "ausgabe": 434.5875,
+   "eingabe": 432.5875,
+   "info": "Broenderslev / Broenderslev (i)",
+   "modul": "B",
+   "lat": 57.27495,
+   "lon": 9.96976
+  },
+  {
+   "call": "OZ2REL",
+   "locator": "JO56CD",
+   "ausgabe": 434.575,
+   "eingabe": 432.575,
+   "info": "Aarhus S / Aarhus S (i)",
+   "modul": "B",
+   "lat": 56.1351,
+   "lon": 10.1776
+  },
+  {
+   "call": "OZ3FON",
+   "locator": "JO55FK",
+   "ausgabe": 433.8,
+   "eingabe": 433.8,
+   "info": "Odense Danmark(o)",
+   "modul": "B",
+   "lat": 55.4211,
+   "lon": 10.4282
+  },
+  {
+   "call": "OZ3REQ",
+   "locator": "JO56CC",
+   "ausgabe": 434.5375,
+   "eingabe": 432.5375,
+   "info": "Aarhus / Aarhus (i)",
+   "modul": "B",
+   "lat": 56.10251,
+   "lon": 10.21034
+  },
+  {
+   "call": "OZ3REY",
+   "locator": "JO45RD",
+   "ausgabe": 434.6,
+   "eingabe": 432.6,
+   "info": "Knivsbjerg / Knivsbjerg (i)",
+   "modul": "B",
+   "lat": 55.13604,
+   "lon": 9.44369
+  },
+  {
+   "call": "OZ4DW",
+   "locator": "JO57GR",
+   "ausgabe": 431.15,
+   "eingabe": 431.15,
+   "info": "Skagen JO57GR Danmark(o)",
+   "modul": "E",
+   "lat": 57.7195,
+   "lon": 10.5669
+  },
+  {
+   "call": "OZ4RED",
+   "locator": "JO45FM",
+   "ausgabe": 145.7625,
+   "eingabe": 145.1625,
+   "info": "Esbjerg / Esbjerg (i)",
+   "modul": "C",
+   "lat": 55.5021,
+   "lon": 8.4583
+  },
+  {
+   "call": "OZ4RED",
+   "locator": "JO45FM",
+   "ausgabe": 434.55,
+   "eingabe": 432.55,
+   "info": "Esbjerg / Esbjerg (i)",
+   "modul": "B",
+   "lat": 55.5021,
+   "lon": 8.4583
+  },
+  {
+   "call": "OZ4REN",
+   "locator": "JO46VV",
+   "ausgabe": 434.525,
+   "eingabe": 432.525,
+   "info": "Stoevring / Stoevring (i)",
+   "modul": "B",
+   "lat": 56.8888,
+   "lon": 9.8198
+  },
+  {
+   "call": "OZ5EM",
+   "locator": "JO45WU",
+   "ausgabe": 432.5125,
+   "eingabe": 434.5125,
+   "info": "Horsens, JO45WU Denmark(o)",
+   "modul": "B",
+   "lat": 55.85,
+   "lon": 9.85
+  },
+  {
+   "call": "OZ5EY",
+   "locator": "JO65DJ",
+   "ausgabe": 434.5125,
+   "eingabe": 434.5125,
+   "info": "JO65GQ Denmark(o)",
+   "modul": "B",
+   "lat": 55.4,
+   "lon": 12.33
+  },
+  {
+   "call": "OZ6REQ",
+   "locator": "JO45VX",
+   "ausgabe": 434.5125,
+   "eingabe": 432.5125,
+   "info": "Yding / Yding (i)",
+   "modul": "B",
+   "lat": 55.9932,
+   "lon": 9.7952
+  },
+  {
+   "call": "OZ6RS",
+   "locator": "JO56BD",
+   "ausgabe": 434.475,
+   "eingabe": 434.475,
+   "info": "Viby J danmark(o)",
+   "modul": "B",
+   "lat": 56.1313,
+   "lon": 10.1339
+  },
+  {
+   "call": "OZ7WBA",
+   "locator": "JO55MA",
+   "ausgabe": 432.35,
+   "eingabe": 432.35,
+   "info": "Herning Denmark(o)",
+   "modul": "B",
+   "lat": 55.0,
+   "lon": 11.0
+  },
+  {
+   "call": "OZ8JB",
+   "locator": "JO46MF",
+   "ausgabe": 433.0,
+   "eingabe": 433.0,
+   "info": "Sunds Denmark(o)",
+   "modul": "B",
+   "lat": 56.20987,
+   "lon": 9.00478
+  },
+  {
+   "call": "OZ8PRH",
+   "locator": "JO55EJ",
+   "ausgabe": 434.6625,
+   "eingabe": 432.6625,
+   "info": "Odense City Denmark(o)",
+   "modul": "B",
+   "lat": 55.39281,
+   "lon": 10.37989
+  },
+  {
+   "call": "OZ8REC",
+   "locator": "JO45DG",
+   "ausgabe": 1297.1,
+   "eingabe": 1257.1,
+   "info": "Esbjerg, JO45FL Denmark(o)",
+   "modul": "A",
+   "lat": 55.28,
+   "lon": 8.28
+  },
+  {
+   "call": "OZ9AFZ",
+   "locator": "JO75LD",
+   "ausgabe": 433.4375,
+   "eingabe": 433.4375,
+   "info": "Osterlars-Gudhjem / Osterlars-Gudhjem (i)",
+   "modul": "B",
+   "lat": 55.16585,
+   "lon": 14.96555
+  },
+  {
+   "call": "OZ9CB",
+   "locator": "JO46RX",
+   "ausgabe": 434.085,
+   "eingabe": 434.085,
+   "info": "NIBE, JO46RX Denmark(o)",
+   "modul": "B",
+   "lat": 56.98107,
+   "lon": 9.42116
+  },
+  {
+   "call": "OZ9DSD",
+   "locator": "JO56IL",
+   "ausgabe": 434.5,
+   "eingabe": 434.5,
+   "info": "Grenaa, JO56IL / Grenaa, JO56IL (i)",
+   "modul": "B",
+   "lat": 56.47872,
+   "lon": 10.7204
+  },
+  {
+   "call": "OZ9REZ",
+   "locator": "JO56AL",
+   "ausgabe": 434.5625,
+   "eingabe": 432.5625,
+   "info": "Randers / Randers (i)",
+   "modul": "B",
+   "lat": 56.4694,
+   "lon": 10.0182
+  },
+  {
+   "call": "OZ9SKL",
+   "locator": "JO46TQ",
+   "ausgabe": 434.0,
+   "eingabe": 434.0,
+   "info": "Norager, JO46QK Denmark(o)",
+   "modul": "B",
+   "lat": 56.70463,
+   "lon": 9.62747
+  },
+  {
+   "call": "OZ9ZF",
+   "locator": "JO47WB",
+   "ausgabe": 433.0125,
+   "eingabe": 433.0125,
+   "info": "Aalborg, JO55TN DK(o)",
+   "modul": "B",
+   "lat": 57.04639,
+   "lon": 9.87861
+  },
+  {
+   "call": "PA0EWB",
+   "locator": "JO32KS",
+   "ausgabe": 434.075,
+   "eingabe": 434.075,
+   "info": "Emmen, JO32KS Netherlands(o)",
+   "modul": "B",
+   "lat": 52.7586,
+   "lon": 6.8895
+  },
+  {
+   "call": "PA1EMT",
+   "locator": "JO22IP",
+   "ausgabe": 430.35,
+   "eingabe": 430.35,
+   "info": "Alkmaar, JO22IP Netherlands(o)",
+   "modul": "B",
+   "lat": 52.64,
+   "lon": 4.73
+  },
+  {
+   "call": "PA1LCS",
+   "locator": "JO22IE",
+   "ausgabe": 438.575,
+   "eingabe": 430.975,
+   "info": "Hoofddorp, JO22IH The Netherlands(o)",
+   "modul": "B",
+   "lat": 52.18,
+   "lon": 4.67
+  },
+  {
+   "call": "PA1MLY",
+   "locator": "JO32IT",
+   "ausgabe": 433.5,
+   "eingabe": 433.5,
+   "info": "ZWEELOO, JO32it NETHERLANDS(o)",
+   "modul": "B",
+   "lat": 52.79806,
+   "lon": 6.73069
+  },
+  {
+   "call": "PA1MP",
+   "locator": "JO22IP",
+   "ausgabe": 434.4125,
+   "eingabe": 434.4125,
+   "info": "Alkmaar JO22ip Netherlands(o)",
+   "modul": "B",
+   "lat": 52.63485,
+   "lon": 4.72432
+  },
+  {
+   "call": "PA2JJC",
+   "locator": "JO20DP",
+   "ausgabe": 431.15,
+   "eingabe": 431.15,
+   "info": "Steenbergen,JO21DN Netherlands(o)",
+   "modul": "E",
+   "lat": 50.63,
+   "lon": 4.292
+  },
+  {
+   "call": "PA2TSL",
+   "locator": "JO22OI",
+   "ausgabe": 144.8625,
+   "eingabe": 144.8625,
+   "info": "Almere-Stad, JO22OI The Netherlands(o)",
+   "modul": "C",
+   "lat": 52.36903,
+   "lon": 5.19717
+  },
+  {
+   "call": "PA2TSL",
+   "locator": "JO22OI",
+   "ausgabe": 434.675,
+   "eingabe": 434.675,
+   "info": "Almere-Stad, JO22OI The Netherlands(o)",
+   "modul": "D",
+   "lat": 52.36903,
+   "lon": 5.19717
+  },
+  {
+   "call": "PA3FHI",
+   "locator": "JO21HU",
+   "ausgabe": 433.8,
+   "eingabe": 433.8,
+   "info": "Hendrik Ido Ambacht, nederland(o)",
+   "modul": "B",
+   "lat": 51.85032,
+   "lon": 4.6311
+  },
+  {
+   "call": "PA3GMQ",
+   "locator": "JO33BC",
+   "ausgabe": 432.6,
+   "eingabe": 432.6,
+   "info": "DRACHTEN,JO33BC NEDERLAND(o)",
+   "modul": "B",
+   "lat": 53.11551,
+   "lon": 6.10622
+  },
+  {
+   "call": "PA8F",
+   "locator": "JO22IB",
+   "ausgabe": 431.15,
+   "eingabe": 431.15,
+   "info": "Bodegraven, JO22IB Netherlands(o)",
+   "modul": "B",
+   "lat": 52.08298,
+   "lon": 4.68018
+  },
+  {
+   "call": "PC9T",
+   "locator": "JO21IQ",
+   "ausgabe": 434.8,
+   "eingabe": 434.8,
+   "info": "Lage Zwaluwe, JO21iq Netherlands(o)",
+   "modul": "B",
+   "lat": 51.7062,
+   "lon": 4.7082
+  },
+  {
+   "call": "PD0A",
+   "locator": "JO32EF",
+   "ausgabe": 431.8,
+   "eingabe": 431.8,
+   "info": "Almelo JO32hh Netherlands(o)",
+   "modul": "C",
+   "lat": 52.22,
+   "lon": 6.4
+  },
+  {
+   "call": "PD0ABN",
+   "locator": "JO22KC",
+   "ausgabe": 438.425,
+   "eingabe": 433.425,
+   "info": "Woerden Netherlands(o)",
+   "modul": "B",
+   "lat": 52.09352,
+   "lon": 4.89755
+  },
+  {
+   "call": "PD0D",
+   "locator": "JO21IT",
+   "ausgabe": 431.0,
+   "eingabe": 431.0,
+   "info": "Dordrecht ZHZ JO21IT Nederland(o)",
+   "modul": "B",
+   "lat": 51.80821,
+   "lon": 4.71914
+  },
+  {
+   "call": "PD0HLA",
+   "locator": "JO22ID",
+   "ausgabe": 431.15,
+   "eingabe": 431.15,
+   "info": "Alphen aan den Rijn Netherlands(o)",
+   "modul": "B",
+   "lat": 52.14862,
+   "lon": 4.68018
+  },
+  {
+   "call": "PD0HOD",
+   "locator": "JO22NF",
+   "ausgabe": 434.95,
+   "eingabe": 434.95,
+   "info": "Almere The Netherlands(o)",
+   "modul": "B",
+   "lat": 52.22,
+   "lon": 5.12
+  },
+  {
+   "call": "PD0PHA",
+   "locator": "JO32DC",
+   "ausgabe": 439.95,
+   "eingabe": 434.95,
+   "info": "Vorden Netherlands(o)",
+   "modul": "B",
+   "lat": 52.1,
+   "lon": 6.317
+  },
+  {
+   "call": "PD0ZA",
+   "locator": "JO21DL",
+   "ausgabe": 434.8,
+   "eingabe": 434.8,
+   "info": "Maasdam Nederland(o)",
+   "modul": "B",
+   "lat": 51.47,
+   "lon": 4.33
+  },
+  {
+   "call": "PD1AEU",
+   "locator": "JO21IQ",
+   "ausgabe": 430.7,
+   "eingabe": 430.7,
+   "info": "Zevenbergschen Hoek Netherlands(o)",
+   "modul": "B",
+   "lat": 51.6705,
+   "lon": 4.6775
+  },
+  {
+   "call": "PD1AJJ",
+   "locator": "JO21HT",
+   "ausgabe": 431.0,
+   "eingabe": 431.0,
+   "info": "Zwijndrecht Netherlands(o)",
+   "modul": "B",
+   "lat": 51.8089,
+   "lon": 4.6369
+  },
+  {
+   "call": "PD1JRN",
+   "locator": "JO22RD",
+   "ausgabe": 438.7875,
+   "eingabe": 431.1875,
+   "info": "Leusden JO22RD The Netherlands(o)",
+   "modul": "B",
+   "lat": 52.13036,
+   "lon": 5.4287
+  },
+  {
+   "call": "PD1WD",
+   "locator": "JO20VX",
+   "ausgabe": 430.2,
+   "eingabe": 430.2,
+   "info": "Stein, JO20xv Nederland(o)",
+   "modul": "B",
+   "lat": 50.96306,
+   "lon": 5.76637
+  },
+  {
+   "call": "PD2AVD",
+   "locator": "JO32CQ",
+   "ausgabe": 432.0,
+   "eingabe": 432.0,
+   "info": "Meppel NL(o)",
+   "modul": "B",
+   "lat": 52.7,
+   "lon": 6.19
+  },
+  {
+   "call": "PD2HAB",
+   "locator": "JO22MR",
+   "ausgabe": 431.075,
+   "eingabe": 431.075,
+   "info": "Midwoud NH JO22LR Nederland(o)",
+   "modul": "D",
+   "lat": 52.71738,
+   "lon": 5.07512
+  },
+  {
+   "call": "PD2ML",
+   "locator": "JO22OG",
+   "ausgabe": 437.95,
+   "eingabe": 430.35,
+   "info": "Bussum, JO22OG Netherlands(o)",
+   "modul": "B",
+   "lat": 52.2764,
+   "lon": 5.18
+  },
+  {
+   "call": "PD2WR",
+   "locator": "JO22RB",
+   "ausgabe": 438.5,
+   "eingabe": 430.9,
+   "info": "Woudenberg Holland(o)",
+   "modul": "B",
+   "lat": 52.08127,
+   "lon": 5.41915
+  },
+  {
+   "call": "PD3RFR",
+   "locator": "JO22MD",
+   "ausgabe": 434.0,
+   "eingabe": 434.0,
+   "info": "Maarssen, JO22MD The Netherlands(o)",
+   "modul": "B",
+   "lat": 52.12904,
+   "lon": 5.0189
+  },
+  {
+   "call": "PD4PJH",
+   "locator": "JO21NN",
+   "ausgabe": 434.875,
+   "eingabe": 434.875,
+   "info": "Tilburg Nederland(o)",
+   "modul": "A",
+   "lat": 51.54438,
+   "lon": 5.09416
+  },
+  {
+   "call": "PD4RS",
+   "locator": "JO20XW",
+   "ausgabe": 144.825,
+   "eingabe": 144.825,
+   "info": "Heerlen JO20XW NL(o)",
+   "modul": "C",
+   "lat": 50.92556,
+   "lon": 5.96831
+  },
+  {
+   "call": "PD9BTB",
+   "locator": "JO32IG",
+   "ausgabe": 144.8125,
+   "eingabe": 144.8125,
+   "info": "Delden,JO32IG Netherlands(o)",
+   "modul": "C",
+   "lat": 52.25409,
+   "lon": 6.70164
+  },
+  {
+   "call": "PD9BTB",
+   "locator": "JO32IG",
+   "ausgabe": 433.275,
+   "eingabe": 433.275,
+   "info": "Delden,JO32IG Netherlands(o)",
+   "modul": "D",
+   "lat": 52.25409,
+   "lon": 6.70164
+  },
+  {
+   "call": "PE0FK",
+   "locator": "JO21WI",
+   "ausgabe": 439.8,
+   "eingabe": 432.2,
+   "info": "Meijel, JO21wi The Netherlands(o)",
+   "modul": "B",
+   "lat": 51.34167,
+   "lon": 5.89318
+  },
+  {
+   "call": "PE1BDV",
+   "locator": "JO21GP",
+   "ausgabe": 430.325,
+   "eingabe": 431.925,
+   "info": "Town,JO21GQ NL(o)",
+   "modul": "B",
+   "lat": 51.66112,
+   "lon": 4.53001
+  },
+  {
+   "call": "PE1CUP",
+   "locator": "JO31BJ",
+   "ausgabe": 439.6,
+   "eingabe": 433.6,
+   "info": "Grubbenvorst, JO31bj Netherlands(o)",
+   "modul": "B",
+   "lat": 51.4141,
+   "lon": 6.14118
+  },
+  {
+   "call": "PE1MR",
+   "locator": "JO22IA",
+   "ausgabe": 439.75,
+   "eingabe": 434.75,
+   "info": "Gouda, JO22ia The Netherlands(o)",
+   "modul": "B",
+   "lat": 52.00961,
+   "lon": 4.73104
+  },
+  {
+   "call": "PE1NZE",
+   "locator": "JO32JH",
+   "ausgabe": 431.675,
+   "eingabe": 439.275,
+   "info": "Borne, JO32JH The Netherlands(o)",
+   "modul": "B",
+   "lat": 52.29475,
+   "lon": 6.77108
+  },
+  {
+   "call": "PE2EP",
+   "locator": "JO22SM",
+   "ausgabe": 433.65,
+   "eingabe": 433.65,
+   "info": "JO22 NL, Flevoland, NOP(o)",
+   "modul": "B",
+   "lat": 52.5,
+   "lon": 5.5
+  },
+  {
+   "call": "PH4M",
+   "locator": "JO22KE",
+   "ausgabe": 432.8,
+   "eingabe": 432.8,
+   "info": "Mijdrecht, JO22KE Netherlands(o)",
+   "modul": "B",
+   "lat": 52.204,
+   "lon": 4.86
+  },
+  {
+   "call": "PI1ALK",
+   "locator": "JO22IP",
+   "ausgabe": 430.35,
+   "eingabe": 431.95,
+   "info": "Alkmaar, JO22IP Netherlands(o)",
+   "modul": "B",
+   "lat": 52.64,
+   "lon": 4.73
+  },
+  {
+   "call": "PI1BOZ",
+   "locator": "JO21DL",
+   "ausgabe": 438.125,
+   "eingabe": 430.525,
+   "info": "Bergen op Zoom JO21DL(o)",
+   "modul": "B",
+   "lat": 51.49882,
+   "lon": 4.28048
+  },
+  {
+   "call": "PI1DHR",
+   "locator": "JO22IW",
+   "ausgabe": 438.2625,
+   "eingabe": 430.6625,
+   "info": "70cm Den Helder / 70cm Den Helder(i)",
+   "modul": "B",
+   "lat": 52.95759,
+   "lon": 4.74435
+  },
+  {
+   "call": "PI1DRV",
+   "locator": "JO22KE",
+   "ausgabe": 438.275,
+   "eingabe": 430.675,
+   "info": "Mijdrecht, JO22ke / Mijdrecht, JO22ke(i)",
+   "modul": "B",
+   "lat": 52.20819,
+   "lon": 4.88186
+  },
+  {
+   "call": "PI1DRV",
+   "locator": "JO22KE",
+   "ausgabe": 1298.275,
+   "eingabe": 1270.275,
+   "info": "Mijdrecht, JO22ke / Mijdrecht, JO22ke(i)",
+   "modul": "A",
+   "lat": 52.20819,
+   "lon": 4.88186
+  },
+  {
+   "call": "PI1GRL",
+   "locator": "JO32HA",
+   "ausgabe": 438.325,
+   "eingabe": 430.725,
+   "info": "Calixtuskerk / Calixtuskerk (i)",
+   "modul": "B",
+   "lat": 52.0408,
+   "lon": 6.6147
+  },
+  {
+   "call": "PI1SNK",
+   "locator": "JO23TA",
+   "ausgabe": 438.325,
+   "eingabe": 430.725,
+   "info": "D-Star repeater / D-Star repeater(i)",
+   "modul": "B",
+   "lat": 53.02641,
+   "lon": 5.64747
+  },
+  {
+   "call": "PI1SNK",
+   "locator": "JO23TA",
+   "ausgabe": 1298.1,
+   "eingabe": 1298.1,
+   "info": "D-Star repeater / D-Star repeater(i)",
+   "modul": "A",
+   "lat": 53.02641,
+   "lon": 5.64747
+  },
+  {
+   "call": "PI1UTR",
+   "locator": "JO22MA",
+   "ausgabe": 438.075,
+   "eingabe": 430.475,
+   "info": "Gerbrandy Toren / Gerbrandy Toren (i)",
+   "modul": "B",
+   "lat": 52.01,
+   "lon": 5.0535
+  },
+  {
+   "call": "PI4UTR",
+   "locator": "JO22MC",
+   "ausgabe": 144.925,
+   "eingabe": 144.925,
+   "info": "Utrecht JO22MC The Netherlands(o)",
+   "modul": "B",
+   "lat": 52.12262,
+   "lon": 5.07129
+  },
+  {
+   "call": "PY2HP",
+   "locator": "JO22JH",
+   "ausgabe": 431.15,
+   "eingabe": 431.15,
+   "info": "JO22jp Nederland(o)",
+   "modul": "E",
+   "lat": 52.30833,
+   "lon": 4.76806
+  },
+  {
+   "call": "PY2HP",
+   "locator": "JO22JQ",
+   "ausgabe": 439.2,
+   "eingabe": 439.2,
+   "info": "Amsterdam Nederland(o)",
+   "modul": "A",
+   "lat": 52.6682,
+   "lon": 4.7649
+  },
+  {
+   "call": "S55UBO",
+   "locator": "JN66XF",
+   "ausgabe": 438.4125,
+   "eingabe": 430.8125,
+   "info": "Bohinj / Bohinj (i)",
+   "modul": "B",
+   "lat": 46.23997,
+   "lon": 13.9608
+  },
+  {
+   "call": "S56IAR",
+   "locator": "JN76KL",
+   "ausgabe": 433.625,
+   "eingabe": 433.625,
+   "info": "Trnovec pri Medvodah Slovenia(o)",
+   "modul": "B",
+   "lat": 46.46778,
+   "lon": 14.8472
+  },
+  {
+   "call": "S57BMU",
+   "locator": "JN76KL",
+   "ausgabe": 433.425,
+   "eingabe": 433.425,
+   "info": "Zagorje ob Savi Slovenia(o)",
+   "modul": "B",
+   "lat": 46.46778,
+   "lon": 14.8472
+  },
+  {
+   "call": "SA6BRG",
+   "locator": "JO66LR",
+   "ausgabe": 433.95,
+   "eingabe": 433.95,
+   "info": "Bjalbo Sweden(o)",
+   "modul": "B",
+   "lat": 56.721,
+   "lon": 12.9808
+  },
+  {
+   "call": "SA7AKU",
+   "locator": "JO65MP",
+   "ausgabe": 434.475,
+   "eingabe": 434.475,
+   "info": "Arlov, JO65mp Sweden(o)",
+   "modul": "B",
+   "lat": 55.63,
+   "lon": 13.08
+  },
+  {
+   "call": "SA7BKX",
+   "locator": "JO65MR",
+   "ausgabe": 433.775,
+   "eingabe": 433.775,
+   "info": "Solkusten Sweden(o)",
+   "modul": "B",
+   "lat": 55.7235,
+   "lon": 13.028
+  },
+  {
+   "call": "SA7CIZ",
+   "locator": "JO66TI",
+   "ausgabe": 433.175,
+   "eingabe": 433.175,
+   "info": "Vittsjo Sweden(o)",
+   "modul": "B",
+   "lat": 56.34541,
+   "lon": 13.65921
+  },
+  {
+   "call": "SG7HTP",
+   "locator": "JO76GB",
+   "ausgabe": 145.2375,
+   "eingabe": 145.2375,
+   "info": "Solvesborg / Solvesborg (i)",
+   "modul": "C",
+   "lat": 56.04288,
+   "lon": 14.56732
+  },
+  {
+   "call": "SG7IKJ",
+   "locator": "JO76DJ",
+   "ausgabe": 144.9375,
+   "eingabe": 144.9375,
+   "info": "JO76DJ, Lonsboda / JO76DJ, Lonsboda (i)",
+   "modul": "C",
+   "lat": 56.39384,
+   "lon": 14.31332
+  },
+  {
+   "call": "SK6RKG",
+   "locator": "JO66MS",
+   "ausgabe": 434.925,
+   "eingabe": 432.925,
+   "info": "Urskogen, IO66MS Sweden(o)",
+   "modul": "B",
+   "lat": 56.76062,
+   "lon": 13.0452
+  },
+  {
+   "call": "SK7ES",
+   "locator": "JO65MO",
+   "ausgabe": 434.3,
+   "eingabe": 434.3,
+   "info": "Malmo JO65mo / Malmo JO65mo (i)",
+   "modul": "B",
+   "lat": 55.6006,
+   "lon": 13.07989
+  },
+  {
+   "call": "SK7RGM",
+   "locator": "JO76FF",
+   "ausgabe": 434.7125,
+   "eingabe": 432.7125,
+   "info": "Boafall / Boafall (i)",
+   "modul": "B",
+   "lat": 56.23838,
+   "lon": 14.47222
+  },
+  {
+   "call": "SK7RMQ",
+   "locator": "JO65VW",
+   "ausgabe": 145.5875,
+   "eingabe": 144.9875,
+   "info": "Linderod / Linderod (i)",
+   "modul": "C",
+   "lat": 55.93242,
+   "lon": 13.82526
+  },
+  {
+   "call": "SK7RNQ",
+   "locator": "JO75DN",
+   "ausgabe": 145.575,
+   "eingabe": 144.975,
+   "info": "Gladsax / Gladsax (i)",
+   "modul": "C",
+   "lat": 55.5601,
+   "lon": 14.27722
+  },
+  {
+   "call": "SK7RPQ",
+   "locator": "JO65MN",
+   "ausgabe": 434.6125,
+   "eingabe": 432.6125,
+   "info": "Malmoe / Malmoe (i)",
+   "modul": "B",
+   "lat": 55.57852,
+   "lon": 13.01192
+  },
+  {
+   "call": "SK7RRV",
+   "locator": "JO76DJ",
+   "ausgabe": 144.8875,
+   "eingabe": 144.8875,
+   "info": "Lonsboda / Lonsboda (i)",
+   "modul": "C",
+   "lat": 56.39526,
+   "lon": 14.32673
+  },
+  {
+   "call": "SK7RSR",
+   "locator": "JO76GB",
+   "ausgabe": 433.5375,
+   "eingabe": 433.5375,
+   "info": "Solvesborg / Solvesborg (i)",
+   "modul": "B",
+   "lat": 56.04962,
+   "lon": 14.5584
+  },
+  {
+   "call": "SM6JWU",
+   "locator": "JO66LP",
+   "ausgabe": 431.15,
+   "eingabe": 431.15,
+   "info": "Halmstad, JO66LP Sweden(o)",
+   "modul": "C",
+   "lat": 56.647,
+   "lon": 12.9266
+  },
+  {
+   "call": "SM6JWU",
+   "locator": "JO66KQ",
+   "ausgabe": 433.475,
+   "eingabe": 433.475,
+   "info": "Halmstad, JO66LP Sweden(o)",
+   "modul": "B",
+   "lat": 56.6732,
+   "lon": 12.8598
+  },
+  {
+   "call": "SM7VLL",
+   "locator": "JO66RE",
+   "ausgabe": 433.0125,
+   "eingabe": 433.0125,
+   "info": "portable or mobile Sweden(o)",
+   "modul": "B",
+   "lat": 56.18591,
+   "lon": 13.4173
+  },
+  {
+   "call": "SM7WNM",
+   "locator": "JO66UH",
+   "ausgabe": 432.4875,
+   "eingabe": 432.4875,
+   "info": "Bjaernum Sweden(o)",
+   "modul": "B",
+   "lat": 56.29648,
+   "lon": 13.71381
+  },
+  {
+   "call": "SP1AZ",
+   "locator": "JO73CW",
+   "ausgabe": 439.65,
+   "eingabe": 432.05,
+   "info": "Swinoujscie, JO73dv Poland(o)",
+   "modul": "B",
+   "lat": 53.92055,
+   "lon": 14.22764
+  },
+  {
+   "call": "SP1B",
+   "locator": "JO73FK",
+   "ausgabe": 434.25,
+   "eingabe": 434.25,
+   "info": "SZCZECIN, JO73FK POLAND(o)",
+   "modul": "B",
+   "lat": 53.4546,
+   "lon": 14.4743
+  },
+  {
+   "call": "SP1BMW",
+   "locator": "JO73GK",
+   "ausgabe": 438.7,
+   "eingabe": 431.1,
+   "info": "Szczecin, JO73GK Poland(o)",
+   "modul": "C",
+   "lat": 53.42954,
+   "lon": 14.55948
+  },
+  {
+   "call": "SP1BMW",
+   "locator": "JO73GH",
+   "ausgabe": 438.8,
+   "eingabe": 431.2,
+   "info": "Radziszewo, JO73GH59 Poland(o)",
+   "modul": "B",
+   "lat": 53.331,
+   "lon": 14.5488
+  },
+  {
+   "call": "SP1GKM",
+   "locator": "JO73GK",
+   "ausgabe": 434.725,
+   "eingabe": 434.725,
+   "info": "Szczecin Polska(o)",
+   "modul": "B",
+   "lat": 53.43,
+   "lon": 14.5137
+  },
+  {
+   "call": "SP1JMF",
+   "locator": "JO73MI",
+   "ausgabe": 438.1,
+   "eingabe": 433.1,
+   "info": "Stargard,JO73MI Poland(o)",
+   "modul": "B",
+   "lat": 53.34191,
+   "lon": 15.00873
+  },
+  {
+   "call": "SP1JOE",
+   "locator": "JO73GK",
+   "ausgabe": 438.5,
+   "eingabe": 430.9,
+   "info": "Szczecin, JO73HI Poland(o)",
+   "modul": "Z",
+   "lat": 53.42854,
+   "lon": 14.55281
+  },
+  {
+   "call": "SP1OP",
+   "locator": "JO73MI",
+   "ausgabe": 438.6,
+   "eingabe": 431.0,
+   "info": "Stargard, JO73MI72QW Poland(o)",
+   "modul": "X",
+   "lat": 53.34519,
+   "lon": 15.06465
+  },
+  {
+   "call": "SP1OP",
+   "locator": "JO73IJ",
+   "ausgabe": 439.6,
+   "eingabe": 432.0,
+   "info": "Szczecin Poland(o)",
+   "modul": "Y",
+   "lat": 53.3833,
+   "lon": 14.68014
+  },
+  {
+   "call": "SP1WSR",
+   "locator": "JO73LJ",
+   "ausgabe": 439.9125,
+   "eingabe": 430.0125,
+   "info": "SZCZECIN POLAND(o)",
+   "modul": "B",
+   "lat": 53.4042,
+   "lon": 14.9475
+  },
+  {
+   "call": "SP1WSX",
+   "locator": "JO73DV",
+   "ausgabe": 438.9125,
+   "eingabe": 431.3125,
+   "info": "Uznam Isl(o)",
+   "modul": "B",
+   "lat": 53.9134,
+   "lon": 14.2521
+  },
+  {
+   "call": "SP2AWZ",
+   "locator": "JO84ML",
+   "ausgabe": 434.5,
+   "eingabe": 434.5,
+   "info": "Slupsk,JO84ML Poland(o)",
+   "modul": "B",
+   "lat": 54.47172,
+   "lon": 17.01956
+  },
+  {
+   "call": "SP3BMJ",
+   "locator": "JO71RW",
+   "ausgabe": 434.65,
+   "eingabe": 439.55,
+   "info": "Zielona Gra JO71RW Poland(o)",
+   "modul": "B",
+   "lat": 51.92533,
+   "lon": 15.49861
+  },
+  {
+   "call": "SP3GTP",
+   "locator": "JO72RA",
+   "ausgabe": 433.4,
+   "eingabe": 433.4,
+   "info": "Czerwiensk, JO72RA Poland(o)",
+   "modul": "B",
+   "lat": 52.00746,
+   "lon": 15.42246
+  },
+  {
+   "call": "SP3NYX",
+   "locator": "JO71SW",
+   "ausgabe": 145.375,
+   "eingabe": 145.375,
+   "info": "JO71SW Poland(o)",
+   "modul": "C",
+   "lat": 51.93424,
+   "lon": 15.5319
+  },
+  {
+   "call": "SP3OKU",
+   "locator": "JO92CD",
+   "ausgabe": 434.575,
+   "eingabe": 434.575,
+   "info": "JO92CD Polska(o)",
+   "modul": "B",
+   "lat": 52.14373,
+   "lon": 18.19074
+  },
+  {
+   "call": "SP4AC",
+   "locator": "JO42CP",
+   "ausgabe": 438.2,
+   "eingabe": 430.6,
+   "info": "JO42CP niemcy(o)",
+   "modul": "B",
+   "lat": 52.66322,
+   "lon": 8.24653
+  },
+  {
+   "call": "SP6BR",
+   "locator": "JO80PM",
+   "ausgabe": 144.95,
+   "eingabe": 144.95,
+   "info": "JO80RU Poland(o)",
+   "modul": "M",
+   "lat": 50.5152,
+   "lon": 17.2627
+  },
+  {
+   "call": "SP6EU",
+   "locator": "JO81BE",
+   "ausgabe": 438.05,
+   "eingabe": 430.45,
+   "info": "Legnica JO81be Poland(o)",
+   "modul": "B",
+   "lat": 51.2039,
+   "lon": 16.1586
+  },
+  {
+   "call": "SP6K",
+   "locator": "JO80VS",
+   "ausgabe": 438.975,
+   "eingabe": 431.375,
+   "info": "Chroscice, JO80vs Poland(o)",
+   "modul": "Z",
+   "lat": 50.78941,
+   "lon": 17.82049
+  },
+  {
+   "call": "SP6K",
+   "locator": "JO81UB",
+   "ausgabe": 439.025,
+   "eingabe": 431.425,
+   "info": "Namyslow, JO81ub Poland(o)",
+   "modul": "P",
+   "lat": 51.07259,
+   "lon": 17.70834
+  },
+  {
+   "call": "SP6VWN",
+   "locator": "JO71SG",
+   "ausgabe": 434.45,
+   "eingabe": 434.45,
+   "info": "Boleslawiec, JG71sg Poland(o)",
+   "modul": "D",
+   "lat": 51.2616,
+   "lon": 15.5821
+  },
+  {
+   "call": "SQ1JKB",
+   "locator": "JO73LT",
+   "ausgabe": 434.975,
+   "eingabe": 434.975,
+   "info": "Golczewo, JO73lt Poland(o)",
+   "modul": "C",
+   "lat": 53.82402,
+   "lon": 14.98051
+  },
+  {
+   "call": "SQ1KSA",
+   "locator": "JO73VM",
+   "ausgabe": 433.4,
+   "eingabe": 433.4,
+   "info": "Andy SQ1KSA POLAND(o)",
+   "modul": "B",
+   "lat": 53.5306,
+   "lon": 15.8097
+  },
+  {
+   "call": "SQ1PQQ",
+   "locator": "JO73CV",
+   "ausgabe": 438.95,
+   "eingabe": 431.35,
+   "info": "Uznam Isl(o)",
+   "modul": "C",
+   "lat": 53.905,
+   "lon": 14.23817
+  },
+  {
+   "call": "SQ1PSD",
+   "locator": "JO73GL",
+   "ausgabe": 439.6,
+   "eingabe": 432.0,
+   "info": "Szczecin JO73GL Poland(o)",
+   "modul": "B",
+   "lat": 53.47,
+   "lon": 14.54
+  },
+  {
+   "call": "SQ2KLU",
+   "locator": "JO93AD",
+   "ausgabe": 433.45,
+   "eingabe": 433.45,
+   "info": "Bydgoszcz Poland(o)",
+   "modul": "B",
+   "lat": 53.1427,
+   "lon": 18.0088
+  },
+  {
+   "call": "SQ3KNL",
+   "locator": "JO81WQ",
+   "ausgabe": 434.7625,
+   "eingabe": 434.7625,
+   "info": "Lewkow, JO81WQ POLAND(o)",
+   "modul": "B",
+   "lat": 51.69195,
+   "lon": 17.86154
+  },
+  {
+   "call": "SQ6KOA",
+   "locator": "JO81RJ",
+   "ausgabe": 434.5,
+   "eingabe": 434.5,
+   "info": "Goszcz, JO8RJ POLAND(o)",
+   "modul": "B",
+   "lat": 51.39419,
+   "lon": 17.47993
+  },
+  {
+   "call": "SQ6RQT",
+   "locator": "JO80IV",
+   "ausgabe": 434.5,
+   "eingabe": 434.5,
+   "info": "Chwalkow Polska(o)",
+   "modul": "B",
+   "lat": 50.89517,
+   "lon": 16.68212
+  },
+  {
+   "call": "SQ9RHX",
+   "locator": "JO81MD",
+   "ausgabe": 432.55,
+   "eingabe": 432.55,
+   "info": "Wroclaw, JO81MD Poland(o)",
+   "modul": "D",
+   "lat": 51.1525,
+   "lon": 17.0208
+  },
+  {
+   "call": "SR1W",
+   "locator": "JO73DV",
+   "ausgabe": 145.6125,
+   "eingabe": 145.0125,
+   "info": "Swinoujscie,JO73DV08 / Swinoujscie,JO73DV08(i)",
+   "modul": "C",
+   "lat": 53.90926,
+   "lon": 14.25455
+  },
+  {
+   "call": "SR1ZK",
+   "locator": "JO73II",
+   "ausgabe": 439.3,
+   "eingabe": 431.7,
+   "info": "SZCZECIN-KOLOWO Poland, SP(o)",
+   "modul": "B",
+   "lat": 53.3335,
+   "lon": 14.6766
+  },
+  {
+   "call": "SR2IN",
+   "locator": "JO92DS",
+   "ausgabe": 438.2375,
+   "eingabe": 430.6375,
+   "info": "Inowroclaw Poland(o)",
+   "modul": "B",
+   "lat": 52.78333,
+   "lon": 18.25526
+  },
+  {
+   "call": "SR3DOS",
+   "locator": "JO81VP",
+   "ausgabe": 438.2875,
+   "eingabe": 430.6875,
+   "info": "Ostrow Wlkp. JO81VP / Ostrow Wlkp. JO81VP (i)",
+   "modul": "B",
+   "lat": 51.6596,
+   "lon": 17.79745
+  },
+  {
+   "call": "SR3UVL",
+   "locator": "JO81HU",
+   "ausgabe": 439.2375,
+   "eingabe": 431.6375,
+   "info": "Leszno / Leszno (i)",
+   "modul": "B",
+   "lat": 51.844,
+   "lon": 16.5943
+  },
+  {
+   "call": "SR3ZX",
+   "locator": "JO71SW",
+   "ausgabe": 439.35,
+   "eingabe": 431.75,
+   "info": "Zielona Gora, JO71SW POLAND(o)",
+   "modul": "B",
+   "lat": 51.93548,
+   "lon": 15.52719
+  },
+  {
+   "call": "SR6BR",
+   "locator": "JO81PA",
+   "ausgabe": 431.15,
+   "eingabe": 431.15,
+   "info": "Brzeg, JO80RU Poland(o)",
+   "modul": "M",
+   "lat": 51.0,
+   "lon": 17.28
+  },
+  {
+   "call": "SR6BR",
+   "locator": "JO80RU",
+   "ausgabe": 438.2,
+   "eingabe": 438.2,
+   "info": "JO80RU / JO80RU (i)",
+   "modul": "E",
+   "lat": 50.8563,
+   "lon": 17.45471
+  },
+  {
+   "call": "SR6DWS",
+   "locator": "JO80FQ",
+   "ausgabe": 438.4625,
+   "eingabe": 430.8625,
+   "info": "Gora Wielka Sowa / Gora Wielka Sowa (i)",
+   "modul": "B",
+   "lat": 50.68032,
+   "lon": 16.48567
+  },
+  {
+   "call": "SR6UKB",
+   "locator": "JO80RG",
+   "ausgabe": 439.2625,
+   "eingabe": 431.6625,
+   "info": "Biskupia Kopa / Biskupia Kopa (i)",
+   "modul": "B",
+   "lat": 50.25697,
+   "lon": 17.42888
+  },
+  {
+   "call": "SR6UPK",
+   "locator": "JO70TS",
+   "ausgabe": 438.5375,
+   "eingabe": 430.9375,
+   "info": "PRZELECZ KARKONOSKA / PRZELECZ KARKONOSKA (i)",
+   "modul": "B",
+   "lat": 50.7635,
+   "lon": 15.6397
+  },
+  {
+   "call": "SR6UVW",
+   "locator": "JO81MC",
+   "ausgabe": 439.0125,
+   "eingabe": 439.0125,
+   "info": "WROCLAW JO81MC / WROCLAW JO81MC (i)",
+   "modul": "B",
+   "lat": 51.1146,
+   "lon": 17.0677
+  },
+  {
+   "call": "SR6UVY",
+   "locator": "JO80PW",
+   "ausgabe": 439.2125,
+   "eingabe": 431.6125,
+   "info": "OLAWA JO80PW / OLAWA JO80PW (i)",
+   "modul": "B",
+   "lat": 50.95103,
+   "lon": 17.27202
+  },
+  {
+   "call": "ZL1KJ",
+   "locator": "JO22JH",
+   "ausgabe": 431.15,
+   "eingabe": 431.15,
+   "info": "JO22jp Nederland(o)",
+   "modul": "E",
+   "lat": 52.30833,
+   "lon": 4.76806
+  },
+  {
+   "call": "ZL1KJ",
+   "locator": "JO22JQ",
+   "ausgabe": 439.2,
+   "eingabe": 439.2,
+   "info": "Amsterdam Nederland(o)",
+   "modul": "A",
+   "lat": 52.6682,
+   "lon": 4.7649
+  }
+ ]
+}
