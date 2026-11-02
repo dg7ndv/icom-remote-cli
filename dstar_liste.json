@@ -1,22 +1,178 @@
 {
-  "_hinweis": "D-STAR-Relaisliste fuer den Befehl 'icom_cli.py dstar_liste'. Eintraege mit bestaetigt=false werden nur mit --auch-unbestaetigte geschrieben. Frequenzen in Hz.",
-  "start_kanal": 20,
-  "ur": "CQCQCQ",
-  "relais": [
-    {"name": "DB0VOX", "freq": 439525000, "modus": "DV", "duplex": "DUP-", "ablage": 7600000,
-     "r1": "DB0VOX B", "r2": "DB0VOX G", "bestaetigt": true,
-     "quelle": "RepeaterBook (D-STAR, Nuernberg) und Liste des Nutzers; Modul B = 70 cm nach Konvention"},
-    {"name": "DB0VOX DD", "freq": 1242450000, "modus": "DD", "duplex": "OFF", "ablage": 0, "filter": 1,
-     "r1": "DB0VOX A", "r2": "DB0VOX G", "geraete": ["9700"], "bestaetigt": true,
-     "quelle": "Handbuch DB0VOX Digital Data, vom Nutzer eingefuegt (DD nur IC-9700, nur 23 cm; DD nimmt am Geraet nur FIL1 an)"},
-    {"name": "DB0FUE", "freq": 439275000, "modus": "DV", "duplex": "DUP-", "ablage": 7600000,
-     "r1": "DB0FUE B", "r2": "DB0FUE G", "bestaetigt": false,
-     "quelle": "nur eingefuegte Liste; Multimode (DMR/C4FM), D-STAR nicht belegt; Modul geraten"},
-    {"name": "DB0AN", "freq": 439400000, "modus": "DV", "duplex": "DUP-", "ablage": 7600000,
-     "r1": "DB0AN B", "r2": "DB0AN G", "bestaetigt": false,
-     "quelle": "nur eingefuegte Liste; Betriebsart unklar; Modul geraten"},
-    {"name": "DB0NU", "freq": 439500000, "modus": "DV", "duplex": "DUP-", "ablage": 7600000,
-     "r1": "DB0NU B", "r2": "DB0NU G", "bestaetigt": false,
-     "quelle": "RepeaterBook: DMR und D-STAR, Maroldsweisach (ca. 100 km); Modul geraten"}
-  ]
+ "_hinweis": "D-STAR-Relaisliste fuer den Befehl 'icom_cli.py dstar_liste'. Eintraege mit bestaetigt=false werden nur mit --auch-unbestaetigte geschrieben. Frequenzen in Hz. 'kanal' = feste Kanalnummer; Eintraege ohne 'kanal' werden ab --ab (Vorgabe start_kanal) der Reihe nach vergeben.",
+ "start_kanal": 30,
+ "ur": "CQCQCQ",
+ "relais": [
+  {
+   "name": "DB0VOX",
+   "freq": 439525000,
+   "modus": "DV",
+   "duplex": "DUP-",
+   "ablage": 7600000,
+   "r1": "DB0VOX B",
+   "r2": "DB0VOX G",
+   "bestaetigt": true,
+   "quelle": "RepeaterBook (D-STAR, Nuernberg) und Liste des Nutzers; Modul B = 70 cm nach Konvention",
+   "kanal": 20
+  },
+  {
+   "name": "DB0VOX DD",
+   "freq": 1242450000,
+   "modus": "DD",
+   "duplex": "OFF",
+   "ablage": 0,
+   "filter": 1,
+   "r1": "DB0VOX A",
+   "r2": "DB0VOX G",
+   "geraete": [
+    "9700"
+   ],
+   "bestaetigt": true,
+   "quelle": "Handbuch DB0VOX Digital Data, vom Nutzer eingefuegt (DD nur IC-9700, nur 23 cm; DD nimmt am Geraet nur FIL1 an)",
+   "kanal": 20
+  },
+  {
+   "name": "DB0FEU",
+   "freq": 439500000,
+   "modus": "DV",
+   "duplex": "DUP-",
+   "ablage": 7600000,
+   "r1": "DB0FEU B",
+   "r2": "DB0FEU G",
+   "bestaetigt": true,
+   "quelle": "RepeaterBook (Feuchtwangen; D-STAR; online); Modul B = 70 cm nach Konvention"
+  },
+  {
+   "name": "DB0DMR",
+   "freq": 439475000,
+   "modus": "DV",
+   "duplex": "DUP-",
+   "ablage": 7600000,
+   "r1": "DB0DMR B",
+   "r2": "DB0DMR G",
+   "bestaetigt": true,
+   "quelle": "RepeaterBook (Feuchtwangen; DMR D-STAR; online); Modul B = 70 cm nach Konvention"
+  },
+  {
+   "name": "DB0EBZ",
+   "freq": 439450000,
+   "modus": "DV",
+   "duplex": "DUP-",
+   "ablage": 7600000,
+   "r1": "DB0EBZ B",
+   "r2": "DB0EBZ G",
+   "bestaetigt": true,
+   "quelle": "RepeaterBook (Ansbach, Hesselberg; D-STAR; online); Modul B = 70 cm nach Konvention"
+  },
+  {
+   "name": "DB0ADB",
+   "freq": 439550000,
+   "modus": "DV",
+   "duplex": "DUP-",
+   "ablage": 7600000,
+   "r1": "DB0ADB B",
+   "r2": "DB0ADB G",
+   "bestaetigt": true,
+   "quelle": "RepeaterBook (Bamberg; D-STAR; online); Modul B = 70 cm nach Konvention"
+  },
+  {
+   "name": "DB0HAS",
+   "freq": 439481250,
+   "modus": "DV",
+   "duplex": "DUP-",
+   "ablage": 7600000,
+   "r1": "DB0HAS B",
+   "r2": "DB0HAS G",
+   "bestaetigt": true,
+   "quelle": "RepeaterBook (Zeil am Main; D-STAR; online); Modul B = 70 cm nach Konvention"
+  },
+  {
+   "name": "DB0FWS",
+   "freq": 439537500,
+   "modus": "DV",
+   "duplex": "DUP-",
+   "ablage": 7600000,
+   "r1": "DB0FWS B",
+   "r2": "DB0FWS G",
+   "bestaetigt": true,
+   "quelle": "RepeaterBook (Schweinfurt; D-STAR; online); Modul B = 70 cm nach Konvention"
+  },
+  {
+   "name": "DB0DON",
+   "freq": 439468750,
+   "modus": "DV",
+   "duplex": "DUP-",
+   "ablage": 7600000,
+   "r1": "DB0DON B",
+   "r2": "DB0DON G",
+   "bestaetigt": true,
+   "quelle": "RepeaterBook (Donauwoerth; D-STAR; online); Modul B = 70 cm nach Konvention"
+  },
+  {
+   "name": "DB0NU",
+   "freq": 439500000,
+   "modus": "DV",
+   "duplex": "DUP-",
+   "ablage": 7600000,
+   "r1": "DB0NU  B",
+   "r2": "DB0NU  G",
+   "bestaetigt": true,
+   "quelle": "RepeaterBook (Maroldsweisach; DMR D-STAR; online); Modul B = 70 cm nach Konvention"
+  },
+  {
+   "name": "DB0PEG",
+   "freq": 438937500,
+   "modus": "DV",
+   "duplex": "DUP-",
+   "ablage": 7600000,
+   "r1": "DB0PEG B",
+   "r2": "DB0PEG G",
+   "bestaetigt": true,
+   "quelle": "RepeaterBook (Pegnitz, Schlossberg; DMR D-STAR Fusion; online); Modul B = 70 cm nach Konvention"
+  },
+  {
+   "name": "DB0BT",
+   "freq": 439900000,
+   "modus": "DV",
+   "duplex": "DUP-",
+   "ablage": 7600000,
+   "r1": "DB0BT  B",
+   "r2": "DB0BT  G",
+   "bestaetigt": true,
+   "quelle": "RepeaterBook (Bayreuth, Sophienberg; FM DMR D-STAR Fusion M17; online); Modul B = 70 cm nach Konvention"
+  },
+  {
+   "name": "DB0WZB",
+   "freq": 439487500,
+   "modus": "DV",
+   "duplex": "DUP-",
+   "ablage": 7600000,
+   "r1": "DB0WZB B",
+   "r2": "DB0WZB G",
+   "bestaetigt": true,
+   "quelle": "RepeaterBook (Wuerzburg; D-STAR; offline); Modul B = 70 cm nach Konvention"
+  },
+  {
+   "name": "DB0FUE",
+   "freq": 439275000,
+   "modus": "DV",
+   "duplex": "DUP-",
+   "ablage": 7600000,
+   "r1": "DB0FUE B",
+   "r2": "DB0FUE G",
+   "bestaetigt": false,
+   "quelle": "nur eingefuegte Liste; Multimode (DMR/C4FM), D-STAR nicht belegt; Modul geraten"
+  },
+  {
+   "name": "DB0AN",
+   "freq": 439400000,
+   "modus": "DV",
+   "duplex": "DUP-",
+   "ablage": 7600000,
+   "r1": "DB0AN B",
+   "r2": "DB0AN G",
+   "bestaetigt": false,
+   "quelle": "nur eingefuegte Liste; Betriebsart unklar; Modul geraten"
+  }
+ ]
 }

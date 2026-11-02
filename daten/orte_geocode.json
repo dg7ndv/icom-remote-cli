@@ -1,0 +1,958 @@
+{
+"Aachen": [
+50.776351,
+6.083862,
+"Aachen, Städteregion Aachen, Nordrhein-Westfalen, Deutschlan"
+],
+"Ansbach, Hesselberg": [
+49.0869407,
+10.5433187,
+"Sparkasse Ansbach, 22, Hauptstraße, Ehingen, Hesselberg (VGe"
+],
+"Auersberg": [
+50.4561414,
+12.6470165,
+"Auersberg, Eibenstock, Erzgebirgskreis, Sachsen, 08309, Deut"
+],
+"Augsburg": [
+48.3690341,
+10.8979522,
+"Augsburg, Bayern, Deutschland"
+],
+"Bad Bentheim": [
+52.3070329,
+7.1161824,
+"Bad Bentheim, Landkreis Grafschaft Bentheim, Niedersachsen, "
+],
+"Bad Doberan": [
+54.105858,
+11.9026057,
+"Bad Doberan, Landkreis Rostock, Mecklenburg-Vorpommern, Deut"
+],
+"Bad Driburg, Poembsen": [
+51.774618,
+9.0721015,
+"Freiwilige Feuerwehr Bad Driburg, LG Pömbsen, 6, Kreuzstraße"
+],
+"Bad Kohlgrub": [
+47.6659196,
+11.0519029,
+"Bad Kohlgrub, Landkreis Garmisch-Partenkirchen, Bayern, 8243"
+],
+"Bad Saeckingen": [
+47.5530482,
+7.948885,
+"Bad Säckingen, VVG der Stadt Bad Säckingen, Landkreis Waldsh"
+],
+"Bad Soden": [
+50.1517006,
+8.4899671,
+"Bad Soden am Taunus, Main-Taunus-Kreis, Hessen, 65812, Deuts"
+],
+"Badenweiler, Hochblauen": [
+47.7777832,
+7.7015005,
+"Sender Blauen, Hochblauenstraße, Obereggenen, Schliengen, VV"
+],
+"Bamberg": [
+49.8916044,
+10.8868478,
+"Bamberg, Bayern, Deutschland"
+],
+"Basedow": [
+53.697185,
+12.681935,
+"Basedow, Malchin am Kummerower See, Mecklenburgische Seenpla"
+],
+"Baunatal, DARC": [
+51.2550775,
+9.4119007,
+"Baunatal, Landkreis Kassel, Hessen, 34225, Deutschland"
+],
+"Bayreuth, Sophienberg": [
+49.9446345,
+11.5743543,
+"Bayreuth, Bayern, Deutschland"
+],
+"Bayreuth, Staedtisches Jugendheim": [
+49.9446345,
+11.5743543,
+"Bayreuth, Bayern, Deutschland"
+],
+"Berlin": [
+52.5173885,
+13.3951309,
+"Berlin, Deutschland"
+],
+"Berlin, Hohenschoenhausen": [
+52.5426187,
+13.4763778,
+"Sportforum Berlin, Konrad-Wolf-Straße, Wilhelmsberg, Märkisc"
+],
+"Bestensee": [
+52.242895,
+13.6279176,
+"Bestensee, Schenkendorf-Krummensee, Dahme-Spreewald, Branden"
+],
+"Bielefeld": [
+52.0191005,
+8.531007,
+"Bielefeld, Nordrhein-Westfalen, Deutschland"
+],
+"Biere": [
+51.9739339,
+11.6540252,
+"Biere, Bördeland, Salzlandkreis, Sachsen-Anhalt, 39221, Deut"
+],
+"Blumberg": [
+47.8401424,
+8.534081,
+"Blumberg, Schwarzwald-Baar-Kreis, Baden-Württemberg, 78176, "
+],
+"Bocholt": [
+51.8382715,
+6.6148669,
+"Bocholt, Kreis Borken, Nordrhein-Westfalen, Deutschland"
+],
+"Bochum": [
+51.4818111,
+7.2196635,
+"Bochum, Nordrhein-Westfalen, Deutschland"
+],
+"Bochum, Bochum Observatory": [
+51.4818111,
+7.2196635,
+"Bochum, Nordrhein-Westfalen, Deutschland"
+],
+"Bonn": [
+50.7352621,
+7.1024635,
+"Bonn, Nordrhein-Westfalen, Deutschland"
+],
+"Bonndorf": [
+47.8190186,
+8.3415473,
+"Bonndorf im Schwarzwald, VVG der Stadt Bonndorf im Schwarzwa"
+],
+"Bremen": [
+53.0758196,
+8.8071646,
+"Bremen, Deutschland"
+],
+"Bremen, Bremen-Nord": [
+53.1675194,
+8.6511191,
+"Constructor University, 1, Campus Ring, Tauwerkquartier, Gro"
+],
+"Bremerhaven": [
+53.5505392,
+8.5851945,
+"Bremerhaven, Bremen, Deutschland"
+],
+"Brocken, Harz": [
+51.7991251,
+10.6156365,
+"Brocken, Wernigerode, Landkreis Harz, Sachsen-Anhalt, 38879,"
+],
+"Burgau": [
+48.4317081,
+10.4071961,
+"Burgau, Landkreis Günzburg, Bayern, 89331, Deutschland"
+],
+"Burgkirchen": [
+48.1666838,
+12.7279263,
+"Burgkirchen, Rupertusstraße, Unterberg, Burgkirchen an der A"
+],
+"Burgkirchen Alz": [
+48.1507866,
+12.7107438,
+"Burgkirchen an der Alz, Landkreis Altötting, Bayern, 84508, "
+],
+"Buxtehude": [
+53.4603692,
+9.6868902,
+"Buxtehude, Landkreis Stade, Niedersachsen, 21614, Deutschlan"
+],
+"Cuxhaven": [
+53.8255062,
+8.6939846,
+"Cuxhaven, Landkreis Cuxhaven, Niedersachsen, Deutschland"
+],
+"Dammer Berge": [
+52.554048,
+8.2318905,
+"Dammer Berge, Damme, Landkreis Vechta, Niedersachsen, Deutsc"
+],
+"Deggendorf": [
+48.7814115,
+13.0006423,
+"Landkreis Deggendorf, Bayern, Deutschland"
+],
+"Delmenhorst, Ganderkesee": [
+53.0242111,
+8.5961182,
+"Hochwasserrückhaltebecken Delmenhorst, Ganderkesee, Dötlinge"
+],
+"Donauwoerth": [
+48.7180364,
+10.7807299,
+"Donauwörth, Landkreis Donau-Ries, Bayern, 86609, Deutschland"
+],
+"Donzdorf": [
+48.6866378,
+9.8110949,
+"Donzdorf, GVV Mittleres Fils-Lautertal, Landkreis Göppingen,"
+],
+"Dormagen": [
+51.0934389,
+6.8416158,
+"Dormagen, Rhein-Kreis Neuss, Nordrhein-Westfalen, Deutschlan"
+],
+"Dortmund": [
+51.5142273,
+7.4652789,
+"Dortmund, Nordrhein-Westfalen, Deutschland"
+],
+"Dresden": [
+51.0493286,
+13.7381437,
+"Dresden, Sachsen, Deutschland"
+],
+"Duesseldorf": [
+51.2254018,
+6.7763137,
+"Düsseldorf, Nordrhein-Westfalen, Deutschland"
+],
+"Eisenach": [
+50.9747134,
+10.3193565,
+"Eisenach, Wartburgkreis, Thüringen, 99817, Deutschland"
+],
+"Emsland": [
+52.7590373,
+7.4564975,
+"Emsland, Niedersachsen, 49777, Deutschland"
+],
+"Erfurt": [
+50.9777974,
+11.0287364,
+"Erfurt, Thüringen, Deutschland"
+],
+"Erkheim": [
+48.0382786,
+10.3345815,
+"Erkheim, Landkreis Unterallgäu, Bayern, 87746, Deutschland"
+],
+"Erkrath": [
+51.2209866,
+6.9056079,
+"Erkrath, Kreis Mettmann, Nordrhein-Westfalen, 40699, Deutsch"
+],
+"Eschborn": [
+50.1504737,
+8.5607767,
+"Eschborn, Main-Taunus-Kreis, Hessen, 65760, Deutschland"
+],
+"Essen, Bredeney": [
+51.404444,
+7.0083423,
+"Essen-Hügel, Hügel, Bredeney, Stadtbezirk IX, Essen, Nordrhe"
+],
+"Essen-City": [
+52.3774733,
+9.742159,
+"ESSEN CITY, 73, Niki-de-Saint-Phalle-Promenade, Mitte, Hanno"
+],
+"Fassberg, Mobile Phone Tower": [
+52.8851586,
+10.1749665,
+"Faßberg, Landkreis Celle, Niedersachsen, 29328, Deutschland"
+],
+"Fernwald, Steinbach": [
+50.5443008,
+8.7812955,
+"Fernwald, A 5, Steinbach, Fernwald, Landkreis Gießen, Hessen"
+],
+"Feuchtwangen": [
+49.1678603,
+10.3313268,
+"Feuchtwangen, Landkreis Ansbach, Bayern, 91555, Deutschland"
+],
+"Fichtelberg, Erzgebirge": [
+50.7407066,
+12.8570618,
+"Fichtelberg, Jahnsdorf/Erzgebirge, Erzgebirgskreis, Sachsen,"
+],
+"Freiburg": [
+47.9960901,
+7.8494005,
+"Freiburg im Breisgau, Baden-Württemberg, Deutschland"
+],
+"Geesthacht": [
+53.4374683,
+10.3678235,
+"Geesthacht, Kreis Herzogtum Lauenburg, Schleswig-Holstein, 2"
+],
+"Gera": [
+50.8765528,
+12.0832674,
+"Gera, Thüringen, Deutschland"
+],
+"Germering": [
+48.1373576,
+11.3614338,
+"Germering, Landkreis Fürstenfeldbruck, Bayern, 82110, Deutsc"
+],
+"Giessen": [
+50.5862066,
+8.6742306,
+"Gießen, Landkreis Gießen, Hessen, Deutschland"
+],
+"Grandsberg": [
+48.6062761,
+12.1314414,
+"Grandsberg, Ergolding, Landkreis Landshut, Bayern, 84030, De"
+],
+"Greifswald": [
+54.095791,
+13.3815238,
+"Greifswald, Vorpommern-Greifswald, Mecklenburg-Vorpommern, D"
+],
+"Greimerath": [
+50.0390221,
+6.9071184,
+"Greimerath, Wittlich-Land, Landkreis Bernkastel-Wittlich, Rh"
+],
+"Grosser Feldberg": [
+50.2318229,
+8.4568286,
+"Großer Feldberg, Schmitten im Taunus, Hochtaunuskreis, Hesse"
+],
+"Gruenten": [
+47.5588318,
+10.3305248,
+"Grünten, Wagneritz, Rettenberg, Landkreis Oberallgäu, Bayern"
+],
+"Gummersbach": [
+51.0277658,
+7.5630545,
+"Gummersbach, Oberbergischer Kreis, Nordrhein-Westfalen, Deut"
+],
+"Gundremmingen": [
+48.5,
+10.4,
+"Gundremmingen, Offingen (VGem), Landkreis Günzburg, Bayern, "
+],
+"Hagen": [
+51.3582945,
+7.473296,
+"Hagen, Nordrhein-Westfalen, Deutschland"
+],
+"Hamburg": [
+53.5501721,
+10.0013165,
+"Hamburg, Deutschland"
+],
+"Hamburg, Wandsbek": [
+53.5687706,
+10.1112157,
+"Helmut-Schmidt-Universität – Universität der Bundeswehr Hamb"
+],
+"Handewitt": [
+54.7674684,
+9.3257408,
+"Handewitt, Kreis Schleswig-Flensburg, Schleswig-Holstein, De"
+],
+"Hannover, Bredero Building": [
+52.3744779,
+9.7385532,
+"Hannover, Region Hannover, Niedersachsen, Deutschland"
+],
+"Hattingen": [
+51.4007175,
+7.1862486,
+"Hattingen, Ennepe-Ruhr-Kreis, Nordrhein-Westfalen, Deutschla"
+],
+"Helgoland, Lighthouse": [
+54.180936,
+7.8944449,
+"Helgoland, Kreis Pinneberg, Schleswig-Holstein, 27498, Deuts"
+],
+"Herford": [
+52.1152245,
+8.6711118,
+"Herford, Kreis Herford, Nordrhein-Westfalen, Deutschland"
+],
+"Hermsdorf": [
+50.8984548,
+11.8550627,
+"Hermsdorf, Saale-Holzland-Kreis, Thüringen, 07629, Deutschla"
+],
+"Herten": [
+51.5942009,
+7.1368071,
+"Herten, Kreis Recklinghausen, Nordrhein-Westfalen, Deutschla"
+],
+"Herzberg am Harz": [
+51.6193653,
+10.3402348,
+"Herzberg am Harz, Landkreis Göttingen, Niedersachsen, 37412,"
+],
+"Hessisch Lichtenau, Hessen": [
+51.1927404,
+9.7517183,
+"Hessisch Lichtenau, Werra-Meißner-Kreis, Hessen, 37235, Deut"
+],
+"Hillscheid": [
+50.4056732,
+7.6969021,
+"Hillscheid, Höhr-Grenzhausen, Westerwaldkreis, Rheinland-Pfa"
+],
+"Hisel": [
+49.9624472,
+6.3745,
+"Hisel, Brimingen, Bitburger Land, Eifelkreis Bitburg-Prüm, R"
+],
+"Hoechsten, Illmensee": [
+47.8227859,
+9.4011186,
+"Höchsten, Illmensee, VVG der Stadt Pfullendorf, Landkreis Si"
+],
+"Hohenstein": [
+48.3472808,
+9.3548059,
+"Hohenstein, VVG der Gemeinde Engstingen, Landkreis Reutlinge"
+],
+"Hoher Hagen, Gaussturm": [
+51.4751201,
+9.7645989,
+"Hoher Hagen, Dransfeld, Samtgemeinde Dransfeld, Landkreis Gö"
+],
+"Hoher Meissner": [
+51.2066694,
+9.8471254,
+"Hoher Meißner, Hausen, Hessisch Lichtenau, Werra-Meißner-Kre"
+],
+"Hoherodskopf": [
+50.5111488,
+9.2272504,
+"Hoherodskopf, Breungeshain, Schotten, Vogelsbergkreis, Hesse"
+],
+"Hollandskopf": [
+52.1146308,
+8.2830314,
+"Hollandskopf, Borgholzhausen, Kreis Gütersloh, Nordrhein-Wes"
+],
+"Holzgerlingen": [
+48.6392119,
+9.0115732,
+"Holzgerlingen, GVV Holzgerlingen, Landkreis Böblingen, Baden"
+],
+"Idar-Oberstein": [
+49.7107134,
+7.3136563,
+"Idar-Oberstein, Landkreis Birkenfeld, Rheinland-Pfalz, 55743"
+],
+"Immenstadt": [
+47.55911,
+10.2137986,
+"Immenstadt, Bahnhofstraße, Immenstadt im Allgäu, Landkreis O"
+],
+"Isterberg": [
+52.35,
+7.15,
+"Isterberg, Samtgemeinde Schüttorf, Landkreis Grafschaft Bent"
+],
+"Kahlheid, Morbach": [
+49.7485082,
+7.1133629,
+"Kahlheid, Morbach, Landkreis Bernkastel-Wittlich, Rheinland-"
+],
+"Kamp-Lintfort": [
+51.5017981,
+6.547923,
+"Kamp-Lintfort, Kreis Wesel, Nordrhein-Westfalen, 47475, Deut"
+],
+"Karben": [
+50.2313417,
+8.7717673,
+"Karben, Wetteraukreis, Hessen, 61184, Deutschland"
+],
+"Karlsbad": [
+48.9038411,
+8.5088293,
+"Karlsbad, Landkreis Karlsruhe, Baden-Württemberg, 76307, Deu"
+],
+"Karlsruhe": [
+49.0068705,
+8.4034195,
+"Karlsruhe, Baden-Württemberg, Deutschland"
+],
+"Kevelaer": [
+51.5802996,
+6.2456273,
+"Kevelaer, Kreis Kleve, Nordrhein-Westfalen, Deutschland"
+],
+"Kiel": [
+54.3227085,
+10.135555,
+"Kiel, Altenholz, Schleswig-Holstein, Deutschland"
+],
+"Kirchdorf im Wald, Eschenberg": [
+48.9097983,
+13.2674501,
+"Kirchdorf im Wald, Landkreis Regen, Bayern, 94261, Deutschla"
+],
+"Kleiner Feldberg": [
+50.221859,
+8.4467017,
+"Kleiner Feldberg, Glashütten, Hochtaunuskreis, Hessen, 61479"
+],
+"Klippeneck": [
+48.1071863,
+8.7541972,
+"Klippeneck, Denkingen, VVG der Stadt Spaichingen, Landkreis "
+],
+"Knuell": [
+50.9010917,
+9.4988351,
+"Knüllgebirge, Landkreis Hersfeld-Rotenburg, Hessen, Deutschl"
+],
+"Koeln": [
+50.938361,
+6.959974,
+"Köln, Nordrhein-Westfalen, Deutschland"
+],
+"Kreuzberg": [
+52.4976443,
+13.411914,
+"Kreuzberg, Friedrichshain-Kreuzberg, Berlin, Deutschland"
+],
+"Kuessaburg": [
+47.6018833,
+8.3533437,
+"Küssaburg, Zugbrücke, Bechtersbohl, Küssaberg, GVV Küssaberg"
+],
+"Laegerdorf": [
+53.8865297,
+9.5767969,
+"Lägerdorf, Breitenburg, Kreis Steinburg, Schleswig-Holstein,"
+],
+"Landshut": [
+48.536217,
+12.1516551,
+"Landshut, Bayern, Deutschland"
+],
+"Langenhagen": [
+52.443118,
+9.738994,
+"Langenhagen, Region Hannover, Niedersachsen, Deutschland"
+],
+"Leer": [
+53.2049511,
+7.4595298,
+"Landkreis Leer, Niedersachsen, Deutschland"
+],
+"Lehrte": [
+52.3749334,
+9.9748557,
+"Lehrte, Region Hannover, Niedersachsen, 31275, Deutschland"
+],
+"Leipheim": [
+48.4487175,
+10.2213539,
+"Leipheim, Landkreis Günzburg, Bayern, 89340, Deutschland"
+],
+"Leipzig": [
+51.3406321,
+12.3747329,
+"Leipzig, Sachsen, Deutschland"
+],
+"Leipzig, Anger-Crottendorf": [
+51.3305706,
+12.4272572,
+"Bunte Gärten Leipzig, Anger-Crottendorf, Ost, Leipzig, Sachs"
+],
+"Lengerich": [
+52.1885121,
+7.8504359,
+"Lengerich, Kreis Steinfurt, Nordrhein-Westfalen, 49525, Deut"
+],
+"Loerrach": [
+47.6120896,
+7.6607218,
+"Lörrach, VVG der Stadt Lörrach, Landkreis Lörrach, Baden-Wür"
+],
+"Lubmin": [
+54.1322013,
+13.6137922,
+"Lubmin, Vorpommern-Greifswald, Mecklenburg-Vorpommern, Deuts"
+],
+"Ludwigsburg, Hochhaus Wuestenrot": [
+48.8953937,
+9.1895147,
+"Ludwigsburg, Landkreis Ludwigsburg, Baden-Württemberg, Deuts"
+],
+"Luebeck": [
+53.866444,
+10.684738,
+"Lübeck, Schleswig-Holstein, Deutschland"
+],
+"Luedersdorf": [
+53.8324566,
+10.8090408,
+"Lüdersdorf, Schönberger Land, Nordwestmecklenburg, Mecklenbu"
+],
+"Luenen": [
+51.6142482,
+7.5228088,
+"Lünen, Kreis Unna, Nordrhein-Westfalen, Deutschland"
+],
+"Mannheim": [
+49.4892913,
+8.4673098,
+"Mannheim, Baden-Württemberg, Deutschland"
+],
+"Marburg": [
+50.8090106,
+8.7704695,
+"Marburg, Landkreis Marburg-Biedenkopf, Hessen, Deutschland"
+],
+"Marktredwitz": [
+50.0009915,
+12.0856433,
+"Marktredwitz, Landkreis Wunsiedel im Fichtelgebirge, Bayern,"
+],
+"Marl": [
+51.6485843,
+7.0829054,
+"Marl, Kreis Recklinghausen, Nordrhein-Westfalen, Deutschland"
+],
+"Maroldsweisach": [
+50.197294,
+10.6606004,
+"Maroldsweisach, Landkreis Haßberge, Bayern, 96126, Deutschla"
+],
+"Mayen-Koblenz": [
+50.3023567,
+7.3735478,
+"Mayen-Koblenz, Rheinland-Pfalz, 56295, Deutschland"
+],
+"Meddewarde": null,
+"Meerbusch": [
+51.2652237,
+6.6760958,
+"Meerbusch, Rhein-Kreis Neuss, Nordrhein-Westfalen, Deutschla"
+],
+"Meschede, Telekom Radio Tower": [
+51.3436532,
+8.2859257,
+"Meschede, Hochsauerlandkreis, Nordrhein-Westfalen, 59872, De"
+],
+"Meuselwitz": [
+51.0475,
+12.2975,
+"Meuselwitz, Altenburger Land, Thüringen, 04610, Deutschland"
+],
+"Muelheim, Hafen": [
+51.4309755,
+6.8622061,
+"DEKRA Station Mülheim, 8a, Saalestraße, Gewerbegebiet Rhein-"
+],
+"Muenchen": [
+48.1371079,
+11.5753822,
+"München, Bayern, Deutschland"
+],
+"Neumuenster": [
+54.0703296,
+9.9884451,
+"Neumünster, Schleswig-Holstein, Deutschland"
+],
+"Neuoetting": [
+48.2405753,
+12.686742,
+"Neuötting, Landkreis Altötting, Bayern, 84524, Deutschland"
+],
+"Neuwied, Baerenkopf": [
+50.4302393,
+7.466302,
+"Neuwied, Landkreis Neuwied, Rheinland-Pfalz, Deutschland"
+],
+"Norden": [
+53.5942039,
+7.2067435,
+"Norden, Landkreis Aurich, Niedersachsen, 26506, Deutschland"
+],
+"Norderney": [
+53.7123857,
+7.2340205,
+"Norderney, Landkreis Aurich, Niedersachsen, 26548, Deutschla"
+],
+"Nordhelle, Fernmeldeturm": [
+51.1483097,
+7.7597344,
+"Nordhelle, Herscheid, Märkischer Kreis, Nordrhein-Westfalen,"
+],
+"Nuernberg": [
+49.453872,
+11.077298,
+"Nürnberg, Bayern, Deutschland"
+],
+"Oldenburg, AGRAVIS Silo": [
+53.1389753,
+8.2146017,
+"Oldenburg, Niedersachsen, Deutschland"
+],
+"Olfen": [
+51.7076224,
+7.3788047,
+"Olfen, Kreis Coesfeld, Nordrhein-Westfalen, 59399, Deutschla"
+],
+"Osnabrueck, Grafensundern": [
+52.2719595,
+8.047635,
+"Osnabrück, Niedersachsen, Deutschland"
+],
+"Paderborn, University": [
+51.7177044,
+8.752653,
+"Paderborn, Kreis Paderborn, Nordrhein-Westfalen, Deutschland"
+],
+"Papenburg, Berufsschule": [
+53.077328,
+7.4110464,
+"Papenburg, Landkreis Emsland, Niedersachsen, 26871, Deutschl"
+],
+"Pegnitz, Schlossberg": [
+49.7562223,
+11.5365844,
+"MM Tattoo Studio Pegnitz, 3, Am Schloßberg, Nemschenreuth, P"
+],
+"Pfaffenhofen": [
+49.0641578,
+8.9753958,
+"Pfaffenhofen, GVV Oberes Zabergäu, Landkreis Heilbronn, Bade"
+],
+"Pobenhausen": [
+48.6634509,
+11.3807069,
+"Pobenhausen, Karlskron, Landkreis Neuburg-Schrobenhausen, Ba"
+],
+"Quierschied": [
+49.3260163,
+7.052847,
+"Quierschied, Regionalverband Saarbrücken, Saarland, 66287, D"
+],
+"Quirnheim, Pfalz": [
+49.5848789,
+8.1264335,
+"Quirnheim, Leiningerland, Landkreis Bad Dürkheim, Rheinland-"
+],
+"Ratingen": [
+51.2973261,
+6.8493503,
+"Ratingen, Kreis Mettmann, Nordrhein-Westfalen, Deutschland"
+],
+"Rauener Berge": [
+52.3197548,
+14.042703,
+"Rauener Berge, Rauen, Spreenhagen, Oder-Spree, Brandenburg, "
+],
+"Recklinghausen": [
+51.6143815,
+7.1978546,
+"Recklinghausen, Kreis Recklinghausen, Nordrhein-Westfalen, D"
+],
+"Reutlingen": [
+48.4919508,
+9.2114144,
+"Reutlingen, Landkreis Reutlingen, Baden-Württemberg, Deutsch"
+],
+"Rheine": [
+52.2797707,
+7.4373615,
+"Rheine, Kreis Steinfurt, Nordrhein-Westfalen, Deutschland"
+],
+"Rhoen": [
+50.4891357,
+10.008573,
+"Rhön, Hessen, Deutschland"
+],
+"Rimberg": [
+51.2162982,
+8.3475553,
+"Rimberg, Schmallenberg, Hochsauerlandkreis, Nordrhein-Westfa"
+],
+"Ringe": [
+52.6007381,
+6.9184353,
+"Ringe, Samtgemeinde Emlichheim, Landkreis Grafschaft Benthei"
+],
+"Rochlitz": [
+51.0456789,
+12.7990531,
+"Rochlitz, Verwaltungsgemeinschaft Rochlitz, Mittelsachsen, S"
+],
+"Roeddensen": [
+52.4157684,
+9.9791726,
+"Röddensen, Lehrte, Region Hannover, Niedersachsen, 31275, De"
+],
+"Rosenheim": [
+47.8557873,
+12.1272983,
+"Rosenheim, Bayern, Deutschland"
+],
+"Saalfeld, Berg": [
+52.4257524,
+10.7902104,
+"Saalfeld, Porschestraße, Stadtmitte, Wolfsburg, Niedersachse"
+],
+"Saarbruecken": [
+49.234362,
+6.996379,
+"Saarbrücken, Regionalverband Saarbrücken, Saarland, Deutschl"
+],
+"Sagard, Rűgen": [
+54.5262226,
+13.5561327,
+"Sagard, Nord-Rügen, Vorpommern-Rügen, Mecklenburg-Vorpommern"
+],
+"Schalkholz": [
+54.2470003,
+9.257378,
+"Schalkholz, Eider, Kreis Dithmarschen, Schleswig-Holstein, D"
+],
+"Schneeberg": [
+50.5950694,
+12.6417008,
+"Schneeberg, Erzgebirgskreis, Sachsen, 08289, Deutschland"
+],
+"Schoenwalde-Glien": [
+52.6401274,
+13.0502083,
+"Schönwalde-Glien, Havelland, Brandenburg, 14621, Deutschland"
+],
+"Schramberg, Sulgen": [
+48.2400203,
+8.4215224,
+"MS Schramberg Werk 3, 1, Christoph-Schweizer-Straße, Lienber"
+],
+"Schweinfurt": [
+50.0451485,
+10.2340647,
+"Schweinfurt, Bayern, Deutschland"
+],
+"Siegen, Eisernhardt": [
+50.8751175,
+8.0256131,
+"Siegen, Kreis Siegen-Wittgenstein, Nordrhein-Westfalen, Deut"
+],
+"Singen": [
+47.7617515,
+8.8348709,
+"Singen (Hohentwiel), VVG der Stadt Singen (Hohentwiel), Land"
+],
+"Sonthofen, Allgaeu": [
+47.5056059,
+10.2994096,
+"Sonthofen, Landkreis Oberallgäu, Bayern, 87527, Deutschland"
+],
+"Stade": [
+53.599794,
+9.475438,
+"Stade, Landkreis Stade, Niedersachsen, Deutschland"
+],
+"Steinau, an der Strasse": [
+50.3141471,
+9.443173,
+"Steinau (Straße), 40, Bahnhofstraße, Steinau an der Straße, "
+],
+"Stralsund": [
+54.3096314,
+13.0820846,
+"Stralsund, Vorpommern-Rügen, Mecklenburg-Vorpommern, Deutsch"
+],
+"Tangermuende, Stendal": [
+52.5431104,
+11.9722524,
+"Tangermünde, Stendal, Sachsen-Anhalt, 39590, Deutschland"
+],
+"Tegelberg": [
+48.6435304,
+9.8153696,
+"Tegelberg, Donzdorf, GVV Mittleres Fils-Lautertal, Landkreis"
+],
+"Titisee-Neustadt": [
+47.9173421,
+8.1735161,
+"Titisee-Neustadt, VVG der Stadt Titisee-Neustadt, Landkreis "
+],
+"Todtmoos, Hochkopf Schwarzwald": [
+47.7387447,
+8.0013624,
+"Todtmoos, GVV St. Blasien, Landkreis Waldshut, Baden-Württem"
+],
+"Uelsen": [
+52.4937551,
+6.8861494,
+"Uelsen, Samtgemeinde Uelsen, Landkreis Grafschaft Bentheim, "
+],
+"Uttenweiler": [
+48.1603531,
+9.6039427,
+"Uttenweiler, VVG der Stadt Riedlingen, Landkreis Biberach, B"
+],
+"Velbert": [
+51.3406713,
+7.0439912,
+"Velbert, Kreis Mettmann, Nordrhein-Westfalen, Deutschland"
+],
+"Wank": [
+47.5087122,
+11.1430301,
+"Wank, 413, Garmisch-Partenkirchen, Landkreis Garmisch-Parten"
+],
+"Wasserkuppe": [
+50.497647,
+9.9362893,
+"Wasserkuppe, Obernhausen, Gersfeld (Rhön), Landkreis Fulda, "
+],
+"Wertheim/Main": [
+49.7612124,
+9.524393,
+"Mainbrücke Wertheim, MSP 32, Kreuzwertheim, Verwaltungsgemei"
+],
+"Wiesbaden, Hohe Wurzel": [
+50.0820384,
+8.2416556,
+"Wiesbaden, Hessen, Deutschland"
+],
+"Wildeshausen, DARC Camp": [
+52.897103,
+8.4364342,
+"Wildeshausen, Dötlingen, Landkreis Oldenburg, Niedersachsen,"
+],
+"Wismar": [
+53.8909832,
+11.4647932,
+"Wismar, Nordwestmecklenburg, Mecklenburg-Vorpommern, Deutsch"
+],
+"Witzenhausen": [
+51.3331901,
+9.8434192,
+"Witzenhausen, Werra-Meißner-Kreis, Hessen, Deutschland"
+],
+"Wuerzburg": [
+49.7933723,
+9.9309779,
+"Würzburg, Bayern, 97070, Deutschland"
+],
+"Zeil am Main": [
+50.0137529,
+10.5948036,
+"Zeil am Main, Landkreis Haßberge, Bayern, 97475, Deutschland"
+]
+}

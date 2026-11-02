@@ -437,8 +437,11 @@ def dstar_liste(rig, a):
                 plan.append((e, None, None, "ausserhalb der Baender"))
                 continue
             group = band + 1
-        ch = start + counters.get(group, 0)
-        counters[group] = counters.get(group, 0) + 1
+        if e.get("kanal"):  # feste Nummer: zaehlt nicht in der laufenden Vergabe mit
+            ch = int(e["kanal"])
+        else:
+            ch = start + counters.get(group, 0)
+            counters[group] = counters.get(group, 0) + 1
         if ch > 99:
             plan.append((e, None, None, "kein Platz bis Kanal 99"))
             continue
@@ -466,6 +469,110 @@ def dstar_liste(rig, a):
         print(f"+  {gtxt:>10} Kanal {ch:02d}  {e['name']:<12} {e['freq'] / 1e6:.4f} MHz {e['modus']}: {mem_store(rig, a.radio, group, ch, raw, new, fields)}")
     if not a.ja:
         print("Nur Plan. Zum Schreiben denselben Befehl mit --ja wiederholen.")
+
+
+def dv_rx_info(rig):
+    """Zuletzt empfangene D-STAR-Rufzeichen (CI-V 20 00 02): dict oder None, wenn seit dem Einschalten noch keine empfangen wurden."""
+    f = rig.civ(0x20, 0x00, 0x02)
+    d = bytes(f[7:-1])
+    if f[4] == 0xFA or len(d) < 38 or d[0] == 0xFF:
+        return None
+    t = lambda a, b: d[a:b].decode("ascii", "replace").strip()  # noqa: E731
+    return {"flags": d[:2].hex(), "ack": d[1] & 7, "mit_relais": bool(d[0] & 8), "mycall": t(2, 10), "ur": t(14, 22),
+            "rxrpt1": t(22, 30), "rxrpt2": t(30, 38)}
+
+
+ACK = {0: "keine", 1: "Relais gesperrt", 2: "keine Antwort (Receive no reply)", 3: "Quittung (Send acknowledge)", 4: "Wiederholung angefordert",
+       6: "Auto-Quittung (Send auto acknowledge)", 7: "Relais-Steuerung"}
+
+
+def relais_test(rig, a):
+    """Testsendung ueber ein D-STAR-Relais: Relais einstellen, Kanal abhoeren, minimale Leistung, kurz senden (nur mit --ja), danach pruefen,
+    ob das Relais dein Rufzeichen mit eigenem Kopf zurueckschickt (CI-V 20 00 02) und wie das Statusbyte (20 02 02) aussieht."""
+    cfg = json.loads(Path(a.datei or Path(__file__).with_name("dstar_liste.json")).read_text(encoding="utf-8"))
+    e = next((x for x in cfg["relais"] if x["name"].upper() == a.relais.upper()), None)
+    if e is None or e.get("modus") != "DV":
+        sys.exit(f"Relais '{a.relais}' nicht in der Liste oder kein DV-Eintrag")
+    secs = max(0.5, min(3.0, a.sekunden))
+    call = a.call.upper()
+    f8 = lambda t: t.upper().ljust(8)[:8].encode("ascii")  # noqa: E731
+    print(f"Plan: {e['name']} {e['freq'] / 1e6:.4f} MHz DV, {e['duplex']} {e['ablage'] / 1e6:g} MHz, MY {call}, UR CQCQCQ, RPT1 {e['r1']}, RPT2 {e['r2']}")
+    print(f"      Leistung Minimum, Senden {secs:g} s auf Main, vorher 3 s abhoeren" + ("" if a.ja else "   (nur Plan, ohne --ja wird nichts gesendet)"))
+    if not a.ja:
+        return
+    rig.select("main")
+    time.sleep(0.1)
+    rig.set_freq(e["freq"])
+    set_cmd(rig, (0x06,), 0x17, 2)
+    ic9700_ctl.set_control(rig, "duplex", e["duplex"])
+    u = f"{int(round(e['ablage'] / 100)):06d}"
+    rig.civ(0x0D, int(u[4]) << 4 | int(u[5]), int(u[2]) << 4 | int(u[3]), int(u[0]) << 4 | int(u[1]))
+    ok1 = rig.civ(0x1F, 0x01, *f8("CQCQCQ"), *f8(e["r1"]), *f8(e["r2"]))[4] == 0xFB
+    ok0 = rig.civ(0x1F, 0x00, *f8(call), *b"    ")[4] == 0xFB
+    set_cmd(rig, LEVELS["power"], 0, 0)
+    time.sleep(0.4)
+    print(f"Eingestellt: {get_freq(rig) / 1e6:.4f} MHz, Rufzeichen {'gesetzt' if ok0 and ok1 else 'ABGELEHNT'}, Leistung {power_text(level(rig, 'power'), get_freq(rig), '9700')}")
+    if not (ok0 and ok1):
+        sys.exit("Rufzeichen wurden nicht angenommen - Abbruch ohne Senden")
+    # 1) Abhoeren
+    seen, busy = [], False
+    end = time.time() + 3
+    while time.time() < end:
+        raw = smeter(rig)[0]
+        sq = data(rig, 0x15, 0x01)
+        st = data(rig, 0x20, 0x02, 0x02)
+        seen.append(raw)
+        if raw > 20 or (sq and sq[0]) or (st and st[0] & 0x50):
+            busy = True
+            break
+        time.sleep(0.3)
+    print(f"Abhoeren: S-Meter max roh {max(seen)}, " + ("KANAL BELEGT - es wird nicht gesendet" if busy else "Kanal frei"))
+    if busy:
+        return
+    before = dv_rx_info(rig)
+    # 2) Senden (PTT immer wieder aus)
+    meters = {}
+    try:
+        print(f"SENDE {secs:g} s ...", flush=True)
+        set_cmd(rig, (0x1C, 0x00), 1)
+        t0 = time.time()
+        while time.time() - t0 < secs:
+            time.sleep(0.4)
+            for name, sc in (("Po", 0x11), ("SWR", 0x12), ("ALC", 0x13)):
+                d = data(rig, 0x15, sc)
+                if d and len(d) >= 2:
+                    meters[name] = max(meters.get(name, 0), int(d.hex()))
+    finally:
+        for _ in range(3):
+            try:
+                set_cmd(rig, (0x1C, 0x00), 0)
+                if (data(rig, 0x1C, 0x00) or b"\x00")[0] == 0:
+                    break
+            except TimeoutError:
+                pass
+    print("Empfang wieder an. Sendemesswerte: " + ", ".join(f"{k} roh {v}" for k, v in meters.items()))
+    # 3) Antwort des Relais
+    got, sq_open, peak = None, False, 0
+    end = time.time() + 6
+    while time.time() < end:
+        info = dv_rx_info(rig)
+        peak = max(peak, smeter(rig)[0])
+        sq = data(rig, 0x15, 0x01)
+        sq_open = sq_open or bool(sq and sq[0])
+        if info and info != before:
+            got = info
+            break
+        time.sleep(0.3)
+    st = data(rig, 0x20, 0x02, 0x02)
+    print(f"Nach dem Senden: S-Meter Spitze roh {peak}, Squelch {'war offen' if sq_open else 'blieb zu'}, DV-Status {st.hex() if st else '-'}")
+    if got is None:
+        print("ERGEBNIS: keine digitale Antwort vom Relais empfangen (nicht erreichbar, zu schwach oder Relais antwortet nicht).")
+        return
+    print(f"Empfangener Kopf: MY '{got['mycall']}'  UR '{got['ur']}'  RPT1 '{got['rxrpt1']}'  RPT2 '{got['rxrpt2']}'  Flags {got['flags']}  Quittung: {ACK.get(got['ack'], got['ack'])}"
+          f"  {'ueber Relais' if got['mit_relais'] else 'direkt'}")
+    mine = got["mycall"].upper().startswith(call)
+    print("ERGEBNIS: " + ("RELAIS ERREICHT - dein eigenes Rufzeichen kam ueber " + got["rxrpt1"] + " zurueck." if mine
+                          else "Es kam ein Signal von " + got["mycall"] + ", nicht dein eigenes - Relais ist aktiv, aber dein Aufruf ist nicht bestaetigt."))
 
 
 def only_9700(a):
@@ -611,6 +718,10 @@ def main():
     p.add_argument("--aktuell", action="store_true", help="write: Frequenz und Modus des Empfaengers uebernehmen")
     p.add_argument("--ja", action="store_true", help="write: wirklich schreiben (sonst nur Vorschau)")
     sub.add_parser("meters", help="Po SWR ALC COMP Vd Id")
+    p = sub.add_parser("relais_test", help="Testsendung ueber ein D-STAR-Relais der Liste (IC-9700), prueft die digitale Rueckmeldung")
+    p.add_argument("relais", nargs="?", default="DB0VOX"); p.add_argument("--call", default="DG7NDV", help="dein Rufzeichen (MY)")
+    p.add_argument("--sekunden", type=float, default=1.5, help="Sendedauer (0,5 bis 3 s)"); p.add_argument("--datei")
+    p.add_argument("--ja", action="store_true", help="wirklich senden (sonst nur Plan)")
     p = sub.add_parser("dstar_liste", help="D-STAR-Relaisliste (dstar_liste.json) ab einem Startkanal in den Speicher schreiben")
     p.add_argument("--ab", type=int, help="Startkanal (Vorgabe: start_kanal in der Datei, 20)")
     p.add_argument("--datei", help="andere Listendatei")
@@ -733,6 +844,9 @@ def main():
         elif a.cmd == "scope":
             only_9700(a)
             scope_cmd(rig, a)
+        elif a.cmd == "relais_test":
+            only_9700(a)
+            relais_test(rig, a)
         elif a.cmd == "dstar_liste":
             dstar_liste(rig, a)
         elif a.cmd == "meters":
