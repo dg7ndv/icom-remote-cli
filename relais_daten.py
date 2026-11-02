@@ -24,10 +24,15 @@ STAEDTE = ["Nürnberg", "Hamburg", "Berlin", "Köln", "München", "Stuttgart", "
            "Rostock", "Saarbrücken", "Freiburg", "Münster", "Kassel", "Erfurt", "Magdeburg", "Regensburg", "Trier", "Passau", "Konstanz", "Flensburg"]
 
 
-def darc_url(lat=None, lon=None, stadt="Nürnberg", maxgateways=100):
-    """Adresse der DARC-Seite fuer eine D-STAR-Abfrage; mit Koordinaten (Grad, Dezimal) oder Stadtname. Zum Oeffnen im Browser."""
+def darc_url(lat=None, lon=None, stadt="Nürnberg", maxgateways=100, art="dstar"):
+    """Adresse der DARC-Seite fuer eine Abfrage (art 'dstar' = D-STAR-Relais, 'fm' = FM-Relais); mit Koordinaten (Grad, Dezimal) oder Stadtname.
+    Zum Oeffnen im Browser und fuer die Abfrage."""
     p = {"sel": "latlon", "lat_deg": "", "lat_min": "", "lat_NS": "Nord", "lon_deg": "", "lon_min": "", "lon_EW": "Ost", "city": "" if lat is not None else stadt,
-         "gs": "", "ctrcall": "", "dxcc": "all", "maxgateways": maxgateways, "printas": "html", "type": "ds", "kmmls": "km"}
+         "gs": "", "ctrcall": "", "dxcc": "all", "maxgateways": maxgateways, "printas": "html", "kmmls": "km"}
+    if art == "fm":
+        p.update(type_dl3el=1, type_fhs=1)  # die beiden FM-Relaislisten (ohne Digital-Eintraege)
+    else:
+        p["type"] = "ds"
     if lat is not None:
         p.update(lat_deg=int(lat), lat_min=int((lat % 1) * 60), lon_deg=int(lon), lon_min=int((lon % 1) * 60))
     return DARC_URL + "?" + urllib.parse.urlencode(p, encoding="latin-1")
@@ -48,14 +53,14 @@ def _num(x):
         return None
 
 
-def darc_abfrage(stadt):
+def darc_abfrage(stadt, art="dstar"):
     rows = []
-    for r in re.split(r"<TR>\s*", _get(darc_url(stadt=stadt, maxgateways=1000))):
+    for r in re.split(r"<TR[^>]*>\s*", _get(darc_url(stadt=stadt, maxgateways=1000, art=art))):
         m = re.search(r"lat=\s*([+-][\d.]+)&lng=\s*([+-][\d.]+)", r)
         tds = re.findall(r"<TD[^>]*>(.*?)</TD>", r, re.S | re.I)
         if m and len(tds) >= 9:
             c = [_clean(x) for x in tds]
-            rows.append({"call": c[1], "ausgabe": _num(c[4]), "eingabe": _num(c[5]), "info": c[6], "modul": c[7],
+            rows.append({"call": c[1], "ausgabe": _num(c[4]), "eingabe": _num(c[5]), "info": c[6], "modul": c[7], "ctcss": c[8],
                          "lat": float(m.group(1)), "lon": float(m.group(2))})
     return rows
 
@@ -134,5 +139,59 @@ def aktualisieren(progress=None):
     return len(liste), f"{len(liste)} Relais ({n_darc} mit DARC-Koordinaten, {len(liste) - n_darc} nur RepeaterBook), Stand {time.strftime('%d.%m.%Y %H:%M')}"
 
 
+# ---- FM-Relais (gleiche Seite, andere Listen) ----
+FM_OUT = DATA / "fm_deutschland.json"
+STAEDTE_FM = STAEDTE + ["Würzburg", "Bayreuth", "Augsburg", "Ulm", "Karlsruhe", "Mannheim", "Heilbronn", "Koblenz", "Mainz", "Wiesbaden", "Bonn", "Düsseldorf",
+                        "Dortmund", "Essen", "Bielefeld", "Osnabrück", "Oldenburg", "Lüneburg", "Schwerin", "Stralsund", "Potsdam", "Cottbus", "Chemnitz",
+                        "Gera", "Göttingen", "Paderborn", "Siegen", "Fulda", "Bamberg", "Ingolstadt", "Rosenheim", "Kempten", "Offenburg", "Pforzheim",
+                        "Tübingen", "Aachen", "Mönchengladbach", "Wilhelmshaven", "Neubrandenburg", "Ansbach", "Weiden", "Schweinfurt", "Landshut", "Memmingen"]
+
+
+def fm_holen(progress=None):
+    """Alle FM-Relais der DARC-Listen (je Stadt die 100 naechsten, zusammengefuehrt)."""
+    alle = {}
+    for i, s in enumerate(STAEDTE_FM, 1):
+        try:
+            for x in darc_abfrage(s, "fm"):
+                alle.setdefault((x["call"], round(x["ausgabe"] or 0, 4)), x)
+        except Exception as e:
+            if progress:
+                progress(f"FM {s}: Fehler {e}")
+        if progress:
+            progress(f"FM-Liste {i}/{len(STAEDTE_FM)} ({s}): {len(alle)} Eintraege")
+        time.sleep(1.5)
+    return list(alle.values())
+
+
+def fm_zusammenfuehren(darc):
+    """FM-Relais im Bereich des IC-9700 (2 m, 70 cm, 23 cm) mit Ablage und CTCSS."""
+    out = []
+    for x in darc:
+        aus, ein = x["ausgabe"], x["eingabe"]
+        if not aus or not (144 <= aus <= 148 or 430 <= aus <= 440 or 1240 <= aus <= 1300):
+            continue
+        if not (47.2 <= x["lat"] <= 55.1 and 5.8 <= x["lon"] <= 15.1):
+            continue
+        ab = round(abs(aus - ein), 4) if ein else 0.0
+        if ein and (ab > 30 or band_von(ein) != band_von(aus)):  # Linkstrecken ueber Bandgrenzen (z. B. 70 cm -> 23 cm) sind keine Relais zum Anrufen
+            continue
+        tone = re.search(r"([\d]{2,3}[.,]\d)", x.get("ctcss", ""))
+        out.append({"call": x["call"], "freq_mhz": aus, "eingabe_mhz": ein, "lat": x["lat"], "lon": x["lon"], "ort": x["info"], "modes": "FM",
+                    "status": "unbekannt", "band": band_von(aus), "ablage": ("-" if ein is not None and ein < aus else "+") if ab else "", "ablage_mhz": ab,
+                    "ctcss": float(tone.group(1).replace(",", ".")) if tone else None, "modul": "", "darc": True, "pruefen": ""})
+    return sorted(out, key=lambda e: (e["call"], e["freq_mhz"]))
+
+
+def aktualisieren_fm(progress=None):
+    """FM-Relaisliste neu lesen und speichern. Gibt (Anzahl, Meldung) zurueck."""
+    liste = fm_zusammenfuehren(fm_holen(progress))
+    DATA.mkdir(exist_ok=True)
+    FM_OUT.write_text(json.dumps({"quelle": "DARC-Relaisliste (FM, je Stadt die 100 naechsten Eintraege)", "abgerufen": time.strftime("%Y-%m-%d %H:%M"),
+                                  "hinweis": "Ausgabe/Eingabe/CTCSS aus der DARC-Liste; ein Betriebszustand ist dort nicht enthalten. In dicht besiedelten Gegenden "
+                                             "koennen Relais fehlen (je Abfrage nur 100 Eintraege).", "relais": liste}, ensure_ascii=False, indent=1), encoding="utf-8")
+    return len(liste), f"{len(liste)} FM-Relais, Stand {time.strftime('%d.%m.%Y %H:%M')}"
+
+
 if __name__ == "__main__":
-    print(aktualisieren(print)[1])
+    import sys
+    print((aktualisieren_fm if "fm" in sys.argv[1:] else aktualisieren)(print)[1])

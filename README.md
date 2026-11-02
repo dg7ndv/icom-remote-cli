@@ -83,6 +83,7 @@ am echten Gerät noch nicht. Mit `--bind 0.0.0.0` kann jeder im Netz Frequenz un
 
 - `dstar_liste.json` – Relaisliste (Name, Frequenz, Ablage, Rufzeichen RPT1/RPT2, `bestaetigt`) für den Befehl `dstar_liste`; bitte vor dem Programmieren selbst prüfen.
 - `dstar_liste_deutschland.md`, `daten/dstar_deutschland.json` – alle D-STAR-Relais in Deutschland nach RepeaterBook (Stand des Abrufs steht in der Datei); `daten/orte_geocode.json` – Koordinaten der Orte (OpenStreetMap-Suche, einmalig).
+- `daten/fm_deutschland.json` – FM-Relais (DARC-Listen, mit Eingabefrequenz und CTCSS); neu holen mit `python3 relais_daten.py fm` (ca. 10 Minuten).
 - `relais_daten.py` – holt die D-STAR-Relaisliste neu von der DARC-Relaisliste und von RepeaterBook (`python3 relais_daten.py`, ca. 1,5 Minuten) und schreibt `daten/dstar_deutschland.json`.
 - `ci-v_ic705.md` – CI-V-Funktionen des IC-705 im Vergleich zum IC-9700 (Unterschiede, was im CLI drin ist).
 - `ci-v_funktionen.md` – alle CI-V-Funktionen des IC-9700, gruppiert, mit Stand der Umsetzung.
