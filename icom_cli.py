@@ -36,6 +36,7 @@ Beispiele (statt 'icom_cli.py -r 705' geht auch 'icom_cli.py -r 9700'):
 """
 import argparse
 import configparser
+import csv
 import json
 import math
 import os
@@ -270,11 +271,11 @@ class connect:
     """Anmelden und pruefen, ob das Geraet antwortet; nach einem harten Abbruch haelt es die alte Sitzung noch einige
     Sekunden fest. Dann bis zu 4 Versuche mit Pause, danach eine verstaendliche Meldung statt eines Tracebacks."""
 
-    def __init__(self, host, user, password, tries=4, pause=5):
+    def __init__(self, host, user, password, tries=4, pause=5, civ_addr=None):
         for n in range(1, tries + 1):
             rig = None
             try:
-                rig = ic9700_lan.LanRig(host, user, password)
+                rig = ic9700_lan.LanRig(host, user, password, civ_addr=civ_addr)
                 rig.civ(0x19, 0x00)  # Geraete-ID lesen als Lebenszeichen
                 self.rig = rig
                 return
@@ -630,6 +631,212 @@ def relais_test(rig, a):
                           else "Es kam ein Signal von " + got["mycall"] + ", nicht dein eigenes - Relais ist aktiv, aber dein Aufruf ist nicht bestaetigt."))
 
 
+HOME_FILE = Path(__file__).with_name("relais_einstellungen.json")
+PMAX_9700 = {"2 m": 100.0, "70 cm": 75.0, "23 cm": 10.0}  # maximale Sendeleistung je Band (IC-9700)
+CSV_KOPF = ["Datum", "Zeit", "Geraet", "Relais", "Ort", "km", "Ausgabe_MHz", "Eingabe_MHz", "Ablage_MHz", "Stufe", "Sendezeit_s", "Leistung_W",
+            "Po_roh", "SWR_roh", "ALC_roh", "Antwort", "Squelch_offen", "Feldstaerke_roh", "Feldstaerke_dB_S9", "S_Stufe", "Rauschen_roh", "Antenne", "Bemerkung"]
+
+
+def dist_km(lat1, lon1, lat2, lon2):
+    p1, p2 = math.radians(lat1), math.radians(lat2)
+    h = math.sin((p2 - p1) / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(math.radians(lon2 - lon1) / 2) ** 2
+    return 6371.0 * 2 * math.asin(math.sqrt(h))
+
+
+def s_stufe(raw):
+    """S-Meter-Rohwert als S-Stufe (S9 = 120, darueber in dB)."""
+    if raw <= 120:
+        return f"S{min(9, round(raw / 120 * 9))}"
+    return f"S9+{pegel2.raw_to_db(raw):.0f}dB"
+
+
+def messen(rig, secs):
+    """Spitze des S-Meters und ob der Squelch aufging, ueber secs Sekunden."""
+    peak, sq_open, end = 0, False, time.time() + secs
+    while time.time() < end:
+        peak = max(peak, smeter(rig)[0])
+        sq = data(rig, 0x15, 0x01)
+        sq_open = sq_open or bool(sq and sq[0])
+        time.sleep(0.15)
+    return peak, sq_open
+
+
+def relaistest(rig, a):
+    """Testlauf an allen FM-Relais im Umkreis: Relais am IC-9700 einstellen, Kanal abhoeren, kurz mit Traeger tasten (nur mit --ja) und die Antwort des
+    Relais als Feldstaerke messen; Ergebnis als Tabellenzeile (CSV) anhaengen. Relais ohne Reaktion werden am Ende aufgelistet; dann wird gefragt, ob sie
+    mit dem Subton (CTCSS aus der Liste) nochmal versucht werden sollen. Mit --hoeren wird nichts gesendet (nur Feldstaerke des Relais messen)."""
+    home = json.loads(HOME_FILE.read_text())
+    rel = json.loads(Path(a.datei or Path(__file__).with_name("daten") / "fm_deutschland.json").read_text(encoding="utf-8"))["relais"]
+    plan = sorted(((dist_km(home["lat"], home["lon"], r["lat"], r["lon"]), r) for r in rel if r.get("lat") is not None), key=lambda t: t[0])
+    plan = [(d, r) for d, r in plan if d <= a.km and not (a.band and r["band"] != a.band)]
+    secs = max(0.3, min(2.0, a.sekunden))
+    watt = "max" if a.watt in (None, "max") else float(a.watt)
+    sende = not a.hoeren
+    print(f"QTH {home.get('qth', '')} ({home['lat']:.4f}, {home['lon']:.4f}), Umkreis {a.km:g} km: {len(plan)} FM-Relais")
+    for d, r in plan:
+        print(f"  {d:5.1f} km  {r['call']:8} {r['freq_mhz']:>9.4f} MHz  Eingabe {r['eingabe_mhz']}  Ton {r.get('ctcss') or '-':<5} {r['ort'][:28]}")
+    if sende:
+        print(f"Ablauf: je Relais nur ein kurzer Traeger von {secs:g} s, Leistung " + ("MAXIMUM" if watt == "max" else f"{watt:g} W")
+              + " (je Band begrenzt), danach 4 s Antwort messen. Relais ohne Reaktion werden am Ende genannt, dann wird wegen des Subtons gefragt.")
+    else:
+        print("Ablauf: nur Mithoeren (6 s je Relais), es wird NICHT gesendet.")
+    if not plan:
+        return
+    if not a.ja:
+        print("Nur Plan. Zum Ausfuehren denselben Befehl mit --ja wiederholen" + (" (dann wird GESENDET)." if sende else "."))
+        return
+    csvp = Path(a.csv or Path(__file__).with_name("messungen") / "relaistest.csv")
+    csvp.parent.mkdir(exist_ok=True)
+    neu = not csvp.exists()
+    rig.select("main")
+    time.sleep(0.1)
+    hz0, md, dm = get_freq(rig), data(rig, 0x04), data(rig, 0x1A, 0x06)
+    dup0 = (data(rig, 0x0F) or b"\x10")[0]
+    off0 = data(rig, 0x0C)
+    pw0 = level(rig, "power")
+    ergebnisse = []
+
+    def messzeile(w, d, r, stufe, ton=None):
+        """Ein Relais einmal messen (und je nach Modus tasten); schreibt die Tabellenzeile und gibt (Antwort, Zeile) zurueck."""
+        einstellen(rig, r, watt, ton)
+        raw0, _ = messen(rig, 1.0)
+        bel, vals, peak, sq = None, {}, 0, False
+        if sende:
+            peak0, sq0 = messen(rig, 3.0)
+            if peak0 > 20 or sq0:
+                bel = "Kanal belegt, nicht gesendet"
+            else:
+                vals = tasten(rig, secs)
+                peak, sq = messen(rig, 4.0)
+        else:
+            peak, sq = messen(rig, 6.0)
+        jetzt = time.localtime()
+        antwort = "" if bel else ("ja" if (sq or peak > raw0 + 5) else "nein")
+        wp = (PMAX_9700[r["band"]] if watt == "max" else min(watt, PMAX_9700[r["band"]])) if sende else ""
+        row = [time.strftime("%Y-%m-%d", jetzt), time.strftime("%H:%M:%S", jetzt), "IC-9700", r["call"], r["ort"], f"{d:.1f}", f"{r['freq_mhz']:.4f}",
+               r.get("eingabe_mhz") or "", r.get("ablage_mhz") or "", stufe if sende else "nur Hoeren", f"{secs:g}" if sende else "",
+               f"{wp:g}" if wp != "" else "", vals.get("Po", ""), vals.get("SWR", ""), vals.get("ALC", ""), antwort, "ja" if sq else "nein",
+               "" if bel else peak, "" if bel else f"{pegel2.raw_to_db(peak):.1f}", "" if bel else s_stufe(peak), raw0, a.antenne or "", bel or ""]
+        w.writerow(row)
+        ergebnisse.append(row)
+        print(f"  {r['call']:8} {r['freq_mhz']:>9.4f}  {stufe:<18}" + (bel or f"Antwort {antwort}, Feldstaerke {s_stufe(peak)} (roh {peak}, {pegel2.raw_to_db(peak):+.1f} dB zu S9), "
+                                                                          f"Rauschen roh {raw0}" + (f", Po roh {vals.get('Po')}, SWR roh {vals.get('SWR')}" if sende else "")), flush=True)
+        return antwort, row
+
+    try:
+        if sende:  # SWR-Vorpruefung mit kleiner Leistung, bevor mit hoher Leistung getastet wird
+            r0 = plan[0][1]
+            print(f"SWR-Vorpruefung an {r0['call']} mit wenig Leistung ...")
+            einstellen(rig, r0, 5.0)
+            vor = tasten(rig, 0.6)
+            ok = vor.get("SWR", 99) <= 80  # roh 80 = SWR 2,0
+            print(f"  Po roh {vor.get('Po')}, SWR roh {vor.get('SWR')} -> " + ("in Ordnung" if ok else "SWR ZU HOCH, Abbruch ohne Messung"))
+            if not ok:
+                return
+        keine = []
+        with csvp.open("a", encoding="utf-8-sig" if neu else "utf-8", newline="") as fh:
+            w = csv.writer(fh, delimiter=";")
+            if neu:
+                w.writerow(CSV_KOPF)
+            for d, r in plan:
+                antwort, _row = messzeile(w, d, r, "Traeger")
+                fh.flush()
+                if antwort == "nein":
+                    keine.append((d, r))
+                time.sleep(3 if sende else 0.5)
+        if sende and keine:
+            print("\nKeine Reaktion mit reinem Traeger:")
+            for d, r in keine:
+                print(f"  {r['call']:8} {r['freq_mhz']:>9.4f} MHz  {d:.1f} km  " + (f"Subton laut Liste {r['ctcss']:g} Hz" if r.get("ctcss") else "kein Subton in der Liste"))
+            mit_ton = [(d, r) for d, r in keine if r.get("ctcss")]
+            wahl = a.subton
+            if wahl == "fragen":
+                wahl = "ja" if mit_ton and sys.stdin.isatty() and input(f"\nDiese {len(mit_ton)} Relais mit Subton probieren? [j/N] ").strip().lower() in ("j", "ja", "y") else "nein"
+            if wahl == "ja" and mit_ton:
+                with csvp.open("a", encoding="utf-8", newline="") as fh:
+                    w = csv.writer(fh, delimiter=";")
+                    for d, r in mit_ton:
+                        messzeile(w, d, r, f"Traeger+Subton {r['ctcss']:g}", r["ctcss"])
+                        fh.flush()
+                        time.sleep(3)
+            else:
+                print("Subton-Durchgang nicht ausgefuehrt" + ("." if mit_ton else " (keine Relais mit Subton in der Liste)."))
+    finally:
+        try:
+            set_cmd(rig, (0x1C, 0x00), 0)
+        except Exception:
+            pass
+        wiederherstellen(rig, hz0, md, dm, dup0, off0, pw0)
+    print(f"{len(ergebnisse)} Zeilen in {csvp}")
+
+
+def einstellen(rig, r, watt, ton=None):
+    """Relais auf Main einstellen: Frequenz, FM, DATA aus, Duplex mit Ablage, Sendeton (ton in Hz, sonst aus), Leistung (W oder 'max')."""
+    rig.select("main")
+    time.sleep(0.1)
+    rig.set_freq(int(round(r["freq_mhz"] * 1e6)))
+    fil = (data(rig, 0x04) or b"\x00\x01")[1]
+    set_cmd(rig, (0x06,), 0x05, fil)
+    set_cmd(rig, (0x1A, 0x06), 0, fil)
+    ab = r.get("ablage_mhz") or 0
+    ic9700_ctl.set_control(rig, "duplex", "OFF" if not ab else ("DUP-" if r.get("ablage") != "+" else "DUP+"))
+    if ab:
+        u = f"{int(round(ab * 1e7)):06d}"
+        rig.civ(0x0D, int(u[4]) << 4 | int(u[5]), int(u[2]) << 4 | int(u[3]), int(u[0]) << 4 | int(u[1]))
+    if ton:  # Sendeton (CTCSS): Frequenz 1B 00 und Schalter 16 42
+        d4 = f"{int(round(ton * 10)):04d}"
+        rig.civ(0x1B, 0x00, 0x00, int(d4[0:2], 16), int(d4[2:4], 16))
+        rig.civ(0x16, 0x42, 1)
+    else:
+        rig.civ(0x16, 0x42, 0)  # kein Sendeton: nur Traeger
+    pmax = PMAX_9700[r["band"]]
+    raw = 255 if watt == "max" else max(0, min(255, round(float(watt) / pmax * 255)))
+    set_cmd(rig, LEVELS["power"], *bytes.fromhex(f"{raw:04d}"))
+    time.sleep(0.3)
+
+
+def tasten(rig, secs):
+    """Traeger secs Sekunden senden (PTT ueber CI-V, immer wieder aus); liefert die groessten Po-, SWR- und ALC-Rohwerte."""
+    vals = {}
+    try:
+        set_cmd(rig, (0x1C, 0x00), 1)
+        t0 = time.time()
+        while time.time() - t0 < secs:
+            time.sleep(0.2)
+            for name, sc in (("Po", 0x11), ("SWR", 0x12), ("ALC", 0x13)):
+                d = data(rig, 0x15, sc)
+                if d and len(d) >= 2:
+                    vals[name] = max(vals.get(name, 0), int(d.hex()))
+    finally:
+        for _ in range(3):
+            try:
+                set_cmd(rig, (0x1C, 0x00), 0)
+                if (data(rig, 0x1C, 0x00) or b"\x00")[0] == 0:
+                    break
+            except TimeoutError:
+                pass
+    return vals
+
+
+def wiederherstellen(rig, hz0, md, dm, dup0, off0, pw0):
+    try:
+        rig.select("main")
+        time.sleep(0.1)
+        rig.set_freq(hz0)
+        if md:
+            set_cmd(rig, (0x06,), md[0], md[1])
+        if dm:
+            set_cmd(rig, (0x1A, 0x06), dm[0], md[1] if md else 1)
+        set_cmd(rig, (0x0F,), dup0)
+        if off0 and len(off0) >= 3:
+            rig.civ(0x0D, *off0[:3])
+        if pw0 is not None:
+            set_cmd(rig, LEVELS["power"], *bytes.fromhex(f"{pw0:04d}"))
+        print(f"Zustand wiederhergestellt: {hz0 / 1e6:.4f} MHz, Leistung {pw0}")
+    except Exception as e:
+        print("Zustand konnte nicht ganz wiederhergestellt werden:", e)
+
+
 def only_9700(a):
     if a.radio != "9700":
         sys.exit("Dieser Befehl gibt es nur fuer den IC-9700")
@@ -773,6 +980,16 @@ def main():
     p.add_argument("--aktuell", action="store_true", help="write: Frequenz und Modus des Empfaengers uebernehmen")
     p.add_argument("--ja", action="store_true", help="write: wirklich schreiben (sonst nur Vorschau)")
     sub.add_parser("meters", help="Po SWR ALC COMP Vd Id")
+    p = sub.add_parser("relaistest", help="Testlauf an den FM-Relais im Umkreis: kurz mit Traeger tasten, Antwort als Feldstaerke in eine CSV-Tabelle (IC-9700)")
+    p.add_argument("--km", type=float, default=10.0, help="Umkreis in km um das QTH (relais_einstellungen.json), Vorgabe 10")
+    p.add_argument("--watt", default="max", help="Sendeleistung in W oder 'max' (Vorgabe: max; je Band begrenzt auf 100/75/10 W)")
+    p.add_argument("--sekunden", type=float, default=1.0, help="Traegerdauer je Relais (0,3 bis 2 s)")
+    p.add_argument("--band", choices=("2 m", "70 cm", "23 cm"))
+    p.add_argument("--antenne", help="Angabe zur Antenne fuer die Tabelle (optional)")
+    p.add_argument("--csv", help="Tabelle (Vorgabe messungen/relaistest.csv, es wird angehaengt)"); p.add_argument("--datei", help="andere Relaisliste")
+    p.add_argument("--hoeren", action="store_true", help="nichts senden, nur die Feldstaerke der Relais messen")
+    p.add_argument("--subton", choices=("fragen", "ja", "nein"), default="fragen", help="Relais ohne Reaktion mit Subton nochmal versuchen: fragen (Vorgabe), ja, nein")
+    p.add_argument("--ja", action="store_true", help="wirklich ausfuehren (sonst nur Plan); ohne --hoeren wird dann GESENDET")
     p = sub.add_parser("relais_test", help="Testsendung ueber ein D-STAR-Relais der Liste (IC-9700), prueft die digitale Rueckmeldung")
     p.add_argument("relais", nargs="?", default="DB0VOX"); p.add_argument("--call", default="DG7NDV", help="dein Rufzeichen (MY)")
     p.add_argument("--sekunden", type=float, default=1.5, help="Sendedauer (0,5 bis 3 s)"); p.add_argument("--datei")
@@ -902,6 +1119,9 @@ def main():
         elif a.cmd == "scope":
             only_9700(a)
             scope_cmd(rig, a)
+        elif a.cmd == "relaistest":
+            only_9700(a)
+            relaistest(rig, a)
         elif a.cmd == "relais_test":
             only_9700(a)
             relais_test(rig, a)

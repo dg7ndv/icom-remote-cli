@@ -1,3 +1,6 @@
 *.ini
 __pycache__/
 *.pyc
+relais_einstellungen.json
+messungen/
+*.log

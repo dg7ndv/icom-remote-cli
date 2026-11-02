@@ -446,7 +446,8 @@ def load_config():
 class LanRig(pegel2.Rig):
     """Wie pegel2.Rig (freq, smeter_raw, select, set_freq, ...), aber per Ethernet statt PTY."""
 
-    def __init__(self, host=None, user=None, password=None, audio=False, tx_audio=False):
+    def __init__(self, host=None, user=None, password=None, audio=False, tx_audio=False, civ_addr=None):
+        self.civ_addr = civ_addr or pegel2.CIV_RIG  # CI-V-Adresse des Geraets (IC-9700 0xA2, IC-705 0xA4); so gehen zwei Geraete in einem Programm
         h, u, p = load_config()
         host, user, password = host or h, user or u, password or p
         if not user or not password:
@@ -495,7 +496,7 @@ class LanRig(pegel2.Rig):
                     self.frames.put(f)
 
     def civ(self, *cmd):
-        frame = bytes([0xFE, 0xFE, pegel2.CIV_RIG, pegel2.CIV_CTRL, *cmd, 0xFD])
+        frame = bytes([0xFE, 0xFE, self.civ_addr, pegel2.CIV_CTRL, *cmd, 0xFD])
         while not self.frames.empty():  # alte Frames verwerfen
             try:
                 self.frames.get_nowait()
@@ -508,7 +509,7 @@ class LanRig(pegel2.Rig):
                 f = self.frames.get(timeout=0.2)
             except queue.Empty:
                 continue
-            if f[2] == pegel2.CIV_CTRL and f[3] == pegel2.CIV_RIG and f[4] in (cmd[0], 0xFB, 0xFA):
+            if f[2] == pegel2.CIV_CTRL and f[3] == self.civ_addr and f[4] in (cmd[0], 0xFB, 0xFA):
                 return f
         raise TimeoutError(f"keine CI-V-Antwort auf {frame.hex(' ')}")
 
