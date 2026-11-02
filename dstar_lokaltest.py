@@ -131,9 +131,19 @@ def main():
     ap.add_argument("--watt", type=float, help="Sendeleistung in W (Vorgabe: Minimum beider Geraete)")
     ap.add_argument("--antenne", help="Angabe zur Antenne fuer die Tabelle (optional)")
     ap.add_argument("--csv", help="Tabelle (Vorgabe messungen/dstar_lokal.csv)")
+    ap.add_argument("--pruefen", action="store_true", help="nur beide Geraete verbinden und ihren Zustand zeigen (aendert nichts, sendet nicht)")
     ap.add_argument("--ja", action="store_true", help="wirklich ausfuehren (SENDET); ohne nur Plan")
     a = ap.parse_args()
     a.sekunden = max(0.5, min(4.0, a.sekunden))
+    if a.pruefen:  # Vorpruefung: nur lesen
+        for n in ("9700", "705"):
+            try:
+                with verbinden(n) as rig:
+                    md = C.data(rig, 0x04)
+                    print(f"IC-{n}: verbunden, {C.get_freq(rig) / 1e6:.4f} MHz, Modus {C.MODES.get(md[0], '?') if md else '?'}, Leistung {C.level(rig, 'power')}, Vd {C.vd_volts(rig, n):.1f} V")
+            except SystemExit as e:
+                print(f"IC-{n}: NICHT erreichbar ({e})")
+        return
     if not (144.0 <= a.freq <= 146.0 or 430.0 <= a.freq <= 440.0):
         sys.exit("Frequenz ausserhalb von 144-146 und 430-440 MHz: bitte eine Amateurfunk-Frequenz fuer Simplex waehlen")
     paare = [("9700", "705"), ("705", "9700")] if a.richtung == "beide" else [tuple(a.richtung.split("-"))]
